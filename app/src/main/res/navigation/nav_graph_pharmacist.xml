@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_pharmacist"
+    app:startDestination="@id/pharmacistHomeFragment">
+
+    <fragment
+        android:id="@+id/pharmacistHomeFragment"
+        android:name="com.example.smartpharm.pharmacist.home.PharmacistHomeFragment"
+        android:label="pharmacist_home_fragment"
+        tools:layout="@layout/pharmacist_home_fragment" >
+        <action
+            android:id="@+id/action_pharmacistHomeFragment_to_medicationListFragment"
+            app:destination="@id/medicationListFragment" />
+        <action
+            android:id="@+id/action_pharmacistHomeFragment_to_oderDetailFragment"
+            app:destination="@id/oderDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/medicationListFragment"
+        android:name="com.example.smartpharm.pharmacist.medication.MedicationListFragment"
+        android:label="medication_list_fragment"
+        tools:layout="@layout/medication_list_fragment" />
+    <fragment
+        android:id="@+id/oderDetailFragment"
+        android:name="com.example.smartpharm.pharmacist.order_detail.OderDetailFragment"
+        android:label="oder_detail_fragment"
+        tools:layout="@layout/oder_detail_fragment" />
+</navigation>

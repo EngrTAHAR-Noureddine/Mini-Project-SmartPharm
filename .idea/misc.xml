@@ -5,7 +5,9 @@
       <map>
         <entry key="app/src/main/res/layout/activity_client.xml" value="0.19202898550724637" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19882246376811594" />
+        <entry key="app/src/main/res/layout/activity_pharmacist.xml" value="0.302536231884058" />
         <entry key="app/src/main/res/layout/client_home_fragment.xml" value="0.302536231884058" />
+        <entry key="app/src/main/res/layout/oder_detail_fragment.xml" value="0.302536231884058" />
       </map>
     </option>
   </component>
