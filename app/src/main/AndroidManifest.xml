@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartPharm">
         <activity
+            android:name=".pharmacist.PharmacistActivity"
+            android:exported="true" />
+        <activity
+            android:name=".client.clientActivity"
+            android:exported="true" />
+        <activity
+            android:name=".login.LoginActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
