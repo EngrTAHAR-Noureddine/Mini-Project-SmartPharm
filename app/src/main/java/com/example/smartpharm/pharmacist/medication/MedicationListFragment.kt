@@ -10,6 +10,7 @@ import com.example.smartpharm.R
 
 class MedicationListFragment : Fragment() {
 
+    //afficher list des medicaments et botton pour add medicament (just UI)
     companion object {
         fun newInstance() = MedicationListFragment()
     }

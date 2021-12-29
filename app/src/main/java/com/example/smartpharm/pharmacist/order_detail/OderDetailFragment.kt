@@ -10,6 +10,8 @@ import com.example.smartpharm.R
 
 class OderDetailFragment : Fragment() {
 
+    // detail sur Oder : afficher photo , nome client ,address cleint ..., ( les info de client )
+
     companion object {
         fun newInstance() = OderDetailFragment()
     }

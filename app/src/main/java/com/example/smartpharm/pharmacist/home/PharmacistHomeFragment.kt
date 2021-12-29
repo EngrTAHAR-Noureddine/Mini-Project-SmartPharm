@@ -10,6 +10,8 @@ import com.example.smartpharm.R
 
 class PharmacistHomeFragment : Fragment() {
 
+    // afficher list des commandes
+
     companion object {
         fun newInstance() = PharmacistHomeFragment()
     }

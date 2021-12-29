@@ -10,6 +10,8 @@ import com.example.smartpharm.R
 
 class ListOrdersFragment : Fragment() {
 
+    //list order pour client
+
     companion object {
         fun newInstance() = ListOrdersFragment()
     }

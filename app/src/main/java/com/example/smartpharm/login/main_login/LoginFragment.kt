@@ -10,6 +10,8 @@ import com.example.smartpharm.R
 
 class LoginFragment : Fragment() {
 
+    // Login screen
+
     companion object {
         fun newInstance() = LoginFragment()
     }

@@ -10,6 +10,8 @@ import com.example.smartpharm.R
 
 class ClientHomeFragment : Fragment() {
 
+    // afficher list des pharmacists et fo9a dir PopupMenu ( ou input field ) et botton pour filtrer par ville
+
     companion object {
         fun newInstance() = ClientHomeFragment()
     }

@@ -10,6 +10,8 @@ import com.example.smartpharm.R
 
 class DemandeOrderFragment : Fragment() {
 
+    //interface pour capture photo et botton in bottom pour effectuer commande
+
     companion object {
         fun newInstance() = DemandeOrderFragment()
     }
