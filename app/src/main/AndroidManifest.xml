@@ -13,7 +13,7 @@
             android:name=".pharmacist.PharmacistActivity"
             android:exported="true" />
         <activity
-            android:name=".client.clientActivity"
+            android:name=".client.ClientActivity"
             android:exported="true" />
         <activity
             android:name=".login.LoginActivity"
