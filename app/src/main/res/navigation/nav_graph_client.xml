@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_client"
+    app:startDestination="@id/clientHomeFragment">
+
+    <fragment
+        android:id="@+id/clientHomeFragment"
+        android:name="com.example.smartpharm.client.home.ClientHomeFragment"
+        android:label="client_home_fragment"
+        tools:layout="@layout/client_home_fragment" >
+        <action
+            android:id="@+id/action_clientHomeFragment_to_listOrdersFragment"
+            app:destination="@id/listOrdersFragment" />
+        <action
+            android:id="@+id/action_clientHomeFragment_to_pharmacistDetailFragment"
+            app:destination="@id/pharmacistDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/demandeOrderFragment"
+        android:name="com.example.smartpharm.client.demande_order.DemandeOrderFragment"
+        android:label="demande_order_fragment"
+        tools:layout="@layout/demande_order_fragment" />
+    <fragment
+        android:id="@+id/listOrdersFragment"
+        android:name="com.example.smartpharm.client.orders.ListOrdersFragment"
+        android:label="list_orders_fragment"
+        tools:layout="@layout/list_orders_fragment" />
+    <fragment
+        android:id="@+id/pharmacistDetailFragment"
+        android:name="com.example.smartpharm.client.pharmacist_detail.PharmacistDetailFragment"
+        android:label="pharmacist_detail_fragment"
+        tools:layout="@layout/pharmacist_detail_fragment" >
+        <action
+            android:id="@+id/action_pharmacistDetailFragment_to_medicationsListFragment"
+            app:destination="@id/medicationsListFragment" />
+        <action
+            android:id="@+id/action_pharmacistDetailFragment_to_demandeOrderFragment"
+            app:destination="@id/demandeOrderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/medicationsListFragment"
+        android:name="com.example.smartpharm.client.pharmacist_detail.medications.MedicationsListFragment"
+        android:label="medications_list_fragment"
+        tools:layout="@layout/medications_list_fragment" />
+</navigation>
