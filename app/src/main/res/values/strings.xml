@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">SmartPharm</string>
     <string name="champs_bienvenue">Bienvenue</string>
-    <string name="champs_identifier">Identifiez-vous pour continuer</string>
-    <string name="champs_btn_phone">Connecter avec le téléphone</string>
+    <string name="champs_adremail">Adresse e-mail</string>
+    <string name="champs_identifier">Identifier pour continuer</string>
     <string name="champs_btn_facebook">Connecter avec Facebook</string>
+    <string name="champs_btn_logIn">Connexion </string>
+    <string name="champs_forgetID">Cordonnées oubliées? </string>
 
 </resources>

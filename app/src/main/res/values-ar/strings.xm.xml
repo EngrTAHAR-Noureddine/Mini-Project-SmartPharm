@@ -2,7 +2,9 @@
 <resources>
     <string name="app_name">SmartPharm</string>
     <string name="champs_bienvenue">EN ArabeBienvenue</string>
-    <string name="champs_identifier">EN ArabeIdentifiez-vous pour continuer</string>
-    <string name="champs_btn_phone">EN ArabeConnecter avec le téléphone</string>
+    <string name="champs_adremail">Adresse e-mail</string>
+    <string name="champs_identifier">Identifier pour continuer</string>
+    <string name="champs_btn_logIn">Connexion AR</string>
     <string name="champs_btn_facebook">EN ArabeConnecter avec Facebook</string>
+    <string name="champs_forgetID">AR Cordonnées oubliées? </string>
 </resources>
