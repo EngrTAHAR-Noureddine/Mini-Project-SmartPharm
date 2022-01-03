@@ -6,5 +6,9 @@
     <string name="champs_identifier">Identifier pour continuer</string>
     <string name="champs_btn_logIn">Connexion AR</string>
     <string name="champs_btn_facebook">EN ArabeConnecter avec Facebook</string>
-    <string name="champs_forgetID">AR Cordonnées oubliées? </string>
+    <string name="champs_forgetID">AR oubliés? </string>
+    <string name="champs_editprof">Modifier le profil       >  </string>
+    <string name="champs_comandes">Mes commandes       >  </string>
+    <string name="champs_mespharms">Mes Pharmacies       >  </string>
+    <string name="champs_parametres">Paramètres       >  </string>
 </resources>

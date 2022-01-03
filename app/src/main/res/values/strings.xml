@@ -5,6 +5,12 @@
     <string name="champs_identifier">Identifier pour continuer</string>
     <string name="champs_btn_facebook">Connecter avec Facebook</string>
     <string name="champs_btn_logIn">Connexion </string>
-    <string name="champs_forgetID">Cordonnées oubliées? </string>
+    <string name="champs_forgetID">oubliées? </string>
+    <string name="champs_editprof">Modifier le profil       >  </string>
+    <string name="champs_comandes">Mes commandes       >  </string>
+    <string name="champs_mespharms">Mes Pharmacies       >  </string>
+    <string name="champs_parametres">Paramètres       >  </string>
+
+
 
 </resources>

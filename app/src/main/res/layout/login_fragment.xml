@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTintMode="multiply"
     android:textAlignment="center"
     tools:context=".login.main_login.LoginFragment">
 
@@ -43,16 +44,26 @@
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
+            android:layout_height="0dp"
             android:fontFamily="@font/montserrat"
             android:text="@string/champs_forgetID"
-            android:textColor="#303F56"
+            android:textColor="@android:color/holo_blue_bright"
             android:textSize="16sp"
             android:textStyle="normal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+            tools:layout_editor_absoluteX="325dp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Ou"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            tools:layout_editor_absoluteX="194dp"
+            tools:layout_editor_absoluteY="533dp" />
 
         <Button
             android:id="@+id/button2"
@@ -64,35 +75,36 @@
             android:text="fb"
             app:cornerRadius="26dp"
             app:layout_constraintEnd_toStartOf="@+id/button3"
+            app:layout_constraintHorizontal_bias="0.648"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="557dp" />
+            tools:layout_editor_absoluteY="568dp" />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="64dp"
             android:layout_height="39dp"
+            android:layout_marginEnd="152dp"
             android:width="300sp"
             android:backgroundTint="#4267B2"
             android:fontFamily="@font/montserrat"
             android:text="fb"
             app:cornerRadius="26dp"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:layout_editor_absoluteY="557dp" />
+            tools:layout_editor_absoluteY="568dp" />
 
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:width="240sp"
+            android:width="400sp"
             android:backgroundTint="#289BE8"
             android:fontFamily="@font/montserrat"
             android:text="@string/champs_btn_logIn"
-            app:cornerRadius="26dp"
+            app:cornerRadius="400dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintHorizontal_bias="0.545"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+            tools:layout_editor_absoluteY="475dp" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -109,35 +121,45 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:width="240dp"
+            android:width="400dp"
+            android:backgroundTintMode="multiply"
             android:ems="10"
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
             android:text="@string/champs_adremail"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/textView2"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <EditText
             android:id="@+id/editTextTextPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:width="240dp"
+            android:layout_marginTop="4dp"
+            android:width="400dp"
             android:ems="10"
             android:inputType="textPassword"
             android:text="Password"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextEmailAddress"
-            app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.545"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
 
         <View
             android:id="@+id/divider"
-            android:layout_width="200dp"
+            android:layout_width="100dp"
             android:layout_height="1dp"
             android:background="?android:attr/listDivider"
-            tools:layout_editor_absoluteX="105dp"
-            tools:layout_editor_absoluteY="540dp" />
+            tools:layout_editor_absoluteX="85dp"
+            tools:layout_editor_absoluteY="547dp" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="100dp"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            tools:layout_editor_absoluteX="225dp"
+            tools:layout_editor_absoluteY="546dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
