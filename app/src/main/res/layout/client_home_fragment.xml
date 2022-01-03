@@ -7,8 +7,9 @@
     tools:context=".client.home.ClientHomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="409dp"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="1dp">
 
         <ImageView
             android:id="@+id/imageView2"
