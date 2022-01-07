@@ -13,6 +13,9 @@ data class User(
     @ColumnInfo(name = "typeUser")
     var typeUser: String = "",
 
+    @ColumnInfo(name = "passwordUser")
+    var passwordUser: String = "",
+
     @ColumnInfo(name = "name")
     var name: String = "",
 
