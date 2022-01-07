@@ -1,10 +1,162 @@
 package com.example.smartpharm.login.main_login
 
+import android.content.Context
+import android.content.SharedPreferences
+import android.widget.Toast
+import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.smartpharm.database.users.UsersDao
+import com.example.smartpharm.databinding.LoginFragmentBinding
+import com.example.smartpharm.model.User
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-class LoginViewModel(private val userDatabase: UsersDao) : ViewModel() {
+class LoginViewModel(private val userDatabase: UsersDao,private val binding: LoginFragmentBinding, private val context : FragmentActivity) : ViewModel() {
 
 
-    // TODO: Implement the ViewModel
+    private var _email = MutableLiveData<String>()
+    private var _password  = MutableLiveData<String>()
+    var users = userDatabase.getAllUsers()
+    private var pref : SharedPreferences? = null
+
+    val email: LiveData<String>
+        get() = _email
+    val password: LiveData<String>
+        get() = _password
+
+
+    init {
+        _email.value = ""
+        _password.value = ""
+        this.pref = context?.getSharedPreferences("firstTime", Context.MODE_PRIVATE)
+        if(getData() != null && getData()!! ){
+            initTableUsers()
+            saveData(false)
+        }
+        initializeUsers()
+
+    }
+
+    private fun saveData(firstTime:Boolean){
+        val editor : SharedPreferences.Editor? = this.pref?.edit()
+        editor?.apply{
+            putBoolean("firstTime",firstTime)
+        }?.apply()
+    }
+    private fun getData(): Boolean? {
+        return this.pref?.getBoolean("firstTime",true)
+    }
+
+    private fun initTableUsers(){
+        viewModelScope.launch{
+            val user1 = User()
+            user1.name = "user 01"
+            user1.emailUser = "client@client.com"
+            user1.facebookAccount = "shazilparacha341"
+            user1.instagramAccount = "shazilparacha341"
+            user1.locationUser = "location"
+            user1.photoUser = "https://m.media-amazon.com/images/M/MV5BMTQ3MTQ5NjY5Ml5BMl5BanBnXkFtZTgwMTY0NzU5MDE@._V1_.jpg"
+            user1.phoneNumber = "+2133456789"
+            user1.typeUser = "Client"
+            user1.passwordUser = "root"
+            insert(user1)
+        }
+
+        viewModelScope.launch {
+            val user2 = User()
+            user2.name = "user 02"
+            user2.emailUser = "pharmacist@pharmacist.com"
+            user2.facebookAccount = "shazilparacha341"
+            user2.instagramAccount = "shazilparacha341"
+            user2.locationUser = "location"
+            user2.photoUser = "https://cdn.wealthygorilla.com/wp-content/uploads/2020/08/The-Best-Harvey-Specter-Quotes-1000x600.jpg"
+            user2.phoneNumber = "+2133456789"
+            user2.typeUser = "Pharmacist"
+            user2.passwordUser = "root"
+            insert(user2)
+        }
+    }
+
+    private fun initializeUsers() {
+        viewModelScope.launch {
+            users = userDatabase.getAllUsers()
+        }
+    }
+
+    private suspend fun insert(operationSyntax: User) {
+        withContext(Dispatchers.IO) {
+            userDatabase.insertUser(operationSyntax)
+        }
+    }
+
+
+    fun onCLickLogIn(){
+
+        _email.value = if(binding.inputEmail.text != null) binding.inputEmail.text.toString() else "none"
+        _password.value = if(binding.inputPassword.text != null) binding.inputPassword.text.toString() else "none"
+
+        if(binding.inputEmail.text != null && binding.inputPassword.text != null && _email.value!!.isNotEmpty() && _password.value!!.isNotEmpty()){
+            var user : User? = null
+
+
+            if(users != null && users.value != null && users.value!!.isNotEmpty()){
+                for (item in users.value!!) {
+                    if(item.emailUser == _email.value && item.passwordUser == _password.value){
+                        user = item
+                    }
+                }
+                if(user != null){
+
+                    val text = "User find : ${user.typeUser} - ${users.value?.size}"
+                    val duration = Toast.LENGTH_SHORT
+
+                    val toast = Toast.makeText(context, text, duration)
+                    toast.show()
+
+
+                }else{
+                    val text = "User couldn't find : ${_email.value} && ${_password.value}"
+                    val duration = Toast.LENGTH_SHORT
+
+                    val toast = Toast.makeText(context, text, duration)
+                    toast.show()
+                }
+
+            }else{
+                val text = "User couldn't find : users ${users.value?.size}"
+                val duration = Toast.LENGTH_SHORT
+                val toast = Toast.makeText(context, text, duration)
+                toast.show()
+            }
+
+
+        }else{
+            val text = "User couldn't find : _email and _password null"
+            val duration = Toast.LENGTH_SHORT
+            val toast = Toast.makeText(context, text, duration)
+            toast.show()
+        }
+
+    }
+
+
+/*
+    private suspend fun clearUsersTable() { // suspend seems like await in dart not same
+        withContext(Dispatchers.IO) {
+            userDatabase.clear()
+        }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        viewModelScope.launch {
+            clearUsersTable()
+        }
+    }
+*/
+
 }
