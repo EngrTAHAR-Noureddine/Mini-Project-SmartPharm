@@ -6,29 +6,32 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import com.example.smartpharm.R
+import com.example.smartpharm.database.users.UsersDataBase
+import com.example.smartpharm.databinding.LoginFragmentBinding
 
 class LoginFragment : Fragment() {
 
-    // Login screen
+    private lateinit var binding: LoginFragmentBinding
 
-    companion object {
-        fun newInstance() = LoginFragment()
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+         binding = DataBindingUtil.inflate(inflater,R.layout.login_fragment,container,false)
+
+        val application = requireNotNull(this.activity).application
+        val dataSource = UsersDataBase.getInstance(application)?.UsersDao()!!
+        val viewModelFactory = LogInViewModelFactory(dataSource)
+        val logInViewModel = ViewModelProvider(this, viewModelFactory)[LoginViewModel::class.java]
+        binding.loginViewModel = logInViewModel
+        binding.lifecycleOwner = this
+
+
+        return binding.root
+
+
     }
 
-    private lateinit var viewModel: LoginViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.login_fragment, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 }
