@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2125" />
         <entry key="app/src/main/res/drawable/logo_app.xml" value="0.3646153846153846" />
         <entry key="app/src/main/res/drawable/logo_splash_screen.xml" value="0.2125" />
         <entry key="app/src/main/res/drawable/primarylogo.xml" value="0.3646153846153846" />
@@ -17,6 +18,8 @@
         <entry key="app/src/main/res/layout/medications_list_fragment.xml" value="0.302536231884058" />
         <entry key="app/src/main/res/layout/oder_detail_fragment.xml" value="0.302536231884058" />
         <entry key="app/src/main/res/layout/pharmacist_home_fragment.xml" value="0.2857789855072464" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3703125" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3703125" />
       </map>
     </option>
   </component>
