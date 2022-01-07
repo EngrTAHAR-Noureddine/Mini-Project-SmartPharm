@@ -68,6 +68,7 @@
             android:layout_marginEnd="36dp"
             android:ems="10"
             android:hint="@string/champs_adremail_Hint"
+            android:text="@{loginViewModel.email}"
             android:importantForAutofill="no"
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
@@ -98,6 +99,7 @@
             android:layout_marginEnd="36dp"
             android:ems="10"
             android:hint="@string/champs_password_Hint"
+            android:text="@{loginViewModel.password}"
             android:importantForAutofill="no"
             android:inputType="textPassword"
             app:layout_constraintBottom_toTopOf="@+id/buttonLogIn"
@@ -113,6 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="@string/champs_btn_logIn"
+            android:onClick="@{()->loginViewModel.onCLickLogIn()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
