@@ -19,8 +19,11 @@
     <string name="champs_comandes">Mes commandes  </string>
     <string name="champs_mespharms">Mes Pharmacies   </string>
     <string name="champs_parametres">Paramètres   </string>
-
-
+    <string name="Rechercher_placeholder">Rechercher...</string>
+    <string name="todo">TODO</string>
+    <string name="popmenu_unselected">Ville</string>
+    <string name="button_Filter">Filter</string>
+    <string name="resultat">Resultat: 10</string>
 
 
 </resources>
