@@ -19,6 +19,7 @@ class ClientActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_client)
+
         replaceFragment(clientHomeFragment)
 
         bottom_navigation.setOnItemSelectedListener {
