@@ -1,6 +1,7 @@
 package com.example.smartpharm.login.main_login
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
@@ -8,9 +9,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.smartpharm.client.ClientActivity
 import com.example.smartpharm.database.users.UsersDao
 import com.example.smartpharm.databinding.LoginFragmentBinding
 import com.example.smartpharm.model.User
+import com.example.smartpharm.pharmacist.PharmacistActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -111,12 +114,22 @@ class LoginViewModel(private val userDatabase: UsersDao,private val binding: Log
                 }
                 if(user != null){
 
-                    val text = "User find : ${user.typeUser} - ${users.value?.size}"
-                    val duration = Toast.LENGTH_SHORT
+                    val pref = context.getSharedPreferences("TypeUserFile", Context.MODE_PRIVATE)
+                    val editor : SharedPreferences.Editor = pref.edit()
+                    editor.apply{
+                        putString("typeUser",user.typeUser)
+                    }.apply()
 
-                    val toast = Toast.makeText(context, text, duration)
-                    toast.show()
-
+                    if(user.typeUser == "Pharmacist"){
+                        val intent = Intent(context, PharmacistActivity::class.java)
+                        context.startActivity(intent)
+                        context.finish()
+                    }
+                    else{ //Client
+                        val intent = Intent(context, ClientActivity::class.java)
+                        context.startActivity(intent)
+                        context.finish()
+                    }
 
                 }else{
                     val text = "User couldn't find : ${_email.value} && ${_password.value}"
