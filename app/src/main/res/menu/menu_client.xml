@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            android:id="@+id/ic_home"
+            android:icon="@drawable/ic_home_unselected"
+            android:title="Acceuil"
+        />
+    <item
+        android:id="@+id/ic_list_orders"
+        android:icon="@drawable/ic_list_unselected"
+        android:title="Commandes"
+        />
+    <item
+        android:id="@+id/ic_setting"
+        android:icon="@drawable/ic_settings_unseleted"
+        android:title="Paramètre"
+        />
+</menu>
