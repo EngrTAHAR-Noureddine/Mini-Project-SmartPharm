@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="clientHomeViewModel"
+            type="com.example.smartpharm.client.home.ClientHomeViewModel" />
+    </data>
+
+<FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".client.home.ClientHomeFragment">
@@ -10,15 +18,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/whiteFA">
-        <!--
-            dir juste structure comme ana dert fi login sans style juste structure , when structured styliha be les coleurs et font family ...etc
-
-            dir item of recycle view ok madirch recycle view ( partie code ) dir ghir UI
-
-
-            in this fragment , style it like  Client-Home in figma
-            madirch bottom Navigation Bar ok ana derteha
-             -->
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
@@ -146,7 +145,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
-
+</layout>
 <!-- The stuff of This Fragment -->
 <!--
 <ImageView
