@@ -5,9 +5,12 @@
     android:layout_height="match_parent"
     tools:context=".client.orders.ListOrdersFragment">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        android:background="#7700FF">
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
