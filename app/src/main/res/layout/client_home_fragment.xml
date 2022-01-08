@@ -10,7 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#00FFC4">
+            <!--
+            dir juste structure comme ana dert fi login sans style juste structure , when structured styliha be les coleurs et font family ...etc
 
+            dir item of recycle view ok madirch recycle view ( partie code ) dir ghir UI
+
+
+            in this fragment , style it like  Client-Home in figma
+            madirch bottom Navigation Bar ok ana derteha
+             -->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

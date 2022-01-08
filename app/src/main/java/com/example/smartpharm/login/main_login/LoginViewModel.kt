@@ -17,6 +17,10 @@ import com.example.smartpharm.pharmacist.PharmacistActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import com.google.gson.Gson
+
+
+
 
 class LoginViewModel(private val userDatabase: UsersDao,private val binding: LoginFragmentBinding, private val context : FragmentActivity) : ViewModel() {
 
@@ -119,6 +123,20 @@ class LoginViewModel(private val userDatabase: UsersDao,private val binding: Log
                     editor.apply{
                         putString("typeUser",user.typeUser)
                     }.apply()
+
+                    val gson = Gson()
+                    val prefUser = context.getSharedPreferences("UserProfile", Context.MODE_PRIVATE)
+                    val editorUser : SharedPreferences.Editor = prefUser.edit()
+                    val json = gson.toJson(user)
+                    editorUser.apply{
+                        putString("userProfile",json)
+                    }.apply()
+                    /*
+                    to retrieve :
+                                Gson gson = new Gson();
+                                String json = mPrefs.getString("MyObject", "");
+                                MyObject obj = gson.fromJson(json, MyObject.class);
+                    * */
 
                     if(user.typeUser == "Pharmacist"){
                         val intent = Intent(context, PharmacistActivity::class.java)

@@ -10,6 +10,12 @@
         android:layout_height="match_parent"
         android:background="#FF5900">
 
+        <!--
+        dir juste structure comme ana dert fi login sans style juste structure , when structured styliha be les coleurs et font family ...etc
+          style it like Settings of client in figma
+          madirch bottom Navigation Bar ok ana derteha
+        -->
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
