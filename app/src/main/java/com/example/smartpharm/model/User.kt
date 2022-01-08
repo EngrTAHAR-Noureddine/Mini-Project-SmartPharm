@@ -1,5 +1,6 @@
 package com.example.smartpharm.model
 
+import android.graphics.Bitmap
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -35,6 +36,6 @@ data class User(
     var instagramAccount: String = "",
 
     @ColumnInfo(name = "photoUser")
-    var photoUser: String = "",
+    var photoUser: Bitmap =Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888) ,
 
-        )
+    )
