@@ -3,12 +3,15 @@ package com.example.smartpharm.login.main_login
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import coil.request.SuccessResult
 import com.example.smartpharm.client.ClientActivity
 import com.example.smartpharm.database.users.UsersDao
 import com.example.smartpharm.databinding.LoginFragmentBinding
@@ -22,7 +25,8 @@ import com.google.gson.Gson
 
 
 
-class LoginViewModel(private val userDatabase: UsersDao,private val binding: LoginFragmentBinding, private val context : FragmentActivity) : ViewModel() {
+class LoginViewModel(private val userDatabase: UsersDao,private val binding: LoginFragmentBinding,
+                     private val context : FragmentActivity) : ViewModel() {
 
 
     private var _email = MutableLiveData<String>()
@@ -65,8 +69,8 @@ class LoginViewModel(private val userDatabase: UsersDao,private val binding: Log
             user1.emailUser = "client@client.com"
             user1.facebookAccount = "shazilparacha341"
             user1.instagramAccount = "shazilparacha341"
+            user1.photoUser = getBitmap(context)
             user1.locationUser = "location"
-            user1.photoUser = "https://m.media-amazon.com/images/M/MV5BMTQ3MTQ5NjY5Ml5BMl5BanBnXkFtZTgwMTY0NzU5MDE@._V1_.jpg"
             user1.phoneNumber = "+2133456789"
             user1.typeUser = "Client"
             user1.passwordUser = "root"
@@ -80,7 +84,7 @@ class LoginViewModel(private val userDatabase: UsersDao,private val binding: Log
             user2.facebookAccount = "shazilparacha341"
             user2.instagramAccount = "shazilparacha341"
             user2.locationUser = "location"
-            user2.photoUser = "https://cdn.wealthygorilla.com/wp-content/uploads/2020/08/The-Best-Harvey-Specter-Quotes-1000x600.jpg"
+            user2.photoUser = getBitmap(context)
             user2.phoneNumber = "+2133456789"
             user2.typeUser = "Pharmacist"
             user2.passwordUser = "root"
@@ -175,19 +179,14 @@ class LoginViewModel(private val userDatabase: UsersDao,private val binding: Log
     }
 
 
-/*
-    private suspend fun clearUsersTable() { // suspend seems like await in dart not same
-        withContext(Dispatchers.IO) {
-            userDatabase.clear()
-        }
-    }
+    private suspend fun getBitmap(context: Context): Bitmap {
+        val loading = coil.ImageLoader(context)
+        val request = coil.request.ImageRequest.Builder(context)
+            .data("https://avatars3.githubusercontent.com/u/14994036?s=400&u=2832879700f03d4b37ae1c09645352a352b9d2d0&v=4")
+            .build()
 
-    override fun onCleared() {
-        super.onCleared()
-        viewModelScope.launch {
-            clearUsersTable()
-        }
+        val result = (loading.execute(request) as SuccessResult).drawable
+        return (result as BitmapDrawable).bitmap
     }
-*/
 
 }

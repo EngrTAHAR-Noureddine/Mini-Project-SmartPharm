@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.smartpharm.R
-import com.example.smartpharm.database.users.UsersDataBase
+import com.example.smartpharm.database.smartDataBase
 import com.example.smartpharm.databinding.LoginFragmentBinding
 
 class LoginFragment : Fragment() {
@@ -21,7 +21,7 @@ class LoginFragment : Fragment() {
          binding = DataBindingUtil.inflate(inflater,R.layout.login_fragment,container,false)
 
         val application = requireNotNull(this.activity).application
-        val dataSource = UsersDataBase.getInstance(application)?.UsersDao()!!
+        val dataSource = smartDataBase.getInstance(application)?.UsersDao()!!
         val viewModelFactory = LogInViewModelFactory(dataSource, binding ,this.requireActivity())
         val logInViewModel = ViewModelProvider(this, viewModelFactory)[LoginViewModel::class.java]
         binding.loginViewModel = logInViewModel
