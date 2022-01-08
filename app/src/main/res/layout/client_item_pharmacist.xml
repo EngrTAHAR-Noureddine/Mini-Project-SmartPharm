@@ -5,7 +5,8 @@
     android:id="@+id/itemPharmacistClientHome"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp">
+    android:layout_marginBottom="8dp"
+    android:background="@color/gray3036">
 
     <ImageView
         android:id="@+id/pharmacyIcon"
@@ -34,7 +35,8 @@
         app:layout_constraintBottom_toTopOf="@+id/Pharmacy_Location"
         app:layout_constraintEnd_toStartOf="@+id/ArrowForward"
         app:layout_constraintStart_toEndOf="@+id/pharmacyIcon"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/Pharmacy_Location"
@@ -47,7 +49,8 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/ArrowForward"
         app:layout_constraintStart_toEndOf="@+id/pharmacyIcon"
-        app:layout_constraintTop_toBottomOf="@+id/Pharmacy_Name" />
+        app:layout_constraintTop_toBottomOf="@+id/Pharmacy_Name"
+        tools:ignore="TextContrastCheck" />
 
     <ImageView
         android:id="@+id/ArrowForward"
