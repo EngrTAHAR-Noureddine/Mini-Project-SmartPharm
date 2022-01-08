@@ -63,6 +63,9 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version_coroutine"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version_coroutine"
 
+    //Bottom Navigation Bar
+    implementation "com.google.android.material:material:1.2.0"
+
 
     //noinspection GradleDynamicVersion
     testImplementation 'junit:junit:4.+'
