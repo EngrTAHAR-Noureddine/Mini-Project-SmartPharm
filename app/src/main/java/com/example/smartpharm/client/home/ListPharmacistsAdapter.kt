@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smartpharm.R
+import com.example.smartpharm.client.pharmacist_detail.PharmacistDetailFragment
 import com.example.smartpharm.model.User
 
 class ListPharmacistsAdapter(val context: FragmentActivity?, var data:List<User>):
@@ -26,17 +27,23 @@ class ListPharmacistsAdapter(val context: FragmentActivity?, var data:List<User>
             val text = "you clicked on item $position"
             val duration = Toast.LENGTH_SHORT
             val toast = Toast.makeText(context, text, duration)
+            val pharmacyDetailFragment = PharmacistDetailFragment()
             toast.show()
-/*
-            val pharmacy = Pharmacie()
-            pharmacy.name= data[position].name
-            pharmacy.address = data[position].address
-            pharmacy.phone =data[position].phone
+            val transaction = context?.supportFragmentManager?.beginTransaction()
+            transaction?.add(R.id.fragment_container,pharmacyDetailFragment)
+            transaction?.commitAllowingStateLoss()
 
-            var bundle = bundleOf("pharmacy" to pharmacy)
 
-            context?.findNavController(R.id.myNavHostFragment)?.navigate(R.id.action_listPharmacieFragment_to_pharmacieFragment,bundle)
-*/
+            /*
+                val pharmacy = Pharmacie()
+                pharmacy.name= data[position].name
+                pharmacy.address = data[position].address
+                pharmacy.phone =data[position].phone
+
+                var bundle = bundleOf("pharmacy" to pharmacy)
+
+                context?.findNavController(R.id.myNavHostFragment)?.navigate(R.id.action_listPharmacieFragment_to_pharmacieFragment,bundle)
+    */
         }
     }
 

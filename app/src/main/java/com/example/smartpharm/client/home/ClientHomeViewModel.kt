@@ -15,8 +15,8 @@ class ClientHomeViewModel(private val userDatabase: UsersDao, private val bindin
     init {
         initializeListPharmacies()
     }
-    private fun initializeListPharmacies() {
 
+    private fun initializeListPharmacies() {
         viewModelScope.launch {
             pharmacies = userDatabase.getAllUsers()
         }
