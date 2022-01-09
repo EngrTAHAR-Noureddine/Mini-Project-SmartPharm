@@ -27,6 +27,7 @@
         <entry key="app/src/main/res/layout/pharmacist_home_fragment.xml" value="0.2857789855072464" />
         <entry key="app/src/main/res/layout/settings_fragment.xml" value="0.3541666666666667" />
         <entry key="app/src/main/res/menu/menu_client.xml" value="0.3541666666666667" />
+        <entry key="app/src/main/res/menu/menu_pharmacist.xml" value="0.3541666666666667" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3703125" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3703125" />
       </map>

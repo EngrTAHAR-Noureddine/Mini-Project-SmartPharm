@@ -5,12 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.os.bundleOf
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smartpharm.R
-import com.example.smartpharm.client.pharmacist_detail.PharmacistDetailFragment
 import com.example.smartpharm.model.User
 
 class ListPharmacistsAdapter(val context: FragmentActivity?, var data:List<User>):

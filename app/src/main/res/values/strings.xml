@@ -28,6 +28,9 @@
     <string name="text_pharmacy_location">Oued Smar-El Harrach-Alger</string>
     <string name="description_arrow_forward">arrow forward</string>
     <string name="description_pharmacy_icon">pharmacy Icon</string>
+    <string name="acceuil">Acceuil</string>
+    <string name="commandes">Commandes</string>
+    <string name="param_tre">Paramètre</string>
 
 
 </resources>

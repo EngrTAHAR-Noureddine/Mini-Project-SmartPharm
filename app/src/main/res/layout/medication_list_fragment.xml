@@ -3,9 +3,5 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pharmacist.medication.MedicationListFragment">
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</FrameLayout>
+    android:background="#45FF00"
+    tools:context=".pharmacist.medication.MedicationListFragment" />
