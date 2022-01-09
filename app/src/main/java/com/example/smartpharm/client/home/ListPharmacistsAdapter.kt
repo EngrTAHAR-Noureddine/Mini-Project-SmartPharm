@@ -27,14 +27,12 @@ class ListPharmacistsAdapter(val context: FragmentActivity?, var data:List<User>
             val text = "you clicked on item $position"
             val duration = Toast.LENGTH_SHORT
             val toast = Toast.makeText(context, text, duration)
-            val pharmacyDetailFragment = PharmacistDetailFragment()
             toast.show()
-            val transaction = context?.supportFragmentManager?.beginTransaction()
-            transaction?.add(R.id.fragment_container,pharmacyDetailFragment)
-            transaction?.commitAllowingStateLoss()
+            context?.findNavController(R.id.myNavHostFragment)?.navigate(R.id.to_Client_Pharmacy_Detail)
 
 
-            /*
+
+                /*
                 val pharmacy = Pharmacie()
                 pharmacy.name= data[position].name
                 pharmacy.address = data[position].address
@@ -43,7 +41,7 @@ class ListPharmacistsAdapter(val context: FragmentActivity?, var data:List<User>
                 var bundle = bundleOf("pharmacy" to pharmacy)
 
                 context?.findNavController(R.id.myNavHostFragment)?.navigate(R.id.action_listPharmacieFragment_to_pharmacieFragment,bundle)
-    */
+                */
         }
     }
 

@@ -61,7 +61,7 @@ dependencies {
     // Room and Lifecycle dependencies
     //noinspection GradleDependency
     implementation "androidx.room:room-runtime:$version_room"
-    implementation 'com.android.volley:volley:1.2.0'
+    implementation 'com.android.volley:volley:1.2.1'
     annotationProcessor "androidx.room:room-compiler:$version_room"
     kapt "androidx.room:room-compiler:$version_room"
     implementation "androidx.lifecycle:lifecycle-extensions:$version_lifecycle_extensions"
@@ -71,7 +71,7 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version_coroutine"
 
     //Bottom Navigation Bar
-    implementation "com.google.android.material:material:1.2.0"
+    implementation "com.google.android.material:material:1.4.0"
 
     //Saved Object in sharePreferences
     implementation 'com.google.code.gson:gson:2.8.9'
