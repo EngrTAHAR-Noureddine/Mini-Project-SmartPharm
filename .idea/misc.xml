@@ -6,6 +6,8 @@
         <entry key="../../../../layout/custom_preview.xml" value="0.17685185185185184" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2125" />
         <entry key="app/src/main/res/drawable/background_tab_color.xml" value="0.11018518518518519" />
+        <entry key="app/src/main/res/drawable/ic_local_phone_48.xml" value="0.3646153846153846" />
+        <entry key="app/src/main/res/drawable/ic_location_map.xml" value="0.3646153846153846" />
         <entry key="app/src/main/res/drawable/logo_app.xml" value="0.3646153846153846" />
         <entry key="app/src/main/res/drawable/logo_splash_screen.xml" value="0.2125" />
         <entry key="app/src/main/res/drawable/primarylogo.xml" value="0.3646153846153846" />
@@ -25,6 +27,7 @@
         <entry key="app/src/main/res/layout/one_medicament_item.xml" value="0.3170289855072464" />
         <entry key="app/src/main/res/layout/pharmacist_detail_fragment.xml" value="0.3170289855072464" />
         <entry key="app/src/main/res/layout/pharmacist_home_fragment.xml" value="0.2857789855072464" />
+        <entry key="app/src/main/res/layout/pharmacy_details_fragment.xml" value="0.2966485507246377" />
         <entry key="app/src/main/res/layout/settings_fragment.xml" value="0.3541666666666667" />
         <entry key="app/src/main/res/menu/menu_client.xml" value="0.3541666666666667" />
         <entry key="app/src/main/res/menu/menu_pharmacist.xml" value="0.3541666666666667" />
