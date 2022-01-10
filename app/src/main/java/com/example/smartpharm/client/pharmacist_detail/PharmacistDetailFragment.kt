@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -61,7 +60,7 @@ class PharmacistDetailFragment : Fragment() {
         }.attach()
 
 
-        val navBar = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation);
+        val navBar = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
         if(navBar != null){
             navBar.isVisible = false
         }
@@ -78,36 +77,10 @@ class DemoCollectionAdapter(fragment: Fragment) : FragmentStateAdapter(fragment)
     override fun getItemCount(): Int = 2
 
     override fun createFragment(position: Int): Fragment {
-        // Return a NEW fragment instance in createFragment(int)
         val fragment = when(position){
             1-> MedicationsListFragment()
             else -> PharmacyDetailsFragment()
         }
         return fragment
-    }
-}
-
-private const val ARG_OBJECT = "object"
-
-// Instances of this class are fragments representing a single
-// object in our collection.
-class DemoObjectFragment : Fragment() {
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return inflater.inflate(R.layout.medications_list_fragment, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-
-
-        arguments?.takeIf { it.containsKey(ARG_OBJECT) }?.apply {
-            val textView: TextView = view.findViewById(R.id.textViewTest)
-            textView.text = getInt(ARG_OBJECT).toString()
-        }
     }
 }
