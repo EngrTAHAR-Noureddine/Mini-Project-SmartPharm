@@ -7,12 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.smartpharm.R
+import com.example.smartpharm.client.pharmacist_detail.details.PharmacyDetailsFragment
+import com.example.smartpharm.client.pharmacist_detail.medications.MedicationsListFragment
 import com.example.smartpharm.database.smartDataBase
 import com.example.smartpharm.databinding.PharmacistDetailFragmentBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayoutMediator
 
 class PharmacistDetailFragment : Fragment() {
@@ -49,10 +53,18 @@ class PharmacistDetailFragment : Fragment() {
 
         val tabLayout = binding.tabLayout
 
-        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-            tab.text = "OBJECT ${(position + 1)}"
+        TabLayoutMediator(tabLayout, viewPager) { tab, position -> when(position){
+                1 -> tab.text = "Stock"
+                else -> tab.text = "Detail"
+        }
+
         }.attach()
 
+
+        val navBar = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation);
+        if(navBar != null){
+            navBar.isVisible = false
+        }
 
         return binding.root
     }
@@ -67,10 +79,9 @@ class DemoCollectionAdapter(fragment: Fragment) : FragmentStateAdapter(fragment)
 
     override fun createFragment(position: Int): Fragment {
         // Return a NEW fragment instance in createFragment(int)
-        val fragment = DemoObjectFragment()
-        fragment.arguments = Bundle().apply {
-            // Our object is just an integer :-P
-            putInt(ARG_OBJECT, position + 1)
+        val fragment = when(position){
+            1-> MedicationsListFragment()
+            else -> PharmacyDetailsFragment()
         }
         return fragment
     }
