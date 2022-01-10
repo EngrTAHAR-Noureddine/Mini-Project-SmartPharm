@@ -1,24 +1,241 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/whiteFA"
+    android:orientation="vertical"
     tools:context=".client.pharmacist_detail.details.PharmacyDetailsFragment">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/DialogAbout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@color/whiteEB">
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:id="@+id/titleAbout"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/acceuil"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/about"
+            android:textColor="@color/gray303F"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iconPerson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="@string/personicon"
+            android:src="@drawable/ic_person_24"
+            app:layout_constraintBottom_toTopOf="@+id/iconLocation"
+            app:layout_constraintEnd_toStartOf="@+id/nameDetailPharmacy"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleAbout" />
+
+        <TextView
+            android:id="@+id/nameDetailPharmacy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/name_pharmacy"
+            android:textColor="@color/gray3636"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iconPerson"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iconPerson"
+            app:layout_constraintTop_toTopOf="@+id/iconPerson" />
+
+        <ImageView
+            android:id="@+id/iconLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="@string/locationicon"
+            android:src="@drawable/ic_location_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/locationDetailPharmacy"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iconPerson" />
+
+        <TextView
+            android:id="@+id/locationDetailPharmacy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/location_pharmacy"
+            android:textColor="@color/gray3636"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iconLocation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iconLocation"
+            app:layout_constraintTop_toTopOf="@+id/iconLocation" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-</FrameLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/DialogContact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/whiteEB">
+
+        <TextView
+            android:id="@+id/titleContact"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/titleContact"
+            android:textColor="@color/gray303F"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/gmailIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="@string/gmailicon"
+            android:src="@drawable/ic_mail_24"
+            app:layout_constraintBottom_toTopOf="@+id/facebookIcon"
+            app:layout_constraintEnd_toStartOf="@+id/gmailDetailPharmacy"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleContact" />
+
+        <TextView
+            android:id="@+id/gmailDetailPharmacy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/ExgmailPharmacy"
+            android:textColor="@color/gray3636"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="@+id/gmailIcon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/gmailIcon"
+            app:layout_constraintTop_toTopOf="@+id/gmailIcon" />
+
+        <ImageView
+            android:id="@+id/facebookIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="@string/facebookicon"
+            android:src="@drawable/ic_facebook_24"
+            app:layout_constraintBottom_toTopOf="@+id/InstagramIcon"
+            app:layout_constraintEnd_toStartOf="@+id/FacebookAccountPharmacy"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gmailIcon" />
+
+        <TextView
+            android:id="@+id/FacebookAccountPharmacy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/ExFacebook"
+            android:textColor="@color/gray3636"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="@+id/facebookIcon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/facebookIcon"
+            app:layout_constraintTop_toTopOf="@+id/facebookIcon" />
+
+        <ImageView
+            android:id="@+id/InstagramIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="@string/instagramicon"
+            android:src="@drawable/ic_instagram"
+            app:layout_constraintBottom_toTopOf="@+id/PhoneIcon"
+            app:layout_constraintEnd_toStartOf="@+id/InstagramPharmacy"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/facebookIcon" />
+
+        <TextView
+            android:id="@+id/InstagramPharmacy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/ExInstagram"
+            android:textColor="@color/gray3636"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="@+id/InstagramIcon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/InstagramIcon"
+            app:layout_constraintTop_toTopOf="@+id/InstagramIcon" />
+
+        <ImageView
+            android:id="@+id/PhoneIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="@string/phoneicon"
+            android:src="@drawable/ic_local_phone_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/PhonePharmacy"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/InstagramIcon" />
+
+        <TextView
+            android:id="@+id/PhonePharmacy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/ExphonePharmacy"
+            android:textColor="@color/gray3636"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="@+id/PhoneIcon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/PhoneIcon"
+            app:layout_constraintTop_toTopOf="@+id/PhoneIcon" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

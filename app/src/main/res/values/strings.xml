@@ -34,6 +34,20 @@
     <string name="ici_nom_pharmacy">Ici Nom Pharmacy</string>
     <string name="desc_imagepharmacy">imagePharmacy</string>
     <string name="commanderBTN">Commander</string>
+    <string name="about">A propos :</string>
+    <string name="name_pharmacy">Pharmacy Pharmacy</string>
+    <string name="personicon">personIcon</string>
+    <string name="location_pharmacy">Location,Location</string>
+    <string name="locationicon">locationIcon</string>
+    <string name="titleContact">Prendre contact:</string>
+    <string name="gmailicon">gmailIcon</string>
+    <string name="ExgmailPharmacy">root@root.com</string>
+    <string name="ExphonePharmacy">8765432123</string>
+    <string name="phoneicon">PhoneIcon</string>
+    <string name="instagramicon">InstagramIcon</string>
+    <string name="facebookicon">facebookIcon</string>
+    <string name="ExInstagram">Instagram@instagram.com</string>
+    <string name="ExFacebook">faceboock@facebook.com</string>
 
 
 </resources>
