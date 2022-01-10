@@ -76,6 +76,9 @@ dependencies {
     //Saved Object in sharePreferences
     implementation 'com.google.code.gson:gson:2.8.9'
 
+    // swip page
+    implementation "androidx.viewpager2:viewpager2:1.1.0-beta01"
+
 
     //noinspection GradleDynamicVersion
     testImplementation 'junit:junit:4.+'

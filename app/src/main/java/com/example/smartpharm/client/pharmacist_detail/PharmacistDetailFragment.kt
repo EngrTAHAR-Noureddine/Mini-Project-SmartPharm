@@ -6,29 +6,97 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.databinding.DataBindingUtil
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
 import com.example.smartpharm.R
+import com.example.smartpharm.database.smartDataBase
+import com.example.smartpharm.databinding.PharmacistDetailFragmentBinding
+import com.google.android.material.tabs.TabLayoutMediator
 
 class PharmacistDetailFragment : Fragment() {
 
-    // detail de pharmacist selectionner
-
-    companion object {
-        fun newInstance() = PharmacistDetailFragment()
-    }
-
     private lateinit var viewModel: PharmacistDetailViewModel
+    private lateinit var binding: PharmacistDetailFragmentBinding
+
+    private lateinit var demoCollectionAdapter: DemoCollectionAdapter
+    private lateinit var viewPager: ViewPager2
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.pharmacist_detail_fragment, container, false)
+
+        binding = DataBindingUtil.inflate(inflater,R.layout.pharmacist_detail_fragment,container,false)
+
+        val application = requireNotNull(this.activity).application
+        val dataSource = smartDataBase.getInstance(application)?.UsersDao()!!
+
+        val viewModelFactory = PharmacyDetailFragmentFactory(dataSource, binding ,this.requireActivity())
+
+        val pharmacyDetailViewModel = ViewModelProvider(this, viewModelFactory)[PharmacistDetailViewModel::class.java]
+
+        binding.pharmacyDetailViewModel = pharmacyDetailViewModel
+        binding.lifecycleOwner = this
+
+        demoCollectionAdapter = DemoCollectionAdapter(this)
+
+
+        viewPager = binding.pager
+        viewPager.adapter = demoCollectionAdapter
+
+        val tabLayout = binding.tabLayout
+
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            tab.text = "OBJECT ${(position + 1)}"
+        }.attach()
+
+
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(PharmacistDetailViewModel::class.java)
-        // TODO: Use the ViewModel
+
+
+}
+
+class DemoCollectionAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
+
+    override fun getItemCount(): Int = 2
+
+    override fun createFragment(position: Int): Fragment {
+        // Return a NEW fragment instance in createFragment(int)
+        val fragment = DemoObjectFragment()
+        fragment.arguments = Bundle().apply {
+            // Our object is just an integer :-P
+            putInt(ARG_OBJECT, position + 1)
+        }
+        return fragment
+    }
+}
+
+private const val ARG_OBJECT = "object"
+
+// Instances of this class are fragments representing a single
+// object in our collection.
+class DemoObjectFragment : Fragment() {
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        return inflater.inflate(R.layout.medications_list_fragment, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+
+
+        arguments?.takeIf { it.containsKey(ARG_OBJECT) }?.apply {
+            val textView: TextView = view.findViewById(R.id.textViewTest)
+            textView.text = getInt(ARG_OBJECT).toString()
+        }
+    }
 }
