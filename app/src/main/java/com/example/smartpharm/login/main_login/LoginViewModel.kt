@@ -135,6 +135,12 @@ class LoginViewModel(private val userDatabase: UsersDao,private val binding: Log
                     editorUser.apply{
                         putString("userProfile",json)
                     }.apply()
+
+
+                    val text = "User in json ${json}"
+                    val duration = Toast.LENGTH_SHORT
+                    val toast = Toast.makeText(context, text, duration)
+                    toast.show()
                     /*
                     to retrieve :
                                 Gson gson = new Gson();
