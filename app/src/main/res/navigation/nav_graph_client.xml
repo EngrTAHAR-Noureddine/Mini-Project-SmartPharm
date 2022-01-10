@@ -30,9 +30,6 @@
         android:label="pharmacist_detail_fragment"
         tools:layout="@layout/pharmacist_detail_fragment" >
         <action
-            android:id="@+id/to_Client_MedicationsList"
-            app:destination="@id/destination_Client_MedicationsList" />
-        <action
             android:id="@+id/to_Client_Order"
             app:destination="@id/destination_Client_Orders" />
     </fragment>
@@ -46,4 +43,9 @@
         android:name="com.example.smartpharm.Settings.SettingsFragment"
         android:label="settings_fragment"
         tools:layout="@layout/settings_fragment" />
+    <fragment
+        android:id="@+id/pharmacyDetailsFragment"
+        android:name="com.example.smartpharm.client.pharmacist_detail.details.PharmacyDetailsFragment"
+        android:label="pharmacy_details_fragment"
+        tools:layout="@layout/pharmacy_details_fragment" />
 </navigation>
