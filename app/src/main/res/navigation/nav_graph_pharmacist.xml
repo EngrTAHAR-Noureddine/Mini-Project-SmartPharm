@@ -15,11 +15,6 @@
             app:destination="@id/destination_Pharmacy_Order_Detail" />
     </fragment>
     <fragment
-        android:id="@+id/destination_Pharmacy_Medications_List"
-        android:name="com.example.smartpharm.pharmacist.medication.MedicationListFragment"
-        android:label="medication_list_fragment"
-        tools:layout="@layout/medication_list_fragment" />
-    <fragment
         android:id="@+id/destination_Pharmacy_Order_Detail"
         android:name="com.example.smartpharm.pharmacist.order_detail.OderDetailFragment"
         android:label="oder_detail_fragment"
@@ -29,4 +24,9 @@
         android:name="com.example.smartpharm.Settings.SettingsFragment"
         android:label="settings_fragment"
         tools:layout="@layout/settings_fragment" />
+    <fragment
+        android:id="@+id/destination_Pharmacy_Medications_List"
+        android:name="com.example.smartpharm.client.pharmacist_detail.medications.MedicationsListFragment"
+        android:label="medications_list_fragment"
+        tools:layout="@layout/medications_list_fragment" />
 </navigation>

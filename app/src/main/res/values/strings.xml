@@ -55,6 +55,8 @@
     <string name="titleNote">Remarque</string>
     <string name="PlaceholderNote">Note...</string>
     <string name="camera">camera</string>
+    <string name="testitem">TestItem</string>
+    <string name="fabadd">FabAdd</string>
 
 
 </resources>

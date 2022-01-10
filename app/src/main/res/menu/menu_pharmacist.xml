@@ -6,7 +6,7 @@
         android:title="@string/acceuil"
         />
     <item
-        android:id="@+id/destination_Pharmacy_Medications_List"
+        android:id="@+id/destination_Pharmacy_Medications"
         android:icon="@drawable/ic_list_unselected"
         android:title="@string/commandes"
         />

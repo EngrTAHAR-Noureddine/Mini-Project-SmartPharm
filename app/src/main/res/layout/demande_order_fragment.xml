@@ -89,10 +89,8 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"
                     android:text="@string/titleNote"
                     android:textColor="#000000"
-                    app:layout_constraintBottom_toTopOf="@+id/inputNote"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -106,15 +104,17 @@
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="8dp"
                     android:ems="10"
+                    android:gravity="start|top"
                     android:hint="@string/PlaceholderNote"
                     android:importantForAutofill="no"
-                    android:inputType="textPersonName"
+                    android:inputType="textMultiLine"
                     android:minHeight="48dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/TitleNote"
                     tools:ignore="TextContrastCheck" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
