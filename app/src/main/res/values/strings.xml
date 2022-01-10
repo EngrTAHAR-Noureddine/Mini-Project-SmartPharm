@@ -57,6 +57,29 @@
     <string name="camera">camera</string>
     <string name="testitem">TestItem</string>
     <string name="fabadd">FabAdd</string>
+    <string name="deconnecterBtn">Deconnecter</string>
+    <string name="edit_photo_Btn">Edit Photo</string>
+    <string name="photouser">PhotoUser</string>
+    <string name="editicon">EditIcon</string>
+    <string name="title_nom">Nom:</string>
+    <string name="nom_placeholder">Nom...</string>
+
+    <string name="title_location">Localisation:</string>
+    <string name="location_placeholder">Localisation...</string>
+
+    <string name="title_email">E-mail:</string>
+    <string name="email_placeholder">Email...</string>
+
+    <string name="title_facebook">Facebook:</string>
+    <string name="facebook_placeholder">Facebook...</string>
+
+    <string name="title_instagram">Instagram:</string>
+    <string name="instagram_placeholder">Instagram...</string>
+
+    <string name="title_phone">Phone:</string>
+    <string name="phone_placeholder">Phone...</string>
+
+
 
 
 </resources>

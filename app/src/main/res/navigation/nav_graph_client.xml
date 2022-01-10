@@ -23,7 +23,11 @@
         android:id="@+id/destination_Client_List_Orders"
         android:name="com.example.smartpharm.client.orders.ListOrdersFragment"
         android:label="list_orders_fragment"
-        tools:layout="@layout/list_orders_fragment" />
+        tools:layout="@layout/list_orders_fragment" >
+        <action
+            android:id="@+id/action_destination_Client_List_Orders_to_oderDetailFragment"
+            app:destination="@id/oderDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/destination_Client_Pharmacy_Detail"
         android:name="com.example.smartpharm.client.pharmacist_detail.PharmacistDetailFragment"
@@ -48,4 +52,13 @@
         android:name="com.example.smartpharm.client.pharmacist_detail.details.PharmacyDetailsFragment"
         android:label="pharmacy_details_fragment"
         tools:layout="@layout/pharmacy_details_fragment" />
+    <fragment
+        android:id="@+id/oderDetailFragment"
+        android:name="com.example.smartpharm.pharmacist.order_detail.OderDetailFragment"
+        android:label="oder_detail_fragment"
+        tools:layout="@layout/oder_detail_fragment" >
+        <action
+            android:id="@+id/action_oderDetailFragment_to_destination_Client_List_Orders"
+            app:destination="@id/destination_Client_List_Orders" />
+    </fragment>
 </navigation>

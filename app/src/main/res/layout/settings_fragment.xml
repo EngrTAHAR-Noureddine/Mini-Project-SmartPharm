@@ -1,22 +1,408 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Settings.SettingsFragment">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/whiteFA">
+
+
+            <ImageView
+                android:id="@+id/PhotoUser"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:contentDescription="@string/photouser"
+                android:src="@drawable/ic_person_48"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/EditIcon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/EditPhoto"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/edit_photo_Btn"
+                app:layout_constraintBottom_toBottomOf="@+id/EditIcon"
+                app:layout_constraintEnd_toEndOf="@+id/buttonLogOut"
+                app:layout_constraintStart_toEndOf="@+id/EditIcon"
+                app:layout_constraintTop_toTopOf="@+id/EditIcon"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <ImageView
+                android:id="@+id/EditIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/editicon"
+                android:src="@drawable/ic_edit_24"
+                app:layout_constraintBottom_toTopOf="@+id/buttonLogOut"
+                app:layout_constraintEnd_toStartOf="@+id/EditPhoto"
+                app:layout_constraintStart_toEndOf="@+id/PhotoUser"
+                app:layout_constraintTop_toTopOf="@+id/PhotoUser" />
+
+            <Button
+                android:id="@+id/buttonLogOut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/deconnecterBtn"
+                app:layout_constraintBottom_toBottomOf="@+id/PhotoUser"
+                app:layout_constraintStart_toStartOf="@+id/EditIcon"
+                app:layout_constraintTop_toBottomOf="@+id/EditIcon" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FF5900">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="4dp">
 
-        <!--
-        dir juste structure comme ana dert fi login sans style juste structure , when structured styliha be les coleurs et font family ...etc
-          style it like Settings of client in figma
-          madirch bottom Navigation Bar ok ana derteha
-        -->
+        <TextView
+            android:id="@+id/TitleNameUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/title_nom"
+            app:layout_constraintBottom_toTopOf="@+id/InputNameUser"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <EditText
+            android:id="@+id/InputNameUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:ems="10"
+            android:hint="@string/nom_placeholder"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/editName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TitleNameUser"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+
+        <ImageButton
+            android:id="@+id/editName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/editicon"
+            android:padding="16dp"
+            android:src="@drawable/ic_edit_24"
+            app:layout_constraintBottom_toBottomOf="@+id/InputNameUser"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/InputNameUser"
+            app:layout_constraintTop_toTopOf="@+id/InputNameUser"
+            tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</FrameLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="4dp">
+
+        <TextView
+            android:id="@+id/TitleLocationUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/title_location"
+            app:layout_constraintBottom_toTopOf="@+id/InputLocationUser"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/InputLocationUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:ems="10"
+            android:hint="@string/location_placeholder"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/editLocation"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TitleLocationUser"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+
+        <ImageButton
+            android:id="@+id/editLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/editicon"
+            android:padding="16dp"
+            android:src="@drawable/ic_edit_24"
+            app:layout_constraintBottom_toBottomOf="@+id/InputLocationUser"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/InputLocationUser"
+            app:layout_constraintTop_toTopOf="@+id/InputLocationUser"
+            tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="4dp">
+
+        <TextView
+            android:id="@+id/TitleEmailUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/title_email"
+            app:layout_constraintBottom_toTopOf="@+id/InputEmailUser"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/InputEmailUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:ems="10"
+            android:hint="@string/email_placeholder"
+            android:importantForAutofill="no"
+            android:inputType="none|textEmailAddress"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/editEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TitleEmailUser"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+
+        <ImageButton
+            android:id="@+id/editEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/editicon"
+            android:padding="16dp"
+            android:src="@drawable/ic_edit_24"
+            app:layout_constraintBottom_toBottomOf="@+id/InputEmailUser"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/InputEmailUser"
+            app:layout_constraintTop_toTopOf="@+id/InputEmailUser"
+            tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="4dp">
+
+        <TextView
+            android:id="@+id/TitleFacebookUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/title_facebook"
+            app:layout_constraintBottom_toTopOf="@+id/InputFacebookUser"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/InputFacebookUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:ems="10"
+            android:hint="@string/facebook_placeholder"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/editFacebook"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TitleFacebookUser"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+
+        <ImageButton
+            android:id="@+id/editFacebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/editicon"
+            android:padding="16dp"
+            android:src="@drawable/ic_edit_24"
+            app:layout_constraintBottom_toBottomOf="@+id/InputFacebookUser"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/InputFacebookUser"
+            app:layout_constraintTop_toTopOf="@+id/InputFacebookUser"
+            tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="4dp">
+
+        <TextView
+            android:id="@+id/TitleInstagramUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/title_instagram"
+            app:layout_constraintBottom_toTopOf="@+id/InputInstagramUser"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/InputInstagramUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:ems="10"
+            android:hint="@string/instagram_placeholder"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/editInstagram"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TitleInstagramUser"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+
+        <ImageButton
+            android:id="@+id/editInstagram"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/editicon"
+            android:padding="16dp"
+            android:src="@drawable/ic_edit_24"
+            app:layout_constraintBottom_toBottomOf="@+id/InputInstagramUser"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/InputInstagramUser"
+            app:layout_constraintTop_toTopOf="@+id/InputInstagramUser"
+            tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="4dp">
+
+        <TextView
+            android:id="@+id/TitlePhoneUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/title_phone"
+            app:layout_constraintBottom_toTopOf="@+id/inputPhoneUser"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/inputPhoneUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:ems="10"
+            android:hint="@string/phone_placeholder"
+            android:importantForAutofill="no"
+            android:inputType="none|phone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/editPhone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TitlePhoneUser"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+
+        <ImageButton
+            android:id="@+id/editPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/editicon"
+            android:padding="16dp"
+            android:src="@drawable/ic_edit_24"
+            app:layout_constraintBottom_toBottomOf="@+id/inputPhoneUser"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/inputPhoneUser"
+            app:layout_constraintTop_toTopOf="@+id/inputPhoneUser"
+            tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
