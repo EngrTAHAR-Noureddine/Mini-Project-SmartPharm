@@ -34,7 +34,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageButton
-                android:id="@+id/buttonMapLocation"
+                android:id="@+id/buttonPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -63,7 +63,7 @@
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/buttonMapLocation"
+                app:layout_constraintStart_toEndOf="@+id/buttonPhone"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 

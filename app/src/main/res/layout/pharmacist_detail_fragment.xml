@@ -22,54 +22,40 @@
             android:id="@+id/constraintLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:background="#52CAA8 "
+            android:background="@color/green52"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/nameOfPharmacy"
+            <ImageButton
+                android:id="@+id/buttonPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:fontFamily="@font/montserrat"
-                android:text="Ici Nom Pharmacy"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="16dp"
+                android:background="@color/gray3036"
+                android:contentDescription="@string/todo"
+                android:padding="5dp"
+                android:src="@drawable/ic_local_phone_48"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageView"
+                app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
             <ImageButton
                 android:id="@+id/buttonMapLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="32dp"
+                android:layout_marginStart="16dp"
                 android:background="@color/orangeF4"
                 android:contentDescription="@string/todo"
-                android:padding="5sp"
-                android:src="@drawable/ic_location_map"
+                android:padding="5dp"
+                android:src="@drawable/ic_location_map_48"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView"
-                app:layout_constraintEnd_toStartOf="@+id/imageView"
-                app:layout_constraintHorizontal_chainStyle="spread_inside"
-                app:layout_constraintTop_toTopOf="@+id/imageView"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-            <ImageButton
-                android:id="@+id/buttonMapLocation2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:background="@color/orangeF4"
-                android:contentDescription="@string/todo"
-                android:padding="5sp"
-                android:src="@drawable/ic_location_map"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toTopOf="@+id/imageView"
@@ -77,12 +63,18 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="@string/desc_imagepharmacy"
+                app:layout_constraintBottom_toBottomOf="@+id/buttonPhone"
+                app:layout_constraintEnd_toStartOf="@+id/buttonMapLocation"
+                app:layout_constraintStart_toEndOf="@+id/buttonPhone"
+                app:layout_constraintTop_toTopOf="@+id/buttonPhone"
+                tools:ignore="ImageContrastCheck"
                 tools:src="@tools:sample/avatars" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -92,9 +84,6 @@
             android:id="@+id/constraintLayout2"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -104,25 +93,58 @@
                 android:id="@+id/tabLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/orangeF4"
-                app:layout_constraintBottom_toTopOf="@+id/pager"
+                android:background="@color/whiteFA"
+                app:layout_constraintBottom_toTopOf="@+id/dividerTabs"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tabIconTint="@color/green52"
-                app:tabIndicatorColor="@color/white"
-                app:tabSelectedTextColor="@color/white"
+                app:layout_constraintVertical_bias="0.0"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:tabIconTint="@color/gray3036"
+                app:tabIndicatorColor="@color/orangeF4"
+                app:tabSelectedTextColor="@color/orangeF4"
+                app:tabTextAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:tabTextColor="@color/gray3036"
                 tools:ignore="SpeakableTextPresentCheck" />
+
+            <View
+                android:id="@+id/dividerTabs"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#30363D"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/pager"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/whiteFA"
+                app:layout_constraintBottom_toTopOf="@+id/ButtonGoOrder"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dividerTabs"
+                app:layout_constraintVertical_weight="1" />
+
+            <Button
+                android:id="@+id/ButtonGoOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/green52"
+                android:text="@string/commanderBTN"
+                android:textAllCaps="false"
+                android:textStyle="normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+                app:layout_constraintTop_toBottomOf="@+id/pager"
+                tools:ignore="TextContrastCheck" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
