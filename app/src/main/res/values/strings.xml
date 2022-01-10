@@ -31,6 +31,9 @@
     <string name="acceuil">Acceuil</string>
     <string name="commandes">Commandes</string>
     <string name="param_tre">Paramètre</string>
+    <string name="ici_nom_pharmacy">Ici Nom Pharmacy</string>
+    <string name="desc_imagepharmacy">imagePharmacy</string>
+    <string name="commanderBTN">Commander</string>
 
 
 </resources>
