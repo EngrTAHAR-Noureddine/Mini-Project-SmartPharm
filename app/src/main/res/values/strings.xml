@@ -48,6 +48,13 @@
     <string name="facebookicon">facebookIcon</string>
     <string name="ExInstagram">Instagram@instagram.com</string>
     <string name="ExFacebook">faceboock@facebook.com</string>
+    <string name="buttonAccept">Accepter</string>
+    <string name="buttonDecline">Decliner</string>
+    <string name="titleordannance">Ordannance</string>
+    <string name="imageordonnance">imageOrdonnance</string>
+    <string name="titleNote">Remarque</string>
+    <string name="PlaceholderNote">Note...</string>
+    <string name="camera">camera</string>
 
 
 </resources>

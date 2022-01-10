@@ -5,20 +5,17 @@
     android:id="@+id/MedicationsListFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#378829"
-    tools:context=".client.pharmacist_detail.medications.MedicationsListFragment" >
+    android:background="@color/whiteFA"
+    tools:context=".client.pharmacist_detail.medications.MedicationsListFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textViewTest"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/acceuil"
-            android:textColor="#F8F8F8"
-            android:textSize="24sp"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleViewMedications"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

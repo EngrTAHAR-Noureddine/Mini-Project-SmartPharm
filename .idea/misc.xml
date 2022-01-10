@@ -18,7 +18,7 @@
         <entry key="app/src/main/res/layout/activity_pharmacist.xml" value="0.302536231884058" />
         <entry key="app/src/main/res/layout/client_home_fragment.xml" value="0.25" />
         <entry key="app/src/main/res/layout/client_item_pharmacist.xml" value="0.33559782608695654" />
-        <entry key="app/src/main/res/layout/demande_order_fragment.xml" value="0.29030797101449274" />
+        <entry key="app/src/main/res/layout/demande_order_fragment.xml" value="0.25" />
         <entry key="app/src/main/res/layout/list_orders_fragment.xml" value="0.3170289855072464" />
         <entry key="app/src/main/res/layout/login_fragment.xml" value="0.22" />
         <entry key="app/src/main/res/layout/medication_list_fragment.xml" value="0.29030797101449274" />
@@ -27,7 +27,7 @@
         <entry key="app/src/main/res/layout/one_medicament_item.xml" value="0.3170289855072464" />
         <entry key="app/src/main/res/layout/pharmacist_detail_fragment.xml" value="0.3170289855072464" />
         <entry key="app/src/main/res/layout/pharmacist_home_fragment.xml" value="0.2857789855072464" />
-        <entry key="app/src/main/res/layout/pharmacy_details_fragment.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/pharmacy_details_fragment.xml" value="0.25" />
         <entry key="app/src/main/res/layout/settings_fragment.xml" value="0.3541666666666667" />
         <entry key="app/src/main/res/menu/menu_client.xml" value="0.3541666666666667" />
         <entry key="app/src/main/res/menu/menu_pharmacist.xml" value="0.3541666666666667" />
