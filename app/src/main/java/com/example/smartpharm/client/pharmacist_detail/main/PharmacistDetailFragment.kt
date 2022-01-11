@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.smartpharm.R
@@ -100,6 +101,14 @@ class PharmacistDetailFragment : Fragment() {
         if(p!=null) Picasso.with(context).load(p.photoUser).fit().centerCrop().into(binding.imagePharmacy)
 
         //----------------------------------
+
+        //---------------- Set Order -----------------------------
+
+        binding.ButtonGoOrder.setOnClickListener{
+            activity?.findNavController(R.id.myNavHostFragment)?.navigate(R.id.to_Client_Order)
+        }
+
+        //--------------------------------------------------------
 
 
         binding.pharmacyDetailViewModel = pharmacyDetailViewModel

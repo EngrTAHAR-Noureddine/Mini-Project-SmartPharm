@@ -3,7 +3,7 @@
     <string name="app_name">SmartPharm</string>
 
     <!-- Pour Login Fragment -->
-    <string name="big_logo" >big Logo</string>
+    <string name="big_logo">big Logo</string>
     <string name="smart_pharm">Smart Pharm</string>
     <string name="champs_adremail_text">Adresse e-mail</string>
     <string name="champs_adremail_Hint">E-mail...</string>
@@ -78,8 +78,12 @@
 
     <string name="title_phone">Phone:</string>
     <string name="phone_placeholder">Phone...</string>
-
-
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="titleDialogUpload">Prendre Photo</string>
+    <string name="byCamera">Par appareil photo</string>
+    <string name="cancelBtn">Annuler</string>
+    <string name="byGallery">Par gallery</string>
 
 
 </resources>
