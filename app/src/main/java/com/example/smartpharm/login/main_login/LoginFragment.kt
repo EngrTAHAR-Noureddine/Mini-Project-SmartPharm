@@ -27,7 +27,7 @@ class LoginFragment : Fragment() {
         binding.loginViewModel = logInViewModel
         binding.lifecycleOwner = this
 
-        logInViewModel.users.observe(
+        /*logInViewModel.users.observe(
             viewLifecycleOwner,
             {
                 it?.let {
@@ -37,7 +37,7 @@ class LoginFragment : Fragment() {
                     toast.show()
                 }
             }
-        )
+        )*/
 
 
 

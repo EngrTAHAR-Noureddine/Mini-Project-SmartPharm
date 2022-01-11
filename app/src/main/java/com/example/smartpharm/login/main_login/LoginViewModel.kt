@@ -1,7 +1,6 @@
 package com.example.smartpharm.login.main_login
 
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
@@ -10,18 +9,25 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import coil.request.SuccessResult
-import com.example.smartpharm.client.ClientActivity
+import com.example.smartpharm.FireBase.controllers.UserController
+import com.example.smartpharm.FireBase.controllers.UserController.loginUser
+import com.example.smartpharm.FireBase.models.User
 import com.example.smartpharm.database.users.UsersDao
 import com.example.smartpharm.databinding.LoginFragmentBinding
+import kotlinx.coroutines.*
+
+/*
 import com.example.smartpharm.model.User
+import com.example.smartpharm.client.ClientActivity
+import android.content.Intent
+import androidx.lifecycle.viewModelScope
 import com.example.smartpharm.pharmacist.PharmacistActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import com.google.gson.Gson
-
+*/
 
 
 
@@ -31,7 +37,7 @@ class LoginViewModel(private val userDatabase: UsersDao,private val binding: Log
 
     private var _email = MutableLiveData<String>()
     private var _password  = MutableLiveData<String>()
-    var users = userDatabase.getAllUsers()
+   // var users = userDatabase.getAllUsers()
     private var pref : SharedPreferences? = null
 
     val email: LiveData<String>
@@ -45,10 +51,10 @@ class LoginViewModel(private val userDatabase: UsersDao,private val binding: Log
         _password.value = ""
         this.pref = context?.getSharedPreferences("firstTime", Context.MODE_PRIVATE)
         if(getData() != null && getData()!! ){
-            initTableUsers()
+           // initTableUsers()
             saveData(false)
         }
-        initializeUsers()
+       // initializeUsers()
 
     }
 
@@ -61,7 +67,7 @@ class LoginViewModel(private val userDatabase: UsersDao,private val binding: Log
     private fun getData(): Boolean? {
         return this.pref?.getBoolean("firstTime",true)
     }
-
+/*
     private fun initTableUsers(){
         viewModelScope.launch{
             val user1 = User()
@@ -103,7 +109,7 @@ class LoginViewModel(private val userDatabase: UsersDao,private val binding: Log
             userDatabase.insertUser(operationSyntax)
         }
     }
-
+*/
 
     fun onCLickLogIn(){
 
@@ -111,10 +117,61 @@ class LoginViewModel(private val userDatabase: UsersDao,private val binding: Log
         _password.value = if(binding.inputPassword.text != null) binding.inputPassword.text.toString() else "none"
 
         if(binding.inputEmail.text != null && binding.inputPassword.text != null && _email.value!!.isNotEmpty() && _password.value!!.isNotEmpty()){
-            var user : User? = null
+
+            GlobalScope.launch(Dispatchers.IO) {
+                var user : User? = loginUser(_email.value!!,_password.value!!)
+                if(user!=null) {
+                    withContext(Dispatchers.Main){
+                        val text = "Login Successfully : ${user.name}"
+                        val duration = Toast.LENGTH_SHORT
+                        val toast = Toast.makeText(context, text, duration)
+                        toast.show()
+                            }
+                }else{
+                    withContext(Dispatchers.Main) {
+                        val text = "Failed Login"
+                        val duration = Toast.LENGTH_SHORT
+                        val toast = Toast.makeText(context, text, duration)
+                        toast.show()
+                    }
+                }
 
 
-            if(users != null && users.value != null && users.value!!.isNotEmpty()){
+
+            }
+
+
+            //var user : User? = UserController.getUserCollection()
+
+
+
+
+
+
+
+        }else{
+            val text = "User couldn't find : _email and _password null ${binding.inputEmail.text.toString()}"
+            val duration = Toast.LENGTH_SHORT
+            val toast = Toast.makeText(context, text, duration)
+            toast.show()
+        }
+
+    }
+
+
+
+    private suspend fun getBitmap(context: Context): Bitmap {
+        val loading = coil.ImageLoader(context)
+        val request = coil.request.ImageRequest.Builder(context)
+            .data("https://avatars3.githubusercontent.com/u/14994036?s=400&u=2832879700f03d4b37ae1c09645352a352b9d2d0&v=4")
+            .build()
+
+        val result = (loading.execute(request) as SuccessResult).drawable
+        return (result as BitmapDrawable).bitmap
+    }
+
+    /*
+    if(users != null && users.value != null && users.value!!.isNotEmpty()){
                 for (item in users.value!!) {
                     if(item.emailUser == _email.value && item.passwordUser == _password.value){
                         user = item
@@ -173,26 +230,6 @@ class LoginViewModel(private val userDatabase: UsersDao,private val binding: Log
                 val toast = Toast.makeText(context, text, duration)
                 toast.show()
             }
-
-
-        }else{
-            val text = "User couldn't find : _email and _password null"
-            val duration = Toast.LENGTH_SHORT
-            val toast = Toast.makeText(context, text, duration)
-            toast.show()
-        }
-
-    }
-
-
-    private suspend fun getBitmap(context: Context): Bitmap {
-        val loading = coil.ImageLoader(context)
-        val request = coil.request.ImageRequest.Builder(context)
-            .data("https://avatars3.githubusercontent.com/u/14994036?s=400&u=2832879700f03d4b37ae1c09645352a352b9d2d0&v=4")
-            .build()
-
-        val result = (loading.execute(request) as SuccessResult).drawable
-        return (result as BitmapDrawable).bitmap
-    }
+    * */
 
 }

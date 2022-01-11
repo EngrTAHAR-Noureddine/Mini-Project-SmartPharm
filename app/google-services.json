@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "569072264444",
+    "project_id": "smartpharm-9ef57",
+    "storage_bucket": "smartpharm-9ef57.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:569072264444:android:de54da231e4e527b482379",
+        "android_client_info": {
+          "package_name": "com.example.smartpharm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "569072264444-hjl14f10pqpkuan6eirrs9mq69d4ais6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRhwEKbHwdz1i-qCe02Ie4JFRCku_lDJM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "569072264444-hjl14f10pqpkuan6eirrs9mq69d4ais6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

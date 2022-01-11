@@ -1,5 +1,7 @@
 package com.example.smartpharm.client.home
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +12,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smartpharm.R
 import com.example.smartpharm.model.User
+import com.google.gson.Gson
 
 class ListPharmacistsAdapter(val context: FragmentActivity?, var data:List<User>):
     RecyclerView.Adapter<MyViewHolder>() {
@@ -22,24 +25,30 @@ class ListPharmacistsAdapter(val context: FragmentActivity?, var data:List<User>
         holder.locationPharmacy.text = data[position].locationUser
 
         holder.item.setOnClickListener {
-            val text = "you clicked on item $position"
-            val duration = Toast.LENGTH_SHORT
-            val toast = Toast.makeText(context, text, duration)
-            toast.show()
+
+            val pharmacy = User(
+                name = data[position].name,
+                locationUser = data[position].locationUser,
+                passwordUser = data[position].passwordUser,
+                emailUser = data[position].emailUser,
+                phoneNumber = data[position].phoneNumber,
+                photoUser = data[position].photoUser,
+                typeUser = data[position].typeUser,
+                facebookAccount = data[position].facebookAccount,
+                instagramAccount = data[position].instagramAccount,
+            )
+
+            val gson = Gson()
+            val prefUser = context?.getSharedPreferences("PharmacyProfile", Context.MODE_PRIVATE)
+            val editorUser : SharedPreferences.Editor? = prefUser?.edit()
+            val json = gson.toJson(pharmacy)
+            editorUser?.apply{
+                putString("pharmacyProfile",json)
+            }?.apply()
+
+
             context?.findNavController(R.id.myNavHostFragment)?.navigate(R.id.to_Client_Pharmacy_Detail)
 
-
-
-                /*
-                val pharmacy = Pharmacie()
-                pharmacy.name= data[position].name
-                pharmacy.address = data[position].address
-                pharmacy.phone =data[position].phone
-
-                var bundle = bundleOf("pharmacy" to pharmacy)
-
-                context?.findNavController(R.id.myNavHostFragment)?.navigate(R.id.action_listPharmacieFragment_to_pharmacieFragment,bundle)
-                */
         }
     }
 
