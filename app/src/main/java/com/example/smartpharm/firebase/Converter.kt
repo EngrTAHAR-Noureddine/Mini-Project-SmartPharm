@@ -1,4 +1,4 @@
-package com.example.smartpharm.FireBase
+package com.example.smartpharm.firebase
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 

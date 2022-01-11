@@ -1,4 +1,4 @@
-package com.example.smartpharm.FireBase.models
+package com.example.smartpharm.firebase.models
 
 import com.google.gson.annotations.SerializedName
 
