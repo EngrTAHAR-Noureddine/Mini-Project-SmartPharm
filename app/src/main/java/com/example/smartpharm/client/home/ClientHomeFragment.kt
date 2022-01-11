@@ -6,13 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.smartpharm.R
-import com.example.smartpharm.database.smartDataBase
 import com.example.smartpharm.databinding.ClientHomeFragmentBinding
-import com.example.smartpharm.model.User
 
 
 class ClientHomeFragment : Fragment() {
@@ -22,10 +21,8 @@ class ClientHomeFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         binding = DataBindingUtil.inflate(inflater,R.layout.client_home_fragment,container,false)
-        val application = requireNotNull(this.activity).application
-        val dataSource = smartDataBase.getInstance(application)?.UsersDao()!!
 
-        val viewModelFactory = ClientHomeViewModelFactory(dataSource, binding ,this.requireActivity())
+        val viewModelFactory = ClientHomeViewModelFactory( binding ,this.requireActivity())
 
         val clientHomeViewModel = ViewModelProvider(this, viewModelFactory)[ClientHomeViewModel::class.java]
 
@@ -37,8 +34,9 @@ class ClientHomeFragment : Fragment() {
         clientHomeViewModel.pharmacies.observe(
             viewLifecycleOwner,  {
                 it?.let{
-                    val list = it.filter { user: User -> user.typeUser=="Pharmacist" }
-                    this.binding.recycleViewPharmacies.adapter = ListPharmacistsAdapter(activity,list)
+                    binding.progressBarClientHome.isVisible = false
+                    this.binding.recycleViewPharmacies.isVisible = true
+                    this.binding.recycleViewPharmacies.adapter = ListPharmacistsAdapter(activity,it)
                 }
             }
         )

@@ -4,8 +4,13 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.util.Log
+import android.view.View
+import android.widget.Button
+import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
+import com.example.smartpharm.R
 import com.example.smartpharm.client.ClientActivity
 import com.example.smartpharm.firebase.controllers.UserController
 import com.example.smartpharm.firebase.models.User
@@ -52,12 +57,25 @@ object LogInController {
                             context.finish()
                         }
 
+                    }else{
+                        val progressBar = context.findViewById<ProgressBar>(R.id.progressBarLogin)
+                        progressBar.isVisible = false
+                        val buttonLogin = context.findViewById<Button>(R.id.buttonLogIn)
+                        buttonLogin.isVisible = true
+                        val text = "email or password is incorrect"
+                        val duration = Toast.LENGTH_SHORT
+                        val toast = Toast.makeText(context, text, duration)
+                        toast.show()
                     }
 
                 }
             }
             }
             .addOnFailureListener { exception ->run{
+                val progressBar = context.findViewById<ProgressBar>(R.id.progressBarLogin)
+                progressBar.isVisible = false
+                val buttonLogin = context.findViewById<Button>(R.id.buttonLogIn)
+                buttonLogin.isVisible = true
                 Log.w("FIRESTORE", "Error getting documents $exception")
                 val text = "Out Connexion"
                 val duration = Toast.LENGTH_SHORT

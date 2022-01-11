@@ -1,7 +1,9 @@
 package com.example.smartpharm.login.main_login
 
 import android.content.SharedPreferences
+import android.opengl.Visibility
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -33,10 +35,14 @@ class LoginViewModel(private val binding: LoginFragmentBinding,
     }
 
     fun onCLickLogIn(){
+
         _email.value = if(binding.inputEmail.text != null) binding.inputEmail.text.toString() else "none"
         _password.value = if(binding.inputPassword.text != null) binding.inputPassword.text.toString() else "none"
 
         if(binding.inputEmail.text != null && binding.inputPassword.text != null && _email.value!!.isNotEmpty() && _password.value!!.isNotEmpty()){
+
+            binding.progressBarLogin.isVisible =  true
+            binding.buttonLogIn.isVisible = false
 
            loginUser(_email.value!!,_password.value!!, context)
 

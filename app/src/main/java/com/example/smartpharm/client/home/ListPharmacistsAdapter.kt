@@ -6,12 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smartpharm.R
-import com.example.smartpharm.model.User
+import com.example.smartpharm.firebase.models.User
 import com.google.gson.Gson
 
 class ListPharmacistsAdapter(val context: FragmentActivity?, var data:List<User>):
@@ -21,9 +20,8 @@ class ListPharmacistsAdapter(val context: FragmentActivity?, var data:List<User>
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.namePharmacy.text = data[position].name
+        holder.namePharmacy.text = data[position].company
         holder.locationPharmacy.text = data[position].locationUser
-
         holder.item.setOnClickListener {
 
             val pharmacy = User(
@@ -36,6 +34,7 @@ class ListPharmacistsAdapter(val context: FragmentActivity?, var data:List<User>
                 typeUser = data[position].typeUser,
                 facebookAccount = data[position].facebookAccount,
                 instagramAccount = data[position].instagramAccount,
+                company = data[position].company
             )
 
             val gson = Gson()
