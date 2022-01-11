@@ -21,7 +21,7 @@
         tools:layout="@layout/oder_detail_fragment" />
     <fragment
         android:id="@+id/destination_Pharmacy_Settings"
-        android:name="com.example.smartpharm.Settings.SettingsFragment"
+        android:name="com.example.smartpharm.settings.SettingsFragment"
         android:label="settings_fragment"
         tools:layout="@layout/settings_fragment" />
     <fragment

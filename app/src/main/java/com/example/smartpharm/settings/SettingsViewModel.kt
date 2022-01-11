@@ -1,4 +1,4 @@
-package com.example.smartpharm.Settings
+package com.example.smartpharm.settings
 
 import androidx.lifecycle.ViewModel
 

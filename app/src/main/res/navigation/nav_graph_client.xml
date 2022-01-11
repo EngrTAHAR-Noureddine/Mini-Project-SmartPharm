@@ -44,7 +44,7 @@
         tools:layout="@layout/medications_list_fragment" />
     <fragment
         android:id="@+id/destination_Settings"
-        android:name="com.example.smartpharm.Settings.SettingsFragment"
+        android:name="com.example.smartpharm.settings.SettingsFragment"
         android:label="settings_fragment"
         tools:layout="@layout/settings_fragment" />
     <fragment
