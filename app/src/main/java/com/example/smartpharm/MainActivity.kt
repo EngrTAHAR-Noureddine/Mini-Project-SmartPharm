@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val pref = getSharedPreferences("TypeUserFile", Context.MODE_PRIVATE)
-        val typeUser = pref.getString("typeUser", null)
+        val typeUser = pref.getString("typeUserFile", null)
 
         Log.d("typeUser", typeUser.toString())
 
@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
             intent = Intent(applicationContext, ClientActivity::class.java)
             startActivity(intent)
             finish()
-        }else if (typeUser!=null && typeUser == "Pharmacist"){
+        }else if (typeUser!=null && typeUser == "Pharmacy"){
             intent = Intent(applicationContext, PharmacistActivity::class.java)
             startActivity(intent)
             finish()
