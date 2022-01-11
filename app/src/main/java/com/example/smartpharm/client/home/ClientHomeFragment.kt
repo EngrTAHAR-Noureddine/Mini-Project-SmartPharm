@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.smartpharm.R
 import com.example.smartpharm.databinding.ClientHomeFragmentBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class ClientHomeFragment : Fragment() {
@@ -40,7 +41,10 @@ class ClientHomeFragment : Fragment() {
                 }
             }
         )
-
+        val navBar = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        if(navBar != null){
+            navBar.isVisible = true
+        }
         return binding.root
     }
 

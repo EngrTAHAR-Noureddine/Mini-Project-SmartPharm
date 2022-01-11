@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".client.pharmacist_detail.medications.MedicationsListFragment">
+    <data>
+        <variable
+            name="medicationsListViewModel"
+            type="com.example.smartpharm.client.pharmacist_detail.medications.MedicationsListViewModel" />
+    </data>
+<FrameLayout
     android:id="@+id/MedicationsListFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/whiteFA"
-    tools:context=".client.pharmacist_detail.medications.MedicationsListFragment">
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -36,6 +43,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/FABAddMedication"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,14 +58,28 @@
             android:layout_marginBottom="8dp"
             android:clickable="true"
             android:contentDescription="@string/fabadd"
+            android:focusable="true"
             android:src="@drawable/ic_add_24"
+            android:visibility="invisible"
             app:backgroundTint="@color/orangeF4"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/InputSearchMedication"
             app:tint="@color/whiteFA"
-            tools:ignore="SpeakableTextPresentCheck"
-            android:focusable="true" />
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ProgressBar
+            android:id="@+id/progressBarMedication"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/green52"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/recycleViewMedications"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/recycleViewMedications" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
+</layout>

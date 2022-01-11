@@ -20,10 +20,11 @@ import com.example.smartpharm.client.pharmacist_detail.details.PharmacyDetailsFr
 import com.example.smartpharm.client.pharmacist_detail.medications.MedicationsListFragment
 import com.example.smartpharm.database.smartDataBase
 import com.example.smartpharm.databinding.PharmacistDetailFragmentBinding
-import com.example.smartpharm.model.User
+import com.example.smartpharm.firebase.models.User
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.gson.Gson
+import com.squareup.picasso.Picasso
 
 class PharmacistDetailFragment : Fragment() {
 
@@ -82,7 +83,7 @@ class PharmacistDetailFragment : Fragment() {
                 val latitude = 28.0339
                 val longitude = 1.6596
                 val url = Uri.parse("geo:$latitude,$longitude")
-                val intent: Intent = Intent(Intent.ACTION_VIEW, Uri.parse(url.toString()))
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url.toString()))
                 try {
                     startActivity(intent)
                 } catch (e: ActivityNotFoundException) {
@@ -98,7 +99,7 @@ class PharmacistDetailFragment : Fragment() {
 
         // ----- Photo -------------------
 
-        binding.imagePharmacy.setImageBitmap(p?.photoUser);
+        if(p!=null) Picasso.with(context).load(p.photoUser).fit().centerCrop().into(binding.imagePharmacy)
 
         //----------------------------------
 
