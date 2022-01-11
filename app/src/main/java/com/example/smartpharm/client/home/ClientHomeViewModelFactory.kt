@@ -3,9 +3,7 @@ package com.example.smartpharm.client.home
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.smartpharm.database.users.UsersDao
 import com.example.smartpharm.databinding.ClientHomeFragmentBinding
-import com.example.smartpharm.login.main_login.LoginViewModel
 
 class ClientHomeViewModelFactory (private val binding: ClientHomeFragmentBinding
                                   ,private val context : FragmentActivity

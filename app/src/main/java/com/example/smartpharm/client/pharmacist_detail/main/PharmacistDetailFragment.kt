@@ -1,4 +1,4 @@
-package com.example.smartpharm.client.pharmacist_detail
+package com.example.smartpharm.client.pharmacist_detail.main
 
 import android.content.ActivityNotFoundException
 import android.content.Context
@@ -17,8 +17,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.smartpharm.R
 import com.example.smartpharm.client.pharmacist_detail.details.PharmacyDetailsFragment
-import com.example.smartpharm.client.pharmacist_detail.medications.MedicationsListFragment
-import com.example.smartpharm.database.smartDataBase
+import com.example.smartpharm.medications_pharmacy.MedicationsListFragment
 import com.example.smartpharm.databinding.PharmacistDetailFragmentBinding
 import com.example.smartpharm.firebase.models.User
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -47,10 +46,9 @@ class PharmacistDetailFragment : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater,R.layout.pharmacist_detail_fragment,container,false)
 
-        val application = requireNotNull(this.activity).application
-        val dataSource = smartDataBase.getInstance(application)?.UsersDao()!!
 
-        val viewModelFactory = PharmacyDetailFragmentFactory(dataSource, binding ,this.requireActivity())
+
+        val viewModelFactory = PharmacyDetailFragmentFactory(binding ,this.requireActivity())
 
         val pharmacyDetailViewModel = ViewModelProvider(this, viewModelFactory)[PharmacistDetailViewModel::class.java]
 

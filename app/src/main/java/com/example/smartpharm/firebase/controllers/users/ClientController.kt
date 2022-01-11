@@ -1,10 +1,11 @@
 package com.example.smartpharm.firebase.controllers.users
 
+
 import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.MutableLiveData
-import com.example.smartpharm.firebase.controllers.UserController
+import com.example.smartpharm.firebase.DataBase
 import com.example.smartpharm.firebase.models.User
 
 
@@ -12,8 +13,9 @@ object ClientController {
 
     var listPharmacies = MutableLiveData<List<User>>()
 
+
     fun getListPharmacies(context: FragmentActivity){
-        UserController.db.collection("User")
+        DataBase.db.collection("User")
             .get()
             .addOnSuccessListener { querySnapshot ->run{
                 if (!querySnapshot.isEmpty) {

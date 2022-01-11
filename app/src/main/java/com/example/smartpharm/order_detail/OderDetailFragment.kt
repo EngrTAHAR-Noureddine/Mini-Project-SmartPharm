@@ -1,4 +1,4 @@
-package com.example.smartpharm.pharmacist.order_detail
+package com.example.smartpharm.order_detail
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle

@@ -1,11 +1,10 @@
 package com.example.smartpharm.firebase.controllers.medications
 
 import android.util.Log
-import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.MutableLiveData
-import com.example.smartpharm.firebase.controllers.UserController
+import com.example.smartpharm.firebase.DataBase
 import com.example.smartpharm.firebase.models.Medication
 import com.example.smartpharm.firebase.models.User
 
@@ -14,7 +13,7 @@ object MedicationController {
     var listMedications = MutableLiveData<List<Medication>?>()
 
     fun getMedicationOf(pharmacy:User?,context:FragmentActivity){
-        UserController.db.collection("Medication")
+        DataBase.db.collection("Medication")
             .get()
             .addOnSuccessListener { querySnapshot ->run{
                 if (!querySnapshot.isEmpty) {

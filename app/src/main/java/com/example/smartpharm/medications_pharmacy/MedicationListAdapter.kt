@@ -1,4 +1,4 @@
-package com.example.smartpharm.client.pharmacist_detail.medications
+package com.example.smartpharm.medications_pharmacy
 
 import android.view.LayoutInflater
 import android.view.View

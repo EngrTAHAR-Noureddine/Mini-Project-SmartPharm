@@ -1,11 +1,10 @@
-package com.example.smartpharm.client.pharmacist_detail
+package com.example.smartpharm.client.pharmacist_detail.main
 
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
-import com.example.smartpharm.database.users.UsersDao
 import com.example.smartpharm.databinding.PharmacistDetailFragmentBinding
 
-class PharmacistDetailViewModel(private val pharmacyDatabase: UsersDao, private val binding: PharmacistDetailFragmentBinding
+class PharmacistDetailViewModel( private val binding: PharmacistDetailFragmentBinding
                                 , private val context : FragmentActivity
 ) : ViewModel() {
     // TODO: Implement the ViewModel

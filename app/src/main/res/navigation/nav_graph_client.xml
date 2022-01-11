@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/destination_Client_Pharmacy_Detail"
-        android:name="com.example.smartpharm.client.pharmacist_detail.PharmacistDetailFragment"
+        android:name="com.example.smartpharm.client.pharmacist_detail.main.PharmacistDetailFragment"
         android:label="pharmacist_detail_fragment"
         tools:layout="@layout/pharmacist_detail_fragment" >
         <action
@@ -39,7 +39,7 @@
     </fragment>
     <fragment
         android:id="@+id/destination_Client_MedicationsList"
-        android:name="com.example.smartpharm.client.pharmacist_detail.medications.MedicationsListFragment"
+        android:name="com.example.smartpharm.medications_pharmacy.MedicationsListFragment"
         android:label="medications_list_fragment"
         tools:layout="@layout/medications_list_fragment" />
     <fragment
@@ -54,7 +54,7 @@
         tools:layout="@layout/pharmacy_details_fragment" />
     <fragment
         android:id="@+id/oderDetailFragment"
-        android:name="com.example.smartpharm.pharmacist.order_detail.OderDetailFragment"
+        android:name="com.example.smartpharm.order_detail.OderDetailFragment"
         android:label="oder_detail_fragment"
         tools:layout="@layout/oder_detail_fragment" >
         <action

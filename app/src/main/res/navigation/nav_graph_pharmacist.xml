@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/destination_Pharmacy_Order_Detail"
-        android:name="com.example.smartpharm.pharmacist.order_detail.OderDetailFragment"
+        android:name="com.example.smartpharm.order_detail.OderDetailFragment"
         android:label="oder_detail_fragment"
         tools:layout="@layout/oder_detail_fragment" />
     <fragment
@@ -26,7 +26,7 @@
         tools:layout="@layout/settings_fragment" />
     <fragment
         android:id="@+id/destination_Pharmacy_Medications_List"
-        android:name="com.example.smartpharm.client.pharmacist_detail.medications.MedicationsListFragment"
+        android:name="com.example.smartpharm.medications_pharmacy.MedicationsListFragment"
         android:label="medications_list_fragment"
         tools:layout="@layout/medications_list_fragment" />
 </navigation>

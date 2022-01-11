@@ -11,17 +11,19 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
 import com.example.smartpharm.R
 import com.example.smartpharm.client.ClientActivity
-import com.example.smartpharm.firebase.controllers.UserController
+import com.example.smartpharm.firebase.DataBase
 import com.example.smartpharm.firebase.models.User
 import com.example.smartpharm.pharmacist.PharmacistActivity
 import com.google.gson.Gson
 
 object LogInController {
+
+
     fun loginUser(email:String,password:String,context: FragmentActivity) {
 
         var privateUser: User?
 
-        UserController.db.collection("User")
+        DataBase.db.collection("User")
             .get()
             .addOnSuccessListener { querySnapshot ->run{
                 if (!querySnapshot.isEmpty) {

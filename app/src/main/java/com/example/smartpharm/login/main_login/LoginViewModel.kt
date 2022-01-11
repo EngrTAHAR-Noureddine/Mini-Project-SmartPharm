@@ -1,7 +1,6 @@
 package com.example.smartpharm.login.main_login
 
 import android.content.SharedPreferences
-import android.opengl.Visibility
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
