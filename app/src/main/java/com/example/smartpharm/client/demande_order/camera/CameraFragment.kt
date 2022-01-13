@@ -24,8 +24,6 @@ import androidx.annotation.RequiresApi
 import androidx.camera.core.*
 import java.util.concurrent.Executors
 import androidx.camera.lifecycle.ProcessCameraProvider
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.commit
 import androidx.navigation.findNavController
 import kotlinx.android.synthetic.main.camera_fragment.*
 import java.io.File
@@ -104,15 +102,15 @@ class CameraFragment : Fragment() {
         imageCapture.takePicture(
             outputOptions, ContextCompat.getMainExecutor(requireContext()), object : ImageCapture.OnImageSavedCallback {
                 override fun onError(exc: ImageCaptureException) {
-                    Log.e(TAG, "Photo capture failed: ${exc.message}", exc)
+                    Log.e(TAG, "Photo capture failed", exc)
                     activity?.findNavController(R.id.myNavHostFragment)?.popBackStack()
                 }
 
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
-                    val savedUri = Uri.fromFile(photoFile)
-                    val msg = "Photo capture succeeded: $savedUri"
-                    Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
-                    Log.d(TAG, msg)
+                    //val savedUri = Uri.fromFile(photoFile)
+                    //val msg = "Photo capture succeeded: $savedUri"
+                    //Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
+                    Log.d(TAG, "Success")
                     //activity?.supportFragmentManager?.popBackStack()
                    activity?.findNavController(R.id.myNavHostFragment)?.popBackStack()
                 }

@@ -91,6 +91,8 @@
     <string name="ajouter_medicament">Ajouter Medicament</string>
     <string name="annulerbtn">Annuler</string>
     <string name="ajouterbtn">Ajouter</string>
+    <string name="progress">Progress</string>
+    <string name="uploading_progress">uploading...0%</string>
 
 
 </resources>
