@@ -74,6 +74,6 @@
             android:id="@+id/back_destination_Client_Order"
             app:destination="@id/destination_Client_Orders"
             app:popUpTo="@id/destination_Client_Orders"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="false" />
     </fragment>
 </navigation>

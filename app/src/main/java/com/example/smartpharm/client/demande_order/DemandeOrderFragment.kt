@@ -1,31 +1,27 @@
 package com.example.smartpharm.client.demande_order
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
-import android.os.Environment
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.MutableLiveData
-import androidx.navigation.findNavController
+import androidx.lifecycle.ViewModelProvider
 import com.example.smartpharm.R
 import com.example.smartpharm.databinding.DemandeOrderFragmentBinding
-import kotlinx.android.synthetic.main.client_home_fragment.*
-import java.io.File
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.smartpharm.client.home.ListPharmacistsAdapter
-
-object FileList{
-    var fileList = MutableLiveData<List<File>>()
-}
-
+import com.example.smartpharm.controllers.FileController.destroyAllFiles
+import com.example.smartpharm.controllers.FileController.emptyDir
+import com.example.smartpharm.controllers.FileController.imagesReader
+import com.example.smartpharm.controllers.FileController.listFile
 
 class DemandeOrderFragment : Fragment() {
 
     private lateinit var binding: DemandeOrderFragmentBinding
+
 
 
     override fun onCreateView(
@@ -33,65 +29,40 @@ class DemandeOrderFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+
         binding = DataBindingUtil.inflate(inflater,R.layout.demande_order_fragment,container,false)
 
-        binding.floatingBtnCamera.setOnClickListener{
+        val viewModelFactory = DemandeOrderFragmentFactory(binding ,this.requireActivity())
 
-            activity?.findNavController(R.id.myNavHostFragment)?.navigate(R.id.to_Camera_Fragment)
+        val demandeOrderViewModel = ViewModelProvider(this, viewModelFactory)[DemandeOrderViewModel::class.java]
 
-        }
+        binding.demandeOrderViewModel = demandeOrderViewModel
+        binding.lifecycleOwner = this
 
-       // var gpath: String = context?.getExternalFilesDir()?.absolutePath
-        //var spath = "Download"
-        var fullpath = getOutputDirectory()
-        Log.w("fullpath", "" + fullpath)
+        imagesReader(requireContext())
 
-        ImageReaderNew(fullpath)
+        binding.GridRecycleView.layoutManager = GridLayoutManager(context, 3)
 
+        listFile.observe(viewLifecycleOwner, {
+               binding.GridRecycleView.adapter = GridImageAdapter(activity, it)
+               Log.v("ObserverListFile", " this is observer")
 
-           FileList.fileList.observe(viewLifecycleOwner, {
-               it?.let {
-                   Log.v("FIleListRecycle", it.size.toString())
-                   binding.GridRecycleView.layoutManager = GridLayoutManager(context, 3)
-                   binding.GridRecycleView.adapter = GridImageAdapter(activity, it)
-               }
-           })
+                binding.floatingBtnCamera.isEnabled = !(listFile.value!=null && listFile.value!!.size >2)
+                binding.floatingBtnCamera.isClickable = !(listFile.value!=null && listFile.value!!.size >2)
+                binding.floatingBtnCamera.backgroundTintList = if(listFile.value!=null && listFile.value!!.size >2)
+                                                                    ColorStateList.valueOf(Color.LTGRAY) else  ColorStateList.valueOf(Color.rgb(48,54,61))
 
-
-
+        })
 
         return binding.root
     }
-    private fun getOutputDirectory(): File {
-        val mediaDir = context?.externalMediaDirs?.firstOrNull()?.let {
-            File(it, resources.getString(R.string.app_name)).apply { mkdirs() } }
-        return if (mediaDir != null && mediaDir.exists())
-            mediaDir else requireContext().filesDir
-    }
+
 
     override fun onDestroy() {
         super.onDestroy()
-        FileList.fileList.value = null
+        destroyAllFiles()
+        Log.v("Destroy", "destroy files")
     }
 
-    private fun ImageReaderNew(root: File) {
-        val files: ArrayList<File> = ArrayList()
-        val listAllFiles = root.listFiles()
-        Log.w("listAllFiles", "size : " + listAllFiles.size)
-        if (listAllFiles != null && listAllFiles.isNotEmpty()) {
-            for (currentFile in listAllFiles) {
-                if (currentFile.name.endsWith(".jpg")) {
-                    // File absolute path
-                    Log.e("fullpath", currentFile.absolutePath)
-                    // File Name
-                    Log.e("fullpath", currentFile.name)
-                    files.add(currentFile.absoluteFile)
-                }
-            }
-            FileList.fileList.value = files
-            Log.w("fileList", "" + FileList.fileList.value?.size)
 
-
-        }
-    }
 }

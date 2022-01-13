@@ -9,16 +9,14 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smartpharm.R
 import java.io.File
-import android.graphics.BitmapFactory
-
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory.decodeFile
 import android.os.Build
 import androidx.annotation.RequiresApi
-import java.nio.file.Files
+import com.example.smartpharm.controllers.FileController.destroyFileSystem
 
 
-class GridImageAdapter(val context: FragmentActivity?,var data: List<File>):
+class GridImageAdapter(val context: FragmentActivity?,var data: List<File>?):
     RecyclerView.Adapter<GridViewHolder>()  {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GridViewHolder {
         return GridViewHolder(LayoutInflater.from(context).inflate(R.layout.image_view_display_item, parent, false))
@@ -26,21 +24,21 @@ class GridImageAdapter(val context: FragmentActivity?,var data: List<File>):
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: GridViewHolder, position: Int) {
-        //var myBitmap : Bitmap = decodeFile(FileList.fileList.value?.get(position)?.absolutePath)
-        var myBitmap : Bitmap = decodeFile(data[position].absolutePath)
-        holder.photoOrdonnance.setImageBitmap(myBitmap)
-        holder.photoOrdonnance.setOnClickListener{
-            holder.deleteBtn.visibility = View.VISIBLE
-        }
-        holder.deleteBtn.setOnClickListener{
-           // Files.deleteIfExists(FileList.fileList.value?.get(position)?.toPath())
-            FileList.fileList.value?.get(position)?.delete()
-            holder.photoOrdonnance.visibility = View.GONE
-            holder.deleteBtn.visibility = View.GONE
+        if(!data.isNullOrEmpty()){
+            var myBitmap : Bitmap = decodeFile(data!![position].absolutePath)
+            holder.photoOrdonnance.setImageBitmap(myBitmap)
+            holder.photoOrdonnance.setOnClickListener{
+                holder.deleteBtn.visibility = View.VISIBLE
+            }
+            holder.deleteBtn.setOnClickListener{
+                destroyFileSystem(position)
+                holder.photoOrdonnance.visibility = View.GONE
+                holder.deleteBtn.visibility = View.GONE
+            }
         }
     }
 
-    override fun getItemCount(): Int = data.size
+    override fun getItemCount(): Int = if(!data.isNullOrEmpty()) data?.size!! else 0
 
 }
 

@@ -46,7 +46,7 @@ class LoginViewModel(private val binding: LoginFragmentBinding,
            loginUser(_email.value!!,_password.value!!, context)
 
         }else{
-            val text = "email or password is Empty"
+            val text = "email or password is Empty ${binding.inputEmail.text}"
             val duration = Toast.LENGTH_SHORT
             val toast = Toast.makeText(context, text, duration)
             toast.show()

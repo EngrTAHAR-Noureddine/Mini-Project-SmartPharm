@@ -31,6 +31,7 @@
 
             <ImageButton
                 android:id="@+id/buttonPhone"
+                android:onClick="@{()->pharmacyDetailViewModel.callPharmacy()}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -47,6 +48,7 @@
 
             <ImageButton
                 android:id="@+id/buttonMapLocation"
+                android:onClick="@{()->pharmacyDetailViewModel.takeToMap()}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -133,6 +135,7 @@
 
             <Button
                 android:id="@+id/ButtonGoOrder"
+                android:onClick="@{()->pharmacyDetailViewModel.goToOrder()}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
