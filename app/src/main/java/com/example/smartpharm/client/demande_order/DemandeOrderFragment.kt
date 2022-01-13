@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.example.smartpharm.R
 import com.example.smartpharm.databinding.DemandeOrderFragmentBinding
+
+
 
 class DemandeOrderFragment : Fragment() {
 
@@ -20,11 +23,21 @@ class DemandeOrderFragment : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater,R.layout.demande_order_fragment,container,false)
 
+        binding.floatingBtnCamera.setOnClickListener{
 
+            activity?.findNavController(R.id.myNavHostFragment)?.navigate(R.id.to_Camera_Fragment)
+
+        }
 
 
         return binding.root
     }
+
+    /*private fun selectImage(){
+
+
+
+    }*/
 
 
 

@@ -18,7 +18,11 @@
         android:id="@+id/destination_Client_Orders"
         android:name="com.example.smartpharm.client.demande_order.DemandeOrderFragment"
         android:label="demande_order_fragment"
-        tools:layout="@layout/demande_order_fragment" />
+        tools:layout="@layout/demande_order_fragment" >
+        <action
+            android:id="@+id/to_Camera_Fragment"
+            app:destination="@id/destination_Camera" />
+    </fragment>
     <fragment
         android:id="@+id/destination_Client_List_Orders"
         android:name="com.example.smartpharm.client.orders.ListOrdersFragment"
@@ -60,5 +64,14 @@
         <action
             android:id="@+id/action_oderDetailFragment_to_destination_Client_List_Orders"
             app:destination="@id/destination_Client_List_Orders" />
+    </fragment>
+    <fragment
+        android:id="@+id/destination_Camera"
+        android:name="com.example.smartpharm.client.demande_order.camera.CameraFragment"
+        android:label="camera_fragment"
+        tools:layout="@layout/camera_fragment" >
+        <action
+            android:id="@+id/action_destination_Camera_to_destination_Client_Orders"
+            app:destination="@id/destination_Client_Orders" />
     </fragment>
 </navigation>

@@ -84,6 +84,8 @@
     <string name="byCamera">Par appareil photo</string>
     <string name="cancelBtn">Annuler</string>
     <string name="byGallery">Par gallery</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="flash_btn">flash_btn</string>
 
 
 </resources>
