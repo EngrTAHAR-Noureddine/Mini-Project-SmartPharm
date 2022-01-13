@@ -8,11 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.smartpharm.R
 import com.example.smartpharm.databinding.MedicationsListFragmentBinding
 import com.example.smartpharm.firebase.models.User
+import com.example.smartpharm.medications_pharmacy.addmedication.DialogAddMedicationFragment
 import com.google.gson.Gson
 
 class MedicationsListFragment : Fragment() {
@@ -64,6 +66,10 @@ class MedicationsListFragment : Fragment() {
                 }
             }
         )
+
+        binding.FABAddMedication.setOnClickListener{
+            DialogAddMedicationFragment().showNow(this.parentFragmentManager,"DialogBox")
+        }
 
 
         return binding.root

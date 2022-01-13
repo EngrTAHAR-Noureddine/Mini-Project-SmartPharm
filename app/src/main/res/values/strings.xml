@@ -87,6 +87,10 @@
     <string name="take_photo">Take Photo</string>
     <string name="flash_btn">flash_btn</string>
     <string name="deleteicon">deleteIcon</string>
+    <string name="medicationname">Ajouter...</string>
+    <string name="ajouter_medicament">Ajouter Medicament</string>
+    <string name="annulerbtn">Annuler</string>
+    <string name="ajouterbtn">Ajouter</string>
 
 
 </resources>
