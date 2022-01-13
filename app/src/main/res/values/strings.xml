@@ -86,6 +86,7 @@
     <string name="byGallery">Par gallery</string>
     <string name="take_photo">Take Photo</string>
     <string name="flash_btn">flash_btn</string>
+    <string name="deleteicon">deleteIcon</string>
 
 
 </resources>

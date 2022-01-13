@@ -24,6 +24,7 @@ import androidx.annotation.RequiresApi
 import androidx.camera.core.*
 import java.util.concurrent.Executors
 import androidx.camera.lifecycle.ProcessCameraProvider
+import androidx.navigation.findNavController
 import kotlinx.android.synthetic.main.camera_fragment.*
 import java.io.File
 import java.nio.ByteBuffer
@@ -102,6 +103,7 @@ class CameraFragment : Fragment() {
             outputOptions, ContextCompat.getMainExecutor(requireContext()), object : ImageCapture.OnImageSavedCallback {
                 override fun onError(exc: ImageCaptureException) {
                     Log.e(TAG, "Photo capture failed: ${exc.message}", exc)
+                    activity?.findNavController(R.id.myNavHostFragment)?.navigate(R.id.back_destination_Client_Order)
                 }
 
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
@@ -109,10 +111,11 @@ class CameraFragment : Fragment() {
                     val msg = "Photo capture succeeded: $savedUri"
                     Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
                     Log.d(TAG, msg)
+                    activity?.findNavController(R.id.myNavHostFragment)?.navigate(R.id.back_destination_Client_Order)
                 }
             })
 
-        activity?.supportFragmentManager?.popBackStack()
+
     }
 
     @SuppressLint("RestrictedApi")

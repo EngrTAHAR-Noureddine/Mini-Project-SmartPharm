@@ -71,7 +71,9 @@
         android:label="camera_fragment"
         tools:layout="@layout/camera_fragment" >
         <action
-            android:id="@+id/action_destination_Camera_to_destination_Client_Orders"
-            app:destination="@id/destination_Client_Orders" />
+            android:id="@+id/back_destination_Client_Order"
+            app:destination="@id/destination_Client_Orders"
+            app:popUpTo="@id/destination_Client_Orders"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
