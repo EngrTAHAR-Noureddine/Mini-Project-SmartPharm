@@ -1,6 +1,7 @@
 package com.example.smartpharm.firebase.controllers.orders
 
 import android.content.Context
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.example.smartpharm.firebase.DataBase.db
@@ -12,7 +13,7 @@ import kotlin.collections.ArrayList
 
 object OrderController {
 
-    var listOrders = MutableLiveData<List<Order>>()
+    var listOrders = MutableLiveData<MutableList<Order>?>()
 
     lateinit var dataBaseRef : DatabaseReference
 
@@ -53,6 +54,34 @@ object OrderController {
             .set(order)
             .addOnSuccessListener { Toast.makeText(context, "Success Upload", Toast.LENGTH_SHORT).show() }
             .addOnFailureListener { Toast.makeText(context, "Failed Upload", Toast.LENGTH_SHORT).show()}
+    }
+
+    fun getOrderOf(user:User?,context: Context){
+        db.collection("Order")
+            .get()
+            .addOnSuccessListener { querySnapshot ->run{
+                if (!querySnapshot.isEmpty) {
+                    var list:MutableList<Order>? = querySnapshot.toObjects(Order::class.java)
+                    listOrders.value =if(user!=null) when(user.typeUser){
+                                                                            "Client" -> (list?.filter { item  -> item.userEmail == user.emailUser }) as MutableList<Order>?
+                                                                             else -> (list?.filter { item  -> item.pharmacyEmail == user.emailUser }) as MutableList<Order>?
+                                                                        } else null
+                }else{
+                    val text = "The Pharmacy hasn't the medications"
+                    val duration = Toast.LENGTH_SHORT
+                    val toast = Toast.makeText(context, text, duration)
+                    toast.show()
+                }
+            }
+            }
+            .addOnFailureListener { exception ->run{
+                Log.w("FIRESTORE", "Error getting documents $exception")
+                val text = "Out Connexion"
+                val duration = Toast.LENGTH_SHORT
+                val toast = Toast.makeText(context, text, duration)
+                toast.show()
+            }
+            }
     }
 
 
