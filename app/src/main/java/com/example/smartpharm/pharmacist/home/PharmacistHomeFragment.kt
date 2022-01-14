@@ -47,7 +47,7 @@ class PharmacistHomeFragment : Fragment() {
 
         pharmacistHomeViewModel.listPharmacyOrders.observe(
             viewLifecycleOwner,{
-                //TODO add adapter
+                this.binding.recyclerViewPharmacyOrders.adapter = ListPharmacyOrder(activity,it)
             }
         )
 
