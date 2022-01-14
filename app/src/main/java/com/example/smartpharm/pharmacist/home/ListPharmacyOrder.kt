@@ -9,6 +9,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smartpharm.R
+import com.example.smartpharm.firebase.controllers.orders.OrderController.changeStateOrder
 import com.example.smartpharm.firebase.controllers.orders.OrderController.deleteOrder
 import com.example.smartpharm.firebase.models.Order
 
@@ -19,13 +20,13 @@ class ListPharmacyOrder(val context: FragmentActivity?, var data:List<Order>?):
     }
 
     override fun onBindViewHolder(holder: PharmacyOrderViewHolder, position: Int) {
-        holder.testItem.text =if(data!=null && data!!.isNotEmpty()) data!![position].state+"-"+ data!![position].userEmail else ""
+        holder.testItem.text =if(data!=null && data!!.isNotEmpty()) data!![position].state+"\n"+ data!![position].idOrder else ""
         holder.removeButton.isVisible = false
         holder.item.setOnClickListener {
             holder.removeButton.isVisible = !holder.removeButton.isVisible
         }
         holder.removeButton.setOnClickListener {
-            if(!data.isNullOrEmpty()) deleteOrder(data!![position],context!!)
+            if(!data.isNullOrEmpty()) changeStateOrder(data!![position],context!!,2)
         }
 
     }
