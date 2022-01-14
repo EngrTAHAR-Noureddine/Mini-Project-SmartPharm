@@ -7,7 +7,6 @@ import android.net.Uri
 import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.findNavController
@@ -19,11 +18,10 @@ import com.example.smartpharm.firebase.models.User
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import com.google.gson.Gson
-import com.google.firebase.storage.StorageReference
-import android.app.ProgressDialog
 import com.example.smartpharm.client.demande_order.progressdialog.CustomProgressDialog
 import com.example.smartpharm.client.demande_order.progressdialog.ProgressValue.updateProgress
-import com.example.smartpharm.medications_pharmacy.addmedication.DialogAddMedicationFragment
+import com.example.smartpharm.firebase.controllers.orders.OrderController.createOrder
+import com.example.smartpharm.firebase.controllers.orders.OrderController.postOrder
 
 
 class DemandeOrderViewModel(private val binding: DemandeOrderFragmentBinding,
@@ -53,50 +51,69 @@ class DemandeOrderViewModel(private val binding: DemandeOrderFragmentBinding,
         }
     }
 
-    fun acceptOrder(){ //"PharmacyProfile"  - "pharmacyProfile"
+    fun acceptOrder() { //"PharmacyProfile"  - "pharmacyProfile"
         val gson = Gson()
-        val stringPharmacy:String? = getData("PharmacyProfile", "pharmacyProfile")
-        val stringUser:String? = getData("UserProfile", "userProfile")
-        val json :String = if(stringPharmacy!=null) stringPharmacy!! else ""
-        val json2 :String = if(stringUser!=null) stringUser!! else ""
-        val pharmacy : User? = gson.fromJson(json, User::class.java)
-        val user : User? = gson.fromJson(json2, User::class.java)
-
+        val json: String = getData("PharmacyProfile", "pharmacyProfile") ?: ""
+        val json2: String = getData("UserProfile", "userProfile") ?: ""
+        val pharmacy: User? = gson.fromJson(json, User::class.java)
+        val user: User? = gson.fromJson(json2, User::class.java)
+        var listPhotos: ArrayList<String> = ArrayList()
+        var note: String = if (binding.inputNote.text != null) binding.inputNote.text.toString() else ""
         val storage = Firebase.storage
         val storageRef = storage.reference
 
-
-        if(listFile.value!=null){
-            for ( item in listFile.value!!){
-                var file = Uri.fromFile(item)
-                val riversRef = storageRef.child("ImagesSmartPharm/${file.lastPathSegment}")
-                var uploadTask = riversRef.putFile(file)
-                Log.v("UploadFile", "I'm in upload btn")
-                uploadTask.addOnProgressListener {
-                    val progress :Double = (100.0 * it.bytesTransferred) / it.totalByteCount
-                    Log.d("UploadFile", "Upload is $progress% done")
-                    updateProgress(progress)
-                    if(!dialogBox.isAdded){
-                        dialogBox.isCancelable = false
-                        dialogBox.showNow(context.supportFragmentManager,"Uploading")
-                    }
-                    //CustomProgressDialog().showsDialog = true
-
-
-
-                }.addOnPausedListener {
-                    Log.d("UploadFile", "Upload is paused")
-                }.addOnFailureListener {
-
-                    Log.v("UploadFile", "Failed Upload")
-                    if(dialogBox.isAdded){dialogBox.dismiss()}
-                    Toast.makeText(context,"Failed Upload", Toast.LENGTH_SHORT).show()
-                }.addOnSuccessListener {
-                    Log.v("UploadFile", "Success Upload")
-                    if(dialogBox.isAdded){dialogBox.dismiss()}
-                    Toast.makeText(context,"Success Upload", Toast.LENGTH_SHORT).show()
+        if (user != null && pharmacy != null) {
+            if (listFile.value != null) {
+                for (file in listFile.value!!) {
+                    var item = Uri.fromFile(file)
+                    item.lastPathSegment?.let { listPhotos.add(it) }
                 }
+
+                for (item in listFile.value!!) {
+
+                    var file = Uri.fromFile(item)
+                    val riversRef = storageRef.child("ImagesSmartPharm/${file.lastPathSegment}")
+                    var uploadTask = riversRef.putFile(file)
+
+                    uploadTask.addOnProgressListener {
+                        val progress: Double = (100.0 * it.bytesTransferred) / it.totalByteCount
+                        updateProgress(progress)
+                        if (!dialogBox.isAdded) {
+                            dialogBox.isCancelable = false
+                            dialogBox.showNow(context.supportFragmentManager, "Uploading")
+                        }
+
+                    }.addOnPausedListener {
+                        Log.d("UploadFile", "Upload is paused")
+                    }.addOnFailureListener {
+
+                        if (dialogBox.isAdded) {
+                            dialogBox.dismiss()
+                        }
+                        Toast.makeText(context, "Failed Upload", Toast.LENGTH_SHORT).show()
+                    }.addOnSuccessListener {
+
+                        if (file.lastPathSegment == listPhotos.last()) {
+                                if (dialogBox.isAdded) {
+                                    dialogBox.dismiss()
+                                }
+                                val order = createOrder(
+                                    user = user,
+                                    pharmacy = pharmacy,
+                                    note = note,
+                                    files = listPhotos,
+                                    state = "En cours"
+                                )
+                                postOrder(order, context)
+                                declineOrder()
+                        }
+                    }
+                }
+            } else {
+                Toast.makeText(context, "Il n'y a pas des photos", Toast.LENGTH_SHORT).show()
             }
+        }else{
+            Toast.makeText(context, "Se connecter", Toast.LENGTH_SHORT).show()
         }
 
     }
@@ -108,5 +125,6 @@ class DemandeOrderViewModel(private val binding: DemandeOrderFragmentBinding,
     fun declineOrder(){
         binding.inputNote.text.clear()
         destroyAllFiles()
+        context.findNavController(R.id.myNavHostFragment).popBackStack()
     }
 }

@@ -64,6 +64,7 @@ dependencies {
     implementation "androidx.room:room-runtime:$version_room"
     implementation 'com.android.volley:volley:1.2.1'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
+    implementation 'com.google.firebase:firebase-database-ktx:20.0.3'
     annotationProcessor "androidx.room:room-compiler:$version_room"
     kapt "androidx.room:room-compiler:$version_room"
     implementation "androidx.lifecycle:lifecycle-extensions:$version_lifecycle_extensions"

@@ -22,6 +22,11 @@
         <action
             android:id="@+id/to_Camera_Fragment"
             app:destination="@id/destination_Camera" />
+        <action
+            android:id="@+id/action_destination_Client_Orders_to_destination_Client_Pharmacy_Detail"
+            app:destination="@id/destination_Client_Pharmacy_Detail"
+            app:popUpTo="@id/destination_Client_Pharmacy_Detail"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/destination_Client_List_Orders"
