@@ -98,7 +98,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
-                    android:id="@+id/inputNote"
+                    android:id="@+id/inputNoteUser"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -109,8 +109,9 @@
                     android:gravity="start|top"
                     android:hint="@string/PlaceholderNote"
                     android:importantForAutofill="no"
-                    android:inputType="textMultiLine"
+                    android:inputType="textMultiLine|text"
                     android:minHeight="48dp"
+                    android:text=""
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
