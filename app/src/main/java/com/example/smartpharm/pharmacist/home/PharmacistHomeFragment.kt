@@ -11,6 +11,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.smartpharm.R
 import com.example.smartpharm.databinding.PharmacistHomeFragmentBinding
+import com.example.smartpharm.firebase.controllers.orders.OrderController.listState
+import com.example.smartpharm.firebase.models.Order
 import com.example.smartpharm.firebase.models.User
 import com.google.gson.Gson
 
@@ -47,7 +49,8 @@ class PharmacistHomeFragment : Fragment() {
 
         pharmacistHomeViewModel.listPharmacyOrders.observe(
             viewLifecycleOwner,{
-                this.binding.recyclerViewPharmacyOrders.adapter = ListPharmacyOrder(activity,it)
+                var list : List<Order>? =if(it!=null) it.filter { item -> item.state != listState[1] }.sortedBy { o -> o.state } else null
+                this.binding.recyclerViewPharmacyOrders.adapter = ListPharmacyOrder(activity,list)
             }
         )
 
