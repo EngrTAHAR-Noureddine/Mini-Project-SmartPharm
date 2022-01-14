@@ -7,6 +7,7 @@ import com.google.gson.annotations.SerializedName
 
 
 data class User(
+    @SerializedName("idUser") var idUser: String = "",
     @SerializedName("emailUser") var emailUser: String = "",
     @SerializedName("facebookAccount") var facebookAccount: String = "",
     @SerializedName("instagramAccount") var instagramAccount: String = "",
