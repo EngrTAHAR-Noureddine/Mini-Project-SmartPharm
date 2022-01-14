@@ -10,7 +10,7 @@ import com.example.smartpharm.firebase.models.Medication
 import com.example.smartpharm.firebase.models.User
 
 class MedicationsListViewModel(val user: User?, private val binding: MedicationsListFragmentBinding, private val context: FragmentActivity): ViewModel() {
-    val listMedications : MutableLiveData<List<Medication>?>
+    val listMedications : MutableLiveData<MutableList<Medication>?>
         get() = MedicationController.listMedications
 
     init{
