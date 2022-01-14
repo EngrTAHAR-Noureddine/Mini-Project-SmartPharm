@@ -7,6 +7,7 @@ import android.net.Uri
 import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.findNavController
@@ -21,17 +22,24 @@ import com.google.gson.Gson
 import com.example.smartpharm.client.demande_order.progressdialog.CustomProgressDialog
 import com.example.smartpharm.client.demande_order.progressdialog.ProgressValue.updateProgress
 import com.example.smartpharm.firebase.controllers.orders.OrderController.createOrder
+import com.example.smartpharm.firebase.controllers.orders.OrderController.listState
+import com.example.smartpharm.firebase.controllers.orders.OrderController.noteOrder
 import com.example.smartpharm.firebase.controllers.orders.OrderController.postOrder
 
 
 class DemandeOrderViewModel(private val binding: DemandeOrderFragmentBinding,
                             private val context : FragmentActivity
 ) : ViewModel() {
-     private val numberPhotos = MutableLiveData<Int?>()
-     private val dialogBox : CustomProgressDialog = CustomProgressDialog()
+    private val numberPhotos = MutableLiveData<Int?>()
+    private val dialogBox : CustomProgressDialog = CustomProgressDialog()
+
+    init {
+        noteOrder.value = ""
+    }
 
 
     fun takePhoto(){
+        noteOrder.value = if(binding.inputNoteUser.editableText != null) binding.inputNoteUser.editableText.toString() else "none"
         numberPhotos.value = if(listFile.value!=null) listFile.value!!.size else 0
         if(numberPhotos.value!! <3){
             context.findNavController(R.id.myNavHostFragment).navigate(R.id.to_Camera_Fragment)
@@ -58,7 +66,13 @@ class DemandeOrderViewModel(private val binding: DemandeOrderFragmentBinding,
         val pharmacy: User? = gson.fromJson(json, User::class.java)
         val user: User? = gson.fromJson(json2, User::class.java)
         var listPhotos: ArrayList<String> = ArrayList()
-        var note: String = if (binding.inputNote.text != null) binding.inputNote.text.toString() else ""
+
+        noteOrder.value = if(noteOrder.value!=null && binding.inputNoteUser.editableText != null)
+                                binding.inputNoteUser.editableText.toString() else "none"
+
+        Log.d("UploadFile", "value : ${noteOrder.value.toString()}")
+        Log.d("UploadFile", "EditText : ${binding.inputNoteUser.editableText}")
+
         val storage = Firebase.storage
         val storageRef = storage.reference
 
@@ -93,6 +107,7 @@ class DemandeOrderViewModel(private val binding: DemandeOrderFragmentBinding,
                         Toast.makeText(context, "Failed Upload", Toast.LENGTH_SHORT).show()
                     }.addOnSuccessListener {
 
+
                         if (file.lastPathSegment == listPhotos.last()) {
                                 if (dialogBox.isAdded) {
                                     dialogBox.dismiss()
@@ -100,9 +115,9 @@ class DemandeOrderViewModel(private val binding: DemandeOrderFragmentBinding,
                                 val order = createOrder(
                                     user = user,
                                     pharmacy = pharmacy,
-                                    note = note,
+                                    note = noteOrder.value!!,
                                     files = listPhotos,
-                                    state = "En cours"
+                                    state = listState[0]
                                 )
                                 postOrder(order, context)
                                 declineOrder()
@@ -123,7 +138,8 @@ class DemandeOrderViewModel(private val binding: DemandeOrderFragmentBinding,
     }
 
     fun declineOrder(){
-        binding.inputNote.text.clear()
+        binding.inputNoteUser.text.clear()
+        noteOrder.value=null
         destroyAllFiles()
         context.findNavController(R.id.myNavHostFragment).popBackStack()
     }
