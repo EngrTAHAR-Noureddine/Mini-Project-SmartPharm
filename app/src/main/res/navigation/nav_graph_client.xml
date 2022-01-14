@@ -68,7 +68,9 @@
         tools:layout="@layout/oder_detail_fragment" >
         <action
             android:id="@+id/action_oderDetailFragment_to_destination_Client_List_Orders"
-            app:destination="@id/destination_Client_List_Orders" />
+            app:destination="@id/destination_Client_List_Orders"
+            app:popUpTo="@id/destination_Client_List_Orders"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/destination_Camera"

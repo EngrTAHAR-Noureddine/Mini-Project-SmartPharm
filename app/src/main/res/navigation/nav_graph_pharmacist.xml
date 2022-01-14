@@ -18,7 +18,13 @@
         android:id="@+id/destination_Pharmacy_Order_Detail"
         android:name="com.example.smartpharm.order_detail.OderDetailFragment"
         android:label="oder_detail_fragment"
-        tools:layout="@layout/oder_detail_fragment" />
+        tools:layout="@layout/oder_detail_fragment" >
+        <action
+            android:id="@+id/action_destination_Pharmacy_Order_Detail_to_destination_Pharmacy_Home"
+            app:destination="@id/destination_Pharmacy_Home"
+            app:popUpTo="@id/destination_Pharmacy_Home"
+            app:popUpToInclusive="false" />
+    </fragment>
     <fragment
         android:id="@+id/destination_Pharmacy_Settings"
         android:name="com.example.smartpharm.settings.SettingsFragment"
