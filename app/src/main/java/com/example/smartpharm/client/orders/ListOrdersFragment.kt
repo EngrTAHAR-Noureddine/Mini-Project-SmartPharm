@@ -49,11 +49,11 @@ class ListOrdersFragment : Fragment() {
         this.binding.RecycleViewListOrdersUser.layoutManager = LinearLayoutManager(activity)
 
         clientHomeViewModel.listUserOrders.observe(
-            viewLifecycleOwner,{
-                var list : List<Order>? =if(it!=null) it.sortedBy { o -> o.state } else null
-                this.binding.RecycleViewListOrdersUser.adapter = ListPharmacyOrder(activity,list)
-            }
-        )
+            viewLifecycleOwner
+        ) {
+            var list: List<Order>? = it?.sortedBy { o -> o.state }
+            this.binding.RecycleViewListOrdersUser.adapter = ListPharmacyOrder(activity, list)
+        }
 
         return binding.root
     }

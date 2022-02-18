@@ -45,7 +45,7 @@ object MedicationController {
                 .set(medication)
                 .addOnSuccessListener {
                     var list :MutableList<Medication>?  = listMedications.value
-                    if(list!=null) list.add(medication)
+                    list?.add(medication)
                     listMedications.value = list
 
                     Toast.makeText(context, "Success Upload", Toast.LENGTH_SHORT).show() }

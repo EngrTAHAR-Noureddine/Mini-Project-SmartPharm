@@ -58,14 +58,14 @@ class MedicationsListFragment : Fragment() {
         this.binding.recycleViewMedications.layoutManager = LinearLayoutManager(activity)
 
         medicationsListViewModel.listMedications.observe(
-            viewLifecycleOwner,  {
-                it?.let{
-                    binding.progressBarMedication.isVisible = false
-                    this.binding.recycleViewMedications.isVisible = true
-                    this.binding.recycleViewMedications.adapter = MedicationListAdapter(activity,it)
-                }
+            viewLifecycleOwner
+        ) {
+            it?.let {
+                binding.progressBarMedication.isVisible = false
+                this.binding.recycleViewMedications.isVisible = true
+                this.binding.recycleViewMedications.adapter = MedicationListAdapter(activity, it)
             }
-        )
+        }
 
         binding.FABAddMedication.setOnClickListener{
             DialogAddMedicationFragment().showNow(this.parentFragmentManager,"DialogBox")
