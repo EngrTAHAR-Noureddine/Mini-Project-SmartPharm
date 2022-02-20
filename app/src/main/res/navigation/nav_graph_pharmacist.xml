@@ -11,7 +11,7 @@
         android:label="pharmacist_home_fragment"
         tools:layout="@layout/pharmacist_home_fragment" >
         <action
-            android:id="@+id/to_Pharmacy_Order_Detail"
+            android:id="@+id/action_destination_to_Pharmacy_Order_Detail"
             app:destination="@id/destination_Pharmacy_Order_Detail" />
     </fragment>
     <fragment

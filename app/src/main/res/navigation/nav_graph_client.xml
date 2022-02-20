@@ -34,7 +34,7 @@
         android:label="list_orders_fragment"
         tools:layout="@layout/list_orders_fragment" >
         <action
-            android:id="@+id/action_destination_Client_List_Orders_to_oderDetailFragment"
+            android:id="@+id/action_destination_toOrder_Detail"
             app:destination="@id/oderDetailFragment" />
     </fragment>
     <fragment

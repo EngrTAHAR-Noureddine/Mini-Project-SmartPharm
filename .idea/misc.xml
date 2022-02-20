@@ -35,7 +35,7 @@
         <entry key="app/src/main/res/layout/login_fragment.xml" value="0.43583815028901735" />
         <entry key="app/src/main/res/layout/medication_list_fragment.xml" value="0.29030797101449274" />
         <entry key="app/src/main/res/layout/medications_list_fragment.xml" value="0.302536231884058" />
-        <entry key="app/src/main/res/layout/oder_detail_fragment.xml" value="0.302536231884058" />
+        <entry key="app/src/main/res/layout/oder_detail_fragment.xml" value="0.5" />
         <entry key="app/src/main/res/layout/one_medicament_item.xml" value="0.3170289855072464" />
         <entry key="app/src/main/res/layout/ordennace_images_recycle_view.xml" value="0.2957427536231884" />
         <entry key="app/src/main/res/layout/pharmacist_detail_fragment.xml" value="0.3170289855072464" />
@@ -44,7 +44,7 @@
         <entry key="app/src/main/res/layout/pharmacy_medication_item_both.xml" value="0.2966485507246377" />
         <entry key="app/src/main/res/layout/pharmacy_order_item.xml" value="0.2966485507246377" />
         <entry key="app/src/main/res/layout/settings_fragment.xml" value="0.33" />
-        <entry key="app/src/main/res/menu/menu_client.xml" value="0.3541666666666667" />
+        <entry key="app/src/main/res/menu/menu_client.xml" value="0.22" />
         <entry key="app/src/main/res/menu/menu_pharmacist.xml" value="0.3541666666666667" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3703125" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3703125" />
