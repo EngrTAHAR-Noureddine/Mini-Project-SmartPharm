@@ -2,9 +2,12 @@ package com.example.smartpharm.controllers
 
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.smartpharm.R
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 import java.io.File
 
 
@@ -72,7 +75,25 @@ object FileController {
         }
     }
 
+    fun returnPhotos(files: ArrayList<String>){
+        val storage = Firebase.storage
+        val storageRef = storage.reference
+        val fileImages: ArrayList<File> = ArrayList()
+        for (f in files){
+            Log.v("PHOTOTAG","File name is  ${f}")
+            val riversRef = storageRef.child("ImagesSmartPharm/${f}")
+            val localFile = File.createTempFile(f, "jpg")
+            riversRef.getFile(localFile).addOnSuccessListener {
+                Log.v("PHOTOTAG","Success downloading photo")
+               fileImages.add(localFile)
+               _listFile.value = fileImages
+            }.addOnFailureListener {
+                Log.v("PHOTOTAG","FAILED downloading photo")
+            }
+        }
 
+        Log.v("PHOTOTAG","_listFile is Empty ${_listFile.value.isNullOrEmpty()}")
+    }
 
 
 }
