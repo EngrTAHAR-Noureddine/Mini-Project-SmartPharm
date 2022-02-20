@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,6 +16,7 @@ import com.example.smartpharm.databinding.ListOrdersFragmentBinding
 import com.example.smartpharm.firebase.models.Order
 import com.example.smartpharm.firebase.models.User
 import com.example.smartpharm.pharmacist.home.ListPharmacyOrder
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.gson.Gson
 
 class ListOrdersFragment : Fragment() {
@@ -53,6 +55,11 @@ class ListOrdersFragment : Fragment() {
         ) {
             var list: List<Order>? = it?.sortedBy { o -> o.state }
             this.binding.RecycleViewListOrdersUser.adapter = ListPharmacyOrder(activity, list)
+        }
+
+        val navBar = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        if(navBar != null){
+            navBar.isVisible = true
         }
 
         return binding.root
