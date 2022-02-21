@@ -7,11 +7,12 @@ import androidx.lifecycle.MutableLiveData
 import com.example.smartpharm.firebase.DataBase.db
 import com.example.smartpharm.firebase.models.Order
 import com.example.smartpharm.firebase.models.User
+import com.example.smartpharm.firebase.notification.NotificationController.createNotification
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import java.util.*
-import kotlin.collections.ArrayList
+
 
 object OrderController {
 
@@ -27,11 +28,13 @@ object OrderController {
         val mapPharmacy: Map<String, String> = mapOf( "namePharmacy" to pharmacy.company,
                                                     "locationPharmacy" to pharmacy.locationUser,
                                                     "photoPharmacy" to pharmacy.photoUser ,
+                                                    "idPharmacy" to pharmacy.idUser,
                                                     "phonePharmacy" to pharmacy.phoneNumber
                                                     )
         val mapUser: Map<String, String> = mapOf(   "nameUser" to user.name,
                                                     "locationUser" to user.locationUser,
                                                     "photoUser" to user.photoUser ,
+                                                    "idUser" to user.idUser,
                                                     "phoneUser" to user.phoneNumber
                                                 )
 
@@ -52,7 +55,12 @@ object OrderController {
     fun postOrder(order:Order,context:Context){
         db.collection("Order").document(order.idOrder)
             .set(order)
-            .addOnSuccessListener { Toast.makeText(context, "Success Upload", Toast.LENGTH_SHORT).show() }
+            .addOnSuccessListener {
+
+                createNotification(order,"Pharmacy",context)
+
+                Toast.makeText(context, "Success Upload", Toast.LENGTH_SHORT).show()
+            }
             .addOnFailureListener { Toast.makeText(context, "Failed Upload", Toast.LENGTH_SHORT).show()}
     }
 
@@ -120,6 +128,9 @@ object OrderController {
                 val list : MutableList<Order>? = listOrders.value
                 list?.find { item -> item.idOrder == order.idOrder}?.state = listState[range]
                 listOrders.value = list
+                order.state = listState[range]
+                createNotification(order,"Client",context)
+
             }
             .addOnFailureListener {  Toast.makeText(context, "Delete Failed!", Toast.LENGTH_SHORT).show() }
     }

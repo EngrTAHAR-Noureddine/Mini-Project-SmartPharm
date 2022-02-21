@@ -34,7 +34,8 @@ class ListPharmacistsAdapter(val context: FragmentActivity?, var data:List<User>
                 typeUser = data[position].typeUser,
                 facebookAccount = data[position].facebookAccount,
                 instagramAccount = data[position].instagramAccount,
-                company = data[position].company
+                company = data[position].company,
+                idUser = data[position].idUser
             )
 
             val gson = Gson()
