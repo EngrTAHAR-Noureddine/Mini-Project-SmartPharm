@@ -119,6 +119,7 @@ class DemandeOrderViewModel(private val binding: DemandeOrderFragmentBinding,
                                     files = listPhotos,
                                     state = listState[0]
                                 )
+                                Log.v("NOTIFICATION TAG", "Click accept button")
                                 postOrder(order, context)
                                 declineOrder()
                         }

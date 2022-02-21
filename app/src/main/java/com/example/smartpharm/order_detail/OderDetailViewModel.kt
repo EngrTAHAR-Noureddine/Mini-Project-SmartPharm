@@ -12,7 +12,9 @@ import com.example.smartpharm.R
 import com.example.smartpharm.databinding.OderDetailFragmentBinding
 import com.example.smartpharm.firebase.controllers.orders.OrderController.changeStateOrder
 import com.example.smartpharm.firebase.controllers.orders.OrderController.deleteOrder
+import com.example.smartpharm.firebase.controllers.orders.OrderController.listState
 import com.example.smartpharm.firebase.models.Order
+import com.example.smartpharm.firebase.notification.NotificationController
 
 class OderDetailViewModel(private val binding: OderDetailFragmentBinding,
                           private val context: FragmentActivity,
@@ -69,6 +71,8 @@ class OderDetailViewModel(private val binding: OderDetailFragmentBinding,
         if(order!=null){
             deleteOrder(order,context)
             if(type == "Pharmacy") {
+                order.state = listState[1]
+                NotificationController.createNotification(order, "Client", context)
                 Log.v("TAG BUTTON", "REJECTED PHARMACY")
                 context.findNavController(R.id.myPharmacyNavHostFragment).popBackStack()
             }else{

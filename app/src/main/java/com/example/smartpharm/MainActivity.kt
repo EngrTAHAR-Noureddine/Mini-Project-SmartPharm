@@ -1,9 +1,9 @@
 package com.example.smartpharm
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.example.smartpharm.client.ClientActivity
 import com.example.smartpharm.login.LoginActivity
 import com.example.smartpharm.pharmacist.PharmacistActivity
