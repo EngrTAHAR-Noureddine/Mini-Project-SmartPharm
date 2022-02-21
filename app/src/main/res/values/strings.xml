@@ -95,6 +95,9 @@
     <string name="uploading_progress">uploading...0%</string>
     <string name="accepterbtn">Accepter</string>
     <string name="rejeterbtn">Rejeter</string>
+    <string name="title">Title</string>
+    <string name="message">Message</string>
+    <string name="default_notification_channel_id">SmartPharm Notification</string>
 
 
 </resources>
