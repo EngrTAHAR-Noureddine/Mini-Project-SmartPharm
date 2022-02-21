@@ -33,14 +33,14 @@ class ClientHomeFragment : Fragment() {
         this.binding.recycleViewPharmacies.layoutManager = LinearLayoutManager(activity)
 
         clientHomeViewModel.pharmacies.observe(
-            viewLifecycleOwner,  {
-                it?.let{
-                    binding.progressBarClientHome.isVisible = false
-                    this.binding.recycleViewPharmacies.isVisible = true
-                    this.binding.recycleViewPharmacies.adapter = ListPharmacistsAdapter(activity,it)
-                }
+            viewLifecycleOwner
+        ) {
+            it?.let {
+                binding.progressBarClientHome.isVisible = false
+                this.binding.recycleViewPharmacies.isVisible = true
+                this.binding.recycleViewPharmacies.adapter = ListPharmacistsAdapter(activity, it)
             }
-        )
+        }
         val navBar = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
         if(navBar != null){
             navBar.isVisible = true
