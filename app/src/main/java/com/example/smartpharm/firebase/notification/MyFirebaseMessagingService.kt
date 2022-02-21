@@ -6,6 +6,7 @@ import android.annotation.SuppressLint
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.graphics.Color
@@ -16,14 +17,21 @@ import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import com.example.smartpharm.MainActivity
+import com.example.smartpharm.firebase.controllers.orders.OrderController.getOrderOf
+import com.example.smartpharm.firebase.models.User
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import com.google.gson.Gson
 import kotlin.random.Random
 
 
 @SuppressLint("MissingFirebaseInstanceTokenRefresh")
 class MyFirebaseMessagingService: FirebaseMessagingService() {
     private val ADMIN_CHANNEL_ID = "admin_channel"
+    private fun getData(file:String, string: String): String?{
+        val prefUser = this.getSharedPreferences(file, Context.MODE_PRIVATE)
+        return prefUser?.getString(string,"")
+    }
 
     @SuppressLint("UnspecifiedImmutableFlag")
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
@@ -31,6 +39,12 @@ class MyFirebaseMessagingService: FirebaseMessagingService() {
         val intent = Intent(this, MainActivity::class.java)
         val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
         val notificationID: Int = Random.nextInt(3000)
+
+
+        val gson = Gson()
+        val json: String = getData("UserProfile", "userProfile") ?: ""
+        val user : User? = gson.fromJson(json, User::class.java)
+        getOrderOf(user,this)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             setupChannels(notificationManager)
