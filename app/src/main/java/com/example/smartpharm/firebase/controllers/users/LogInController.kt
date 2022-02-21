@@ -14,6 +14,8 @@ import com.example.smartpharm.client.ClientActivity
 import com.example.smartpharm.firebase.DataBase
 import com.example.smartpharm.firebase.models.User
 import com.example.smartpharm.pharmacist.PharmacistActivity
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import com.google.gson.Gson
 
 object LogInController {
@@ -46,6 +48,25 @@ object LogInController {
                         editorUser.apply{
                             putString("userProfile",json)
                         }.apply()
+
+                        //FCM
+                        FirebaseMessaging.getInstance().token.addOnCompleteListener(
+                            OnCompleteListener { task ->
+                            if (!task.isSuccessful) {
+                                Log.v("NOTIFICATION TAG", "Fetching FCM registration token failed ${task.exception}")
+                                return@OnCompleteListener
+                            }
+
+                            // Get new FCM registration token
+                            val token = task.result
+                            FirebaseMessaging.getInstance().subscribeToTopic(privateUser!!.idUser)
+                            val pref = context.getSharedPreferences("TokenFCM", Context.MODE_PRIVATE)
+                            val editorToken : SharedPreferences.Editor = pref.edit()
+                            Log.v("NOTIFICATION TAG", "Fetching FCM registration token Success ${task.result}")
+                            editorToken.apply{
+                                putString("token",token)
+                            }.apply()
+                        })
 
                         if(privateUser!!.typeUser == "Pharmacy"){
                             val intent = Intent(context, PharmacistActivity::class.java)
