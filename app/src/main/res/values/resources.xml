@@ -8,4 +8,5 @@
     <attr name="grayColor" format="reference|color" />
     <attr name="secondaryGrayColor" format="reference|color" />
     <attr name="subSecondaryGrayColor" format="reference|color" />
+    <attr name="borderColor" format="reference|color" />
 </resources>
