@@ -3,8 +3,11 @@ package com.example.smartpharm.firebase.controllers.orders
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.MutableLiveData
 import com.example.smartpharm.firebase.DataBase.db
+import com.example.smartpharm.firebase.controllers.medications.MedicationController
+import com.example.smartpharm.firebase.models.Medication
 import com.example.smartpharm.firebase.models.Order
 import com.example.smartpharm.firebase.models.User
 import com.example.smartpharm.firebase.notification.NotificationController.createNotification
@@ -133,6 +136,20 @@ object OrderController {
 
             }
             .addOnFailureListener {  Toast.makeText(context, "Delete Failed!", Toast.LENGTH_SHORT).show() }
+    }
+
+    fun searchOrder(word:String?,user:User?,context: FragmentActivity){
+        if(!word.isNullOrEmpty()) {
+            val list = listOrders.value?.filter { item: Order ->when(user?.typeUser){
+                "Pharmacy"->item.user!!["nameUser"]!!.lowercase(Locale.ROOT).contains(word.lowercase(Locale.ROOT))
+                else -> item.pharmacy!!["namePharmacy"]!!.lowercase(Locale.ROOT).contains(word.lowercase(Locale.ROOT))
+            }
+            }
+            listOrders.value = list as MutableList<Order>?
+        }
+        else{
+            getOrderOf(user, context)
+        }
     }
 
 

@@ -7,12 +7,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.smartpharm.R
 import com.example.smartpharm.databinding.ListOrdersFragmentBinding
+import com.example.smartpharm.firebase.controllers.orders.OrderController.searchOrder
 import com.example.smartpharm.firebase.models.Order
 import com.example.smartpharm.firebase.models.User
 import com.example.smartpharm.pharmacist.home.ListPharmacyOrder
@@ -61,6 +64,21 @@ class ListOrdersFragment : Fragment() {
         if(navBar != null){
             navBar.isVisible = true
         }
+
+
+        binding.InputSearchOrders.setOnQueryTextListener(object  : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                binding.InputSearchOrders.clearFocus()
+                searchOrder(query, user, context as FragmentActivity)
+                return false
+            }
+            override fun onQueryTextChange(newText: String?): Boolean {
+                searchOrder(newText, user, context as FragmentActivity)
+                return false
+            }
+
+
+        })
 
         return binding.root
     }
