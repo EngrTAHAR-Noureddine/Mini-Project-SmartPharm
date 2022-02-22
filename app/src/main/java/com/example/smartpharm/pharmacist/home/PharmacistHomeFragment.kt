@@ -60,6 +60,10 @@ class PharmacistHomeFragment : Fragment() {
         ) {
             var list: List<Order>? =
                 it?.filter { item -> item.state != listState[1] }?.sortedBy { o -> o.state }
+            binding.progressBarClientHome.isVisible = false
+            binding.textNotFound.isVisible = it.isNullOrEmpty()
+            this.binding.recyclerViewPharmacyOrders.isVisible = true
+
             this.binding.recyclerViewPharmacyOrders.adapter = ListPharmacyOrder(activity, list)
         }
 

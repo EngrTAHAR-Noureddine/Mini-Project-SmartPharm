@@ -59,6 +59,9 @@ class ListOrdersFragment : Fragment() {
             viewLifecycleOwner
         ) {
             var list: List<Order>? = it?.sortedBy { o -> o.state }
+            binding.progressBarClientHome.isVisible = false
+            this.binding.RecycleViewListOrdersUser.isVisible = true
+            binding.textNotFound.isVisible = it.isNullOrEmpty()
             this.binding.RecycleViewListOrdersUser.adapter = ListPharmacyOrder(activity, list)
         }
 

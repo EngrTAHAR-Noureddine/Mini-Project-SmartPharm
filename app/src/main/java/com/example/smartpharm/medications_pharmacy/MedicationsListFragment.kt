@@ -64,6 +64,7 @@ class MedicationsListFragment : Fragment() {
         ) {
             it?.let {
                 binding.progressBarMedication.isVisible = false
+                binding.textNotFound.isVisible = it.isNullOrEmpty()
                 this.binding.recycleViewMedications.isVisible = true
                 this.binding.recycleViewMedications.adapter = MedicationListAdapter(activity, it)
             }

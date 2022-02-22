@@ -158,6 +158,7 @@
     <string name="Province_in_salah">In Salah</string>
     <string name="Province_in_guezzam">In Guezzam</string>
     <string name="no_Province">Wilaya</string>
+    <string name="not_found">Pas trouver</string>
 
 
 </resources>

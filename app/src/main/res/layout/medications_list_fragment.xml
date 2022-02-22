@@ -78,6 +78,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/recycleViewMedications" />
 
+        <TextView
+            android:id="@+id/text_not_found"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:text="@string/not_found"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progressBarMedication" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
