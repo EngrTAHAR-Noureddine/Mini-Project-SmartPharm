@@ -16,7 +16,10 @@
         <entry key="app/src/main/res/drawable/shape_board_search.xml" value="0.1875" />
         <entry key="app/src/main/res/drawable/shape_button.xml" value="0.1875" />
         <entry key="app/src/main/res/drawable/shape_button_orange.xml" value="0.1875" />
+        <entry key="app/src/main/res/drawable/shape_circle_item_logo.xml" value="0.1875" />
         <entry key="app/src/main/res/drawable/shape_input_field.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/shape_input_search.xml" value="0.1875" />
+        <entry key="app/src/main/res/drawable/shape_item_of_pharmacy.xml" value="0.1875" />
         <entry key="app/src/main/res/drawable/style_input_serach.xml" value="0.1875" />
         <entry key="app/src/main/res/drawable/tab_color.xml" value="0.1" />
         <entry key="app/src/main/res/layout/about_user_box.xml" value="0.2957427536231884" />

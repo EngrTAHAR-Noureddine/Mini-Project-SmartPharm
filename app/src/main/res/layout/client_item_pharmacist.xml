@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
-    android:background="@color/gray3036">
+    android:background="@drawable/shape_item_of_pharmacy">
 
     <ImageView
         android:id="@+id/pharmacyIcon"
@@ -20,6 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_pharmacist_48"
+        android:background="@drawable/shape_circle_item_logo"
         tools:ignore="ImageContrastCheck" />
 
     <TextView
@@ -30,9 +31,10 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+
         android:text="@string/text_pharmacy_name"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
+        style="@style/style_title_item_pharmacy"
+
         app:layout_constraintBottom_toTopOf="@+id/Pharmacy_Location"
         app:layout_constraintEnd_toStartOf="@+id/ArrowForward"
         app:layout_constraintStart_toEndOf="@+id/pharmacyIcon"
@@ -41,14 +43,14 @@
 
     <TextView
         android:id="@+id/Pharmacy_Location"
+        style="@style/style_subtitle_item_pharmacy"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/text_pharmacy_location"
-        android:textColor="#C1C1C1"
-        android:textSize="14sp"
+        android:textStyle="italic"
         app:layout_constraintEnd_toStartOf="@+id/ArrowForward"
         app:layout_constraintStart_toEndOf="@+id/pharmacyIcon"
         app:layout_constraintTop_toBottomOf="@+id/Pharmacy_Name"
