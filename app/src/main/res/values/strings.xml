@@ -23,7 +23,7 @@
     <string name="todo">TODO</string>
     <string name="popmenu_unselected">Wilaya</string>
     <string name="button_Filter">Filter</string>
-    <string name="resultat">Resultat: 10</string>
+    <string name="resultat">Resultat: 0</string>
     <string name="text_pharmacy_name">Pharmacie El-Hanaa</string>
     <string name="text_pharmacy_location">Oued Smar-El Harrach-Alger</string>
     <string name="description_arrow_forward">arrow forward</string>

@@ -46,7 +46,9 @@ class ClientHomeFragment : Fragment() {
                 binding.progressBarClientHome.isVisible = false
                 this.binding.recycleViewPharmacies.isVisible = true
                 this.binding.recycleViewPharmacies.adapter = ListPharmacistsAdapter(activity, it)
+
             }
+            binding.textResult.text = if(!it.isNullOrEmpty()) "Resultat : ${it.size}" else "Resultat : 0"
         }
         val navBar = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
         if(navBar != null){
