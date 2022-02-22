@@ -20,7 +20,7 @@
         <item name="grayColor">@color/customGray</item>
         <item name="secondaryGrayColor">@color/customGraySecondary</item>
         <item name="subSecondaryGrayColor">@color/customGraySubSecondary</item>
-
+        <item name="borderColor">@color/customWhitePrimaryOpposite</item>
 
     </style>
 </resources>
