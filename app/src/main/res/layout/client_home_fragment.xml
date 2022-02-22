@@ -28,7 +28,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            android:background="#C5C5C5"
+            android:background="@drawable/shape_board_search"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,9 +50,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                style="@style/style_input_search_bar"
                 tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/popMenuButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -62,6 +63,8 @@
                 android:layout_marginBottom="8dp"
                 android:padding="16dp"
                 android:text="@string/popmenu_unselected"
+                app:cornerRadius="10dp"
+                app:backgroundTint="?attr/colorPrimary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/buttonLocation"
                 app:layout_constraintHorizontal_chainStyle="spread"
@@ -71,18 +74,18 @@
 
             <ImageButton
                 android:id="@+id/buttonLocation"
+                style="@style/style_button_shape"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:background="@color/orangeF4"
                 android:contentDescription="@string/todo"
                 android:src="@drawable/ic_location_map_48"
                 app:layout_constraintBottom_toBottomOf="@+id/popMenuButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/popMenuButton"
                 app:layout_constraintTop_toTopOf="@+id/popMenuButton"
-                tools:ignore="TextContrastCheck" />
+                tools:ignore="TextContrastCheck,ImageContrastCheck" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -105,6 +108,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:text="@string/resultat"
+                style="@style/style_text_in_login"
                 android:visibility="visible"
                 app:layout_constraintBottom_toTopOf="@+id/divider_result"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -116,7 +120,7 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="8dp"
-                android:background="@color/gray3036"
+                style="@style/style_divider_color"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_Result" />
@@ -126,7 +130,7 @@
                 style="?android:attr/progressBarStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:indeterminateTint="@color/green52"
+                android:indeterminateTint="@color/customGreenPrimary"
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -141,6 +145,7 @@
                 android:layout_marginBottom="8dp"
                 android:gravity="center"
                 android:text="@string/not_found"
+                style="@style/style_text_in_login"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

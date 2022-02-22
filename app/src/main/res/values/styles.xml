@@ -8,6 +8,13 @@
         <item name="android:textColor">?attr/colorOnPrimary</item>
     </style>
 
+    <style name="style_input_search_bar">
+        <item name="android:background">@drawable/shape_input_search</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
+
     <style name="style_text_login">
         <item name="android:fontFamily">@font/montserrat</item>
         <item name="android:textColor">?attr/colorOnPrimary</item>
@@ -41,5 +48,9 @@
     <style name="style_divider_color">
         <item name="android:background">?attr/subSecondaryGrayColor</item>
     </style>
+    <style name="style_button_shape">
+        <item name="android:background">@drawable/shape_button_orange</item>
+    </style>
+
 
 </resources>
