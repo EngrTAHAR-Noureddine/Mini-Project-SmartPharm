@@ -99,5 +99,67 @@
     <string name="message">Message</string>
     <string name="default_notification_channel_id">SmartPharm Notification</string>
 
+    <string name="Province_adrar">Adrar</string>
+    <string name="Province_chlef">Chlef</string>
+    <string name="Province_laghouat">Laghouat</string>
+    <string name="Province_oum_el_bouaghi">Oum El Bouaghi</string>
+    <string name="Province_batna">batna</string>
+    <string name="Province_bejaia">Béjaia</string>
+    <string name="Province_biskra">biskra</string>
+    <string name="Province_bechar">Béchar</string>
+    <string name="Province_blida">Blida</string>
+    <string name="Province_bouira">Bouira</string>
+    <string name="Province_tamanrasset">Tamanrasset</string>
+    <string name="Province_tebessa">Tébessa</string>
+    <string name="Province_tlemcen">Tlemcen</string>
+    <string name="Province_tiaret">Tiaret</string>
+    <string name="Province_tizi_ouzou">Tizi Ouzou</string>
+    <string name="Province_djelfa">Djelfa</string>
+    <string name="Province_jijel">Jijel</string>
+    <string name="Province_setif">Sétif</string>
+    <string name="Province_saida">Saida</string>
+
+    <string name="Province_skikda">Skikda</string>
+    <string name="Province_sidi_bel_abbes">Sidi Bel Abbès</string>
+    <string name="Province_annaba">Annaba</string>
+    <string name="Province_guelma">Guelma</string>
+    <string name="Province_constantine">Constantine</string>
+    <string name="Province_medea">Médéa</string>
+    <string name="Province_mostaganem">Mostaganem</string>
+    <string name="Province_msila">M\'Sila</string>
+    <string name="Province_mascara">Mascara</string>
+    <string name="Province_ouargla">Ouargla</string>
+    <string name="Province_oran">Oran</string>
+    <string name="Province_elbayadh">El Bayadh</string>
+    <string name="Province_illizi">Illizi</string>
+    <string name="Province_bordj_bou_arreridj">Bordj Bou Arréridj</string>
+    <string name="Province_boumerdes">Boumerdès</string>
+    <string name="Province_el_tarf">El Tarf</string>
+    <string name="Province_tindouf">Tindouf</string>
+    <string name="Province_tissemsilt">Tissemsilt</string>
+    <string name="Province_el_oued">El Oued</string>
+
+    <string name="Province_khenchela">Khenchela</string>
+    <string name="Province_souk_ahras">Souk Ahras</string>
+    <string name="Province_tipaza">Tipaza</string>
+    <string name="Province_mila">Mila</string>
+    <string name="Province_ain_defla">Aïn Defla</string>
+    <string name="Province_Naama">Naâma</string>
+    <string name="Province_ain_temouchent">Aïn Témouchent</string>
+    <string name="Province_ghardaia">Ghardaïa</string>
+    <string name="Province_relizane">Relizane</string>
+    <string name="Province_el_mghair">El M\'Ghair</string>
+    <string name="Province_el_menia">El Menia</string>
+    <string name="Province_ouled_djellal">Ouled Djellal</string>
+    <string name="Province_bordj_baji_mokhtar">Bordj Baji Mokhtar</string>
+    <string name="Province_beni_abbes">Béni Abbès</string>
+    <string name="Province_timimoun">Timimoun</string>
+    <string name="Province_touggourt">Touggourt</string>
+    <string name="Province_djanet">djanet</string>
+
+
+    <string name="Province_in_salah">In Salah</string>
+    <string name="Province_in_guezzam">In Guezzam</string>
+
 
 </resources>
