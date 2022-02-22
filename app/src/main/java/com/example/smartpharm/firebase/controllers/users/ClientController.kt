@@ -50,5 +50,18 @@ object ClientController {
         }
     }
 
+    fun searchPharmacyByProvince(province:String?,context: FragmentActivity){
+        if(!province.isNullOrEmpty() && province!="Wilaya") {
+            val list = listPharmacies.value?.filter { item: User ->item.locationUser.lowercase(Locale.ROOT).contains(province.lowercase(
+                Locale.ROOT))
+            }
+            listPharmacies.value = list as MutableList<User>?
+        }
+        else{
+            getListPharmacies(context)
+        }
+    }
+
+
 
 }

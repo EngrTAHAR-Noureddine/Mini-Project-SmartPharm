@@ -21,7 +21,7 @@
     <string name="champs_parametres">Paramètres   </string>
     <string name="Rechercher_placeholder">Rechercher...</string>
     <string name="todo">TODO</string>
-    <string name="popmenu_unselected">Ville</string>
+    <string name="popmenu_unselected">Wilaya</string>
     <string name="button_Filter">Filter</string>
     <string name="resultat">Resultat: 10</string>
     <string name="text_pharmacy_name">Pharmacie El-Hanaa</string>
@@ -157,6 +157,7 @@
     <string name="Province_djanet">djanet</string>
     <string name="Province_in_salah">In Salah</string>
     <string name="Province_in_guezzam">In Guezzam</string>
+    <string name="no_Province">Wilaya</string>
 
 
 </resources>
