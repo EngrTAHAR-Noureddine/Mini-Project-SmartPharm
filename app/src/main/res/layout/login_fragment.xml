@@ -18,7 +18,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/whiteFA">
+
+        style="@style/style_background_color">
 
         <ImageView
             android:id="@+id/LogoApp"
@@ -39,30 +40,27 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:fontFamily="@font/yellowtail"
+
             android:text="@string/smart_pharm"
-            android:textColor="#363638"
-            android:textSize="36sp"
             app:layout_constraintBottom_toTopOf="@+id/textEmail"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/LogoApp" />
+            app:layout_constraintTop_toBottomOf="@+id/LogoApp"
+            style="@style/style_text_logo" />
 
         <TextView
             android:id="@+id/textEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="@font/montserrat"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
             android:text="@string/champs_adremail_text"
-            android:textColor="@color/black"
-            android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/inputEmail"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/NameApp" />
+            app:layout_constraintTop_toBottomOf="@+id/NameApp"
+            style="@style/style_text_login" />
 
         <EditText
             android:id="@+id/inputEmail"
@@ -71,6 +69,9 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
+
+            style="@style/style_input_field"
+
             android:hint="@string/champs_adremail_Hint"
             android:importantForAutofill="no"
             android:inputType="textEmailAddress"
@@ -85,12 +86,13 @@
             android:id="@+id/textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+
+            style="@style/style_text_login"
+
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="@font/montserrat"
             android:text="@string/champs_password_text"
-            android:textColor="#000000"
             app:layout_constraintBottom_toTopOf="@+id/inputPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -111,9 +113,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textPassword"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,TextContrastCheck,DuplicateSpeakableTextCheck" />
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,TextContrastCheck,DuplicateSpeakableTextCheck"
+            style="@style/style_input_field" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonLogIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -124,6 +127,8 @@
             app:layout_constraintBottom_toTopOf="@+id/forgetPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:cornerRadius="1000dp"
+            style="@style/style_button_login"
             app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
 
         <TextView
@@ -131,7 +136,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:fontFamily="@font/montserrat"
             android:text="@string/champs_forgetPassword"
+            android:textColor="#1A237E"
+            android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/divider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -141,9 +149,9 @@
             android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="48dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="48dp"
             android:background="?android:attr/listDivider"
             app:layout_constraintBottom_toTopOf="@+id/textConnectWith"
             app:layout_constraintEnd_toEndOf="parent"
