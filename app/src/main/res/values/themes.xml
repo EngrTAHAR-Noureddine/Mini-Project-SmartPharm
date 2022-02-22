@@ -14,8 +14,11 @@
         <!-- Customize your theme here. -->
         <item name="orangeColor">@color/customOrange</item>
         <item name="blueColor">@color/customBlue</item>
+
         <item name="subordinateWhiteColor">@color/customWhiteSubordinate</item>
         <item name="SubSecondaryWhiteColor">@color/customWhiteSubSecondary</item>
+
+
         <item name="primaryGrayColor">@color/customGrayPrimary</item>
         <item name="grayColor">@color/customGray</item>
         <item name="secondaryGrayColor">@color/customGraySecondary</item>

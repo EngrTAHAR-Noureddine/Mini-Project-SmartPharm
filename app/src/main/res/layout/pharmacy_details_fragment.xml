@@ -7,7 +7,7 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteFA"
+    android:background="?attr/colorPrimary"
     android:orientation="vertical"
     >
 
@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:background="@color/whiteEB">
+        android:background="@drawable/shape_field_content_detail">
 
         <TextView
             android:id="@+id/titleAbout"
@@ -27,8 +27,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:text="@string/about"
-            android:textColor="@color/gray303F"
-            android:textSize="18sp"
+            style="@style/style_title_content_detail"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -56,8 +55,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginEnd="16dp"
             android:text="@string/name_pharmacy"
-            android:textColor="@color/gray3636"
-            android:textSize="16sp"
+
+            style="@style/style_text_content_detail"
             app:layout_constraintBottom_toBottomOf="@+id/iconPerson"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iconPerson"
@@ -85,8 +84,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginEnd="16dp"
             android:text="@string/location_pharmacy"
-            android:textColor="@color/gray3636"
-            android:textSize="16sp"
+            style="@style/style_text_content_detail"
             app:layout_constraintBottom_toBottomOf="@+id/iconLocation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iconLocation"
@@ -103,7 +101,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@color/whiteEB">
+        android:background="@drawable/shape_field_content_detail">
 
         <TextView
             android:id="@+id/titleContact"
@@ -113,8 +111,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:text="@string/titleContact"
-            android:textColor="@color/gray303F"
-            android:textSize="18sp"
+            style="@style/style_title_content_detail"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -142,8 +139,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginEnd="16dp"
             android:text="@string/ExgmailPharmacy"
-            android:textColor="@color/gray3636"
-            android:textSize="16sp"
+
+            style="@style/style_text_content_detail"
             android:textStyle="italic"
             app:layout_constraintBottom_toBottomOf="@+id/gmailIcon"
             app:layout_constraintEnd_toEndOf="parent"
@@ -172,8 +169,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginEnd="16dp"
             android:text="@string/ExFacebook"
-            android:textColor="@color/gray3636"
-            android:textSize="16sp"
+            style="@style/style_text_content_detail"
             android:textStyle="italic"
             app:layout_constraintBottom_toBottomOf="@+id/facebookIcon"
             app:layout_constraintEnd_toEndOf="parent"
@@ -202,8 +198,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginEnd="16dp"
             android:text="@string/ExInstagram"
-            android:textColor="@color/gray3636"
-            android:textSize="16sp"
+            style="@style/style_text_content_detail"
             android:textStyle="italic"
             app:layout_constraintBottom_toBottomOf="@+id/InstagramIcon"
             app:layout_constraintEnd_toEndOf="parent"
@@ -232,8 +227,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginEnd="16dp"
             android:text="@string/ExphonePharmacy"
-            android:textColor="@color/gray3636"
-            android:textSize="16sp"
+            style="@style/style_text_content_detail"
             android:textStyle="italic"
             app:layout_constraintBottom_toBottomOf="@+id/PhoneIcon"
             app:layout_constraintEnd_toEndOf="parent"
