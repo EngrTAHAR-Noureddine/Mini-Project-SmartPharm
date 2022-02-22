@@ -5,8 +5,8 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+
+
 
     <color name="whiteFA">#FFFAFAFA</color>
     <color name="whiteEB">#FFEBEBF0</color>
@@ -17,5 +17,42 @@
     <color name="gray3036">#FF30363D</color>
     <color name="gray303F">#FF303F56</color>
     <color name="gray3636">#FF363638</color>
+
+
+    <!-- The Palette In Light -->
+    <color name="black">#FF000000</color>
+
+    <color name="customGreenPrimary">#FF52CAA8</color>
+    <color name="customGreenSecondary">#FF52CAA8</color>
+
+    <color name="customGray">#FF363638</color>
+    <color name="customGrayPrimary">#FF30363D</color>
+    <color name="customGraySecondary">#FF303F56</color>
+    <color name="customGraySubSecondary">#FF747D88</color>
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="customWhitePrimary">#FFFAFAFA</color>
+    <color name="customWhiteSecondary">#FFEBEBF0</color>
+    <color name="customWhiteSubSecondary">#FFF2F4F7</color>
+    <color name="customWhiteSubordinate">#FFE5E5EA</color>
+
+    <color name="customBlue">#FFC1F1FF</color>
+
+    <color name="customOrange">#FFF4511E</color>
+
+    <!-- The Palette In Dark -->
+
+    <color name="customGrayOpposite">#FFD8D8DC</color>
+    <color name="customGrayPrimaryOpposite">#FF757D88</color>
+    <color name="customGraySecondaryOpposite">#FF437FC1</color>
+    <color name="customGraySubSecondaryOpposite">#FF6F7E8D</color>
+
+    <color name="customWhitePrimaryOpposite">#FF121212</color>
+    <color name="customWhiteSecondaryOpposite">#FF242426</color>
+    <color name="customWhiteSubSecondaryOpposite">#FF1C1C1E</color>
+    <color name="customWhiteSubordinateOpposite">#FF3A3A3C</color>
+
+
+
 
 </resources>

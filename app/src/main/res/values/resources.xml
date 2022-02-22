@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="orangeColor" format="reference|color" />
+    <attr name="blueColor" format="reference|color" />
+    <attr name="subordinateWhiteColor" format="reference|color" />
+    <attr name="SubSecondaryWhiteColor" format="reference|color" />
+    <attr name="primaryGrayColor" format="reference|color" />
+    <attr name="grayColor" format="reference|color" />
+    <attr name="secondaryGrayColor" format="reference|color" />
+    <attr name="subSecondaryGrayColor" format="reference|color" />
+</resources>
