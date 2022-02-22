@@ -34,24 +34,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageButton
-                android:id="@+id/buttonPhone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:background="@color/orangeF4"
-                android:contentDescription="@string/todo"
-                android:padding="5dp"
-                android:src="@drawable/ic_location_map_24"
-                app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
-                app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName"
-                app:layout_constraintHorizontal_chainStyle="spread_inside"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
             <SearchView
                 android:id="@+id/editTextTextPersonName"
                 android:layout_width="0dp"
@@ -59,12 +41,14 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
                 android:ems="10"
                 android:hint="@string/Rechercher_placeholder"
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
+                app:layout_constraintBottom_toTopOf="@+id/popMenuButton"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/buttonPhone"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
@@ -73,30 +57,31 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
                 android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
+                android:padding="16dp"
                 android:text="@string/popmenu_unselected"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/button2"
+                app:layout_constraintEnd_toStartOf="@+id/buttonLocation"
                 app:layout_constraintHorizontal_chainStyle="spread"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
                 tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 
-            <Button
-                android:id="@+id/button2"
+            <ImageButton
+                android:id="@+id/buttonLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/button_Filter"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@color/orangeF4"
+                android:contentDescription="@string/todo"
+                android:src="@drawable/ic_location_map_48"
+                app:layout_constraintBottom_toBottomOf="@+id/popMenuButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/popMenuButton"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+                app:layout_constraintTop_toTopOf="@+id/popMenuButton"
                 tools:ignore="TextContrastCheck" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -163,111 +148,3 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
 </layout>
-<!-- The stuff of This Fragment -->
-<!--
-<ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/UsernameID"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/montserrat"
-            android:text="C'EST UTILISATEUR1"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/imageView2"
-            app:layout_constraintStart_toStartOf="@+id/imageView2"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:width="400dp"
-            android:height="75dp"
-            android:backgroundTint="#FFFF"
-            android:fontFamily="@font/montserrat"
-            android:shadowColor="@color/white"
-            android:text="@string/champs_editprof"
-            android:textColor="#289BE8"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/UsernameID" />
-
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:width="400dp"
-            android:height="75dp"
-            android:backgroundTint="#FAFAFA"
-            android:fontFamily="@font/montserrat"
-            android:text="@string/champs_comandes"
-            android:textColor="#289BE8"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.454"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="346dp" />
-
-        <Button
-            android:id="@+id/button6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:width="400dp"
-            android:height="75dp"
-            android:backgroundTint="#FAFAFA"
-            android:fontFamily="@font/montserrat"
-            android:text="@string/champs_comandes"
-            android:textColor="#289BE8"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.454"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="421dp" />
-
-        <Button
-            android:id="@+id/button7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:width="400dp"
-            android:height="75dp"
-            android:backgroundTint="#FAFAFA"
-            android:fontFamily="@font/montserrat"
-            android:text="@string/champs_mespharms"
-            android:textColor="#289BE8"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.454"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="496dp" />
-
-        <Button
-            android:id="@+id/button8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:width="400dp"
-            android:height="75dp"
-            android:backgroundTint="#FAFAFA"
-            android:fontFamily="@font/montserrat"
-            android:text="@string/champs_parametres"
-            android:textColor="#289BE8"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.454"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="571dp" />
-
--->
