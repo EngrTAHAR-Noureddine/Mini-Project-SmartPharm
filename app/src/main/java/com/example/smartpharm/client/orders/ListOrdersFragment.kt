@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.smartpharm.R
 import com.example.smartpharm.databinding.ListOrdersFragmentBinding
+import com.example.smartpharm.firebase.controllers.orders.OrderController
 import com.example.smartpharm.firebase.controllers.orders.OrderController.searchOrder
 import com.example.smartpharm.firebase.models.Order
 import com.example.smartpharm.firebase.models.User
@@ -27,6 +28,7 @@ class ListOrdersFragment : Fragment() {
 
     private lateinit var viewModel: ListOrdersViewModel
     private lateinit var binding: ListOrdersFragmentBinding
+    private var user:User? = null
 
     private fun getData(file:String, string: String): String?{
         val prefUser = context?.getSharedPreferences(file, Context.MODE_PRIVATE)
@@ -41,7 +43,7 @@ class ListOrdersFragment : Fragment() {
         val gson = Gson()
         val json: String = getData("UserProfile", "userProfile") ?: ""
 
-        val user : User? = gson.fromJson(json, User::class.java)
+        user  = gson.fromJson(json, User::class.java)
 
         binding = DataBindingUtil.inflate(inflater,R.layout.list_orders_fragment,container,false)
 
@@ -81,6 +83,11 @@ class ListOrdersFragment : Fragment() {
         })
 
         return binding.root
+    }
+
+    override fun onStart() {
+        super.onStart()
+        OrderController.getOrderOf(user, requireContext())
     }
 
 

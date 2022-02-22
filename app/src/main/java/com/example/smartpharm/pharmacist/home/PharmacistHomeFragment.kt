@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.smartpharm.R
 import com.example.smartpharm.databinding.PharmacistHomeFragmentBinding
 import com.example.smartpharm.firebase.controllers.medications.MedicationController
+import com.example.smartpharm.firebase.controllers.orders.OrderController
 import com.example.smartpharm.firebase.controllers.orders.OrderController.listState
 import com.example.smartpharm.firebase.controllers.orders.OrderController.searchOrder
 import com.example.smartpharm.firebase.models.Order
@@ -26,6 +27,7 @@ class PharmacistHomeFragment : Fragment() {
 
     private lateinit var viewModel: PharmacistHomeViewModel
     private lateinit var binding: PharmacistHomeFragmentBinding
+    private var user:User? = null
 
     private fun getData(file:String, string: String): String?{
         val prefUser = context?.getSharedPreferences(file, Context.MODE_PRIVATE)
@@ -40,7 +42,7 @@ class PharmacistHomeFragment : Fragment() {
         val gson = Gson()
         val json2: String = getData("UserProfile", "userProfile") ?: ""
 
-        val user : User? = gson.fromJson(json2, User::class.java)
+        user = gson.fromJson(json2, User::class.java)
 
 
         binding = DataBindingUtil.inflate(inflater,R.layout.pharmacist_home_fragment,container,false)
@@ -79,6 +81,11 @@ class PharmacistHomeFragment : Fragment() {
         })
 
         return binding.root
+    }
+
+    override fun onStart() {
+        super.onStart()
+        OrderController.getOrderOf(user, requireContext())
     }
 
 
