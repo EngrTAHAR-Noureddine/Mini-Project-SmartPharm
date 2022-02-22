@@ -70,7 +70,7 @@ object MedicationController {
     fun searchMedication(word:String?,pharmacy:User?,context:FragmentActivity){
         if(!word.isNullOrEmpty()) {
             val list = listMedications.value?.filter { item: Medication ->
-                item.nameMedication.contains(word)
+                item.nameMedication.lowercase(Locale.ROOT).contains(word.lowercase(Locale.ROOT))
             }
             listMedications.value = list as MutableList<Medication>?
         }
