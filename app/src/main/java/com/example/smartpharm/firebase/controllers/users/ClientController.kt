@@ -6,7 +6,10 @@ import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.MutableLiveData
 import com.example.smartpharm.firebase.DataBase
+import com.example.smartpharm.firebase.controllers.orders.OrderController
+import com.example.smartpharm.firebase.models.Order
 import com.example.smartpharm.firebase.models.User
+import java.util.*
 
 
 object ClientController {
@@ -33,6 +36,18 @@ object ClientController {
             }
 
             }
+    }
+
+    fun searchPharmacy(word:String?,context: FragmentActivity){
+        if(!word.isNullOrEmpty()) {
+            val list = listPharmacies.value?.filter { item: User ->item.company.lowercase(Locale.ROOT).contains(word.lowercase(
+                Locale.ROOT))
+            }
+            listPharmacies.value = list as MutableList<User>?
+        }
+        else{
+            getListPharmacies(context)
+        }
     }
 
 

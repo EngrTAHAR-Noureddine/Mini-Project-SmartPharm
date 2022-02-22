@@ -6,12 +6,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.smartpharm.R
 import com.example.smartpharm.databinding.ClientHomeFragmentBinding
+import com.example.smartpharm.firebase.controllers.orders.OrderController
+import com.example.smartpharm.firebase.controllers.users.ClientController.searchPharmacy
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -45,6 +49,21 @@ class ClientHomeFragment : Fragment() {
         if(navBar != null){
             navBar.isVisible = true
         }
+
+        binding.editTextTextPersonName.setOnQueryTextListener(object  : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                binding.editTextTextPersonName.clearFocus()
+                searchPharmacy(query,context as FragmentActivity)
+                return false
+            }
+            override fun onQueryTextChange(newText: String?): Boolean {
+                searchPharmacy(newText, context as FragmentActivity)
+                return false
+            }
+
+
+        })
+
         return binding.root
     }
 
