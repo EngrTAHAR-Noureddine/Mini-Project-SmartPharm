@@ -6,9 +6,12 @@ import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.MutableLiveData
 import com.example.smartpharm.firebase.DataBase
+import com.example.smartpharm.firebase.controllers.orders.OrderController
 import com.example.smartpharm.firebase.models.Medication
 import com.example.smartpharm.firebase.models.Order
 import com.example.smartpharm.firebase.models.User
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 import java.util.*
 
 object MedicationController {
@@ -50,5 +53,17 @@ object MedicationController {
 
                     Toast.makeText(context, "Success Upload", Toast.LENGTH_SHORT).show() }
                 .addOnFailureListener { Toast.makeText(context, "Failed Upload", Toast.LENGTH_SHORT).show()}
+    }
+
+    fun deleteMedication(medication:Medication,context: Context){
+        DataBase.db.collection("Medication").document(medication.idMedication)
+            .delete()
+            .addOnSuccessListener {
+                Log.d("FIRESTORE", "DocumentSnapshot successfully deleted!")
+                Toast.makeText(context, "successfully deleted!", Toast.LENGTH_SHORT).show()
+                val list =if(listMedications.value!=null) listMedications.value!!.filter { item:Medication-> item.idMedication!= medication.idMedication}else null
+                listMedications.value = list as MutableList<Medication>?
+            }
+            .addOnFailureListener {  Toast.makeText(context, "Delete Failed!", Toast.LENGTH_SHORT).show() }
     }
 }
