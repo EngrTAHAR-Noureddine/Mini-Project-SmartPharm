@@ -114,11 +114,11 @@
     <string name="Province_tlemcen">Tlemcen</string>
     <string name="Province_tiaret">Tiaret</string>
     <string name="Province_tizi_ouzou">Tizi Ouzou</string>
+    <string name="Province_alger">Alger</string>
     <string name="Province_djelfa">Djelfa</string>
     <string name="Province_jijel">Jijel</string>
     <string name="Province_setif">Sétif</string>
     <string name="Province_saida">Saida</string>
-
     <string name="Province_skikda">Skikda</string>
     <string name="Province_sidi_bel_abbes">Sidi Bel Abbès</string>
     <string name="Province_annaba">Annaba</string>
@@ -138,7 +138,6 @@
     <string name="Province_tindouf">Tindouf</string>
     <string name="Province_tissemsilt">Tissemsilt</string>
     <string name="Province_el_oued">El Oued</string>
-
     <string name="Province_khenchela">Khenchela</string>
     <string name="Province_souk_ahras">Souk Ahras</string>
     <string name="Province_tipaza">Tipaza</string>
@@ -156,8 +155,6 @@
     <string name="Province_timimoun">Timimoun</string>
     <string name="Province_touggourt">Touggourt</string>
     <string name="Province_djanet">djanet</string>
-
-
     <string name="Province_in_salah">In Salah</string>
     <string name="Province_in_guezzam">In Guezzam</string>
 
