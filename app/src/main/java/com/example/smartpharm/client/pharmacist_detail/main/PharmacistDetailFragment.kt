@@ -1,25 +1,28 @@
 package com.example.smartpharm.client.pharmacist_detail.main
 
 import android.content.Context
-import androidx.lifecycle.ViewModelProvider
+import android.graphics.*
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.smartpharm.R
 import com.example.smartpharm.client.pharmacist_detail.details.PharmacyDetailsFragment
-import com.example.smartpharm.medications_pharmacy.MedicationsListFragment
 import com.example.smartpharm.databinding.PharmacistDetailFragmentBinding
 import com.example.smartpharm.firebase.models.User
+import com.example.smartpharm.medications_pharmacy.MedicationsListFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
+import com.squareup.picasso.Transformation
+
 
 class PharmacistDetailFragment : Fragment() {
 
@@ -55,7 +58,7 @@ class PharmacistDetailFragment : Fragment() {
 
         // ----- Photo -------------------
 
-        if(p!=null) Picasso.with(context).load(p.photoUser).fit().centerCrop().into(binding.imagePharmacy)
+        if(p!=null) Picasso.with(context).load(p.photoUser).transform( CircleTransform()).into(binding.imagePharmacy)
 
         //----------------------------------
 
@@ -83,6 +86,34 @@ class PharmacistDetailFragment : Fragment() {
         return binding.root
     }
 
+    class CircleTransform : Transformation {
+        override fun transform(source: Bitmap): Bitmap {
+            val size = Math.min(source.width, source.height)
+            val x = (source.width - size) / 2
+            val y = (source.height - size) / 2
+            val squaredBitmap = Bitmap.createBitmap(source, x, y, size, size)
+            if (squaredBitmap != source) {
+                source.recycle()
+            }
+            val bitmap = Bitmap.createBitmap(size, size, source.config)
+            val canvas = Canvas(bitmap)
+            val paint = Paint()
+            val shader = BitmapShader(
+                squaredBitmap,
+                Shader.TileMode.CLAMP, Shader.TileMode.CLAMP
+            )
+            paint.setShader(shader)
+            paint.setAntiAlias(true)
+            val r = size / 2f
+            canvas.drawCircle(r, r, r, paint)
+            squaredBitmap.recycle()
+            return bitmap
+        }
+
+        override fun key(): String {
+            return "circle"
+        }
+    }
 
 
 }

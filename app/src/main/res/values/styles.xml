@@ -52,6 +52,19 @@
 
     </style>
 
+    <style name="style_order_button">
+        <item name="android:backgroundTint">@color/customGreenSecondary</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+    <style name="style_tabs">
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="style_text_in_login">
         <item name="android:fontFamily">@font/montserrat</item>
         <item name="android:textColor">?attr/secondaryGrayColor</item>
