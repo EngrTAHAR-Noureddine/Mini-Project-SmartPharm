@@ -16,4 +16,6 @@ class MedicationsListViewModel(val user: User?, private val binding: Medications
     init{
             getMedicationOf(user,context)
          }
+
+
 }

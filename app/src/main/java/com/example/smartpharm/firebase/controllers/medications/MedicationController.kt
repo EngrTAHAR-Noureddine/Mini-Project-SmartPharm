@@ -66,4 +66,16 @@ object MedicationController {
             }
             .addOnFailureListener {  Toast.makeText(context, "Delete Failed!", Toast.LENGTH_SHORT).show() }
     }
+
+    fun searchMedication(word:String?,pharmacy:User?,context:FragmentActivity){
+        if(!word.isNullOrEmpty()) {
+            val list = listMedications.value?.filter { item: Medication ->
+                item.nameMedication.contains(word)
+            }
+            listMedications.value = list as MutableList<Medication>?
+        }
+        else{
+            getMedicationOf(pharmacy,context)
+        }
+    }
 }

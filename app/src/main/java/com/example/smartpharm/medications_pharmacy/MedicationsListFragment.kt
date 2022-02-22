@@ -6,13 +6,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.smartpharm.R
 import com.example.smartpharm.databinding.MedicationsListFragmentBinding
+import com.example.smartpharm.firebase.controllers.medications.MedicationController.searchMedication
 import com.example.smartpharm.firebase.models.User
 import com.example.smartpharm.medications_pharmacy.addmedication.DialogAddMedicationFragment
 import com.google.gson.Gson
@@ -70,6 +72,20 @@ class MedicationsListFragment : Fragment() {
         binding.FABAddMedication.setOnClickListener{
             DialogAddMedicationFragment().showNow(this.parentFragmentManager,"DialogBox")
         }
+
+        binding.InputSearchMedication.setOnQueryTextListener(object  : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                binding.InputSearchMedication.clearFocus()
+                searchMedication(query,user, context as FragmentActivity)
+                return false
+            }
+            override fun onQueryTextChange(newText: String?): Boolean {
+                searchMedication(newText,user, context as FragmentActivity)
+                return false
+            }
+
+
+        })
 
 
         return binding.root
