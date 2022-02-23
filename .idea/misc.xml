@@ -45,6 +45,8 @@
         <entry key="app/src/main/res/layout/dialog_add_medication_fragment.xml" value="0.2554347826086957" />
         <entry key="app/src/main/res/layout/field_setting_item.xml" value="0.29257246376811596" />
         <entry key="app/src/main/res/layout/fragment_dialog_box_upload_images.xml" value="0.31567028985507245" />
+        <entry key="app/src/main/res/layout/fragment_fullscreen_image.xml" value="0.2907225309961522" />
+        <entry key="app/src/main/res/layout/fragment_map.xml" value="0.2907225309961522" />
         <entry key="app/src/main/res/layout/fragment_progress_dialog.xml" value="0.27445652173913043" />
         <entry key="app/src/main/res/layout/header_user_box.xml" value="0.2957427536231884" />
         <entry key="app/src/main/res/layout/image_view_display_item.xml" value="0.3120471014492754" />

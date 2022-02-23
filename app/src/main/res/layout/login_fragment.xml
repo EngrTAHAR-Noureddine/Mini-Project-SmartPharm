@@ -2,11 +2,11 @@
 <layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".login.main_login.LoginFragment">
+    tools:context=".views.LoginFragment">
     <data>
         <variable
             name="loginViewModel"
-            type="com.example.smartpharm.login.main_login.LoginViewModel" />
+            type="com.example.smartpharm.viewmodels.LoginViewModel" />
     </data>
 <FrameLayout
     android:layout_width="match_parent"

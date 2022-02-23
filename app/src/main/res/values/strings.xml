@@ -160,6 +160,8 @@
     <string name="no_Province">Wilaya</string>
     <string name="not_found">Pas trouver</string>
     <string name="default_string">TextView</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 
 
 </resources>

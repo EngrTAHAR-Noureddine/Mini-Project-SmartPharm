@@ -3,11 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".client.home.ClientHomeFragment">
+    tools:context=".views.ClientHomeFragment">
     <data>
         <variable
             name="clientHomeViewModel"
-            type="com.example.smartpharm.client.home.ClientHomeViewModel" />
+            type="com.example.smartpharm.viewmodels.ClientHomeViewModel" />
     </data>
 
 <FrameLayout

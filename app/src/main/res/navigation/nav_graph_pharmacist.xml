@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/destination_Pharmacy_Home"
-        android:name="com.example.smartpharm.pharmacist.home.PharmacistHomeFragment"
+        android:name="com.example.smartpharm.views.PharmacistHomeFragment"
         android:label="pharmacist_home_fragment"
         tools:layout="@layout/pharmacist_home_fragment" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/destination_Pharmacy_Order_Detail"
-        android:name="com.example.smartpharm.order_detail.OderDetailFragment"
+        android:name="com.example.smartpharm.views.OderDetailFragment"
         android:label="oder_detail_fragment"
         tools:layout="@layout/oder_detail_fragment" >
         <action
@@ -24,15 +24,22 @@
             app:destination="@id/destination_Pharmacy_Home"
             app:popUpTo="@id/destination_Pharmacy_Home"
             app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_destination_Pharmacy_Order_Detail_to_fullscreenImageFragment2"
+            app:destination="@id/fullscreenImageFragment2" />
     </fragment>
     <fragment
         android:id="@+id/destination_Pharmacy_Settings"
-        android:name="com.example.smartpharm.settings.SettingsFragment"
+        android:name="com.example.smartpharm.views.SettingsFragment"
         android:label="settings_fragment"
         tools:layout="@layout/settings_fragment" />
     <fragment
         android:id="@+id/destination_Pharmacy_Medications_List"
-        android:name="com.example.smartpharm.medications_pharmacy.MedicationsListFragment"
+        android:name="com.example.smartpharm.views.MedicationsListFragment"
         android:label="medications_list_fragment"
         tools:layout="@layout/medications_list_fragment" />
+    <fragment
+        android:id="@+id/fullscreenImageFragment2"
+        android:name="com.example.smartpharm.views.FullscreenImageFragment"
+        android:label="FullscreenImageFragment" />
 </navigation>

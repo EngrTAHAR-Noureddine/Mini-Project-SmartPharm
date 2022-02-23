@@ -6,7 +6,7 @@
     <data>
         <variable
             name="pharmacyDetailViewModel"
-            type="com.example.smartpharm.client.pharmacist_detail.main.PharmacistDetailViewModel" />
+            type="com.example.smartpharm.viewmodels.PharmacistDetailViewModel" />
     </data>
 <FrameLayout
     android:layout_width="match_parent"
