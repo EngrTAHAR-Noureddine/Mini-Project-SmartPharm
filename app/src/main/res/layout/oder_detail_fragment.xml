@@ -50,6 +50,7 @@
             android:layout_marginStart="16dp"
             android:background="@drawable/shape_button_orange"
             android:contentDescription="@string/todo"
+            android:onClick="@{()->orderDetailViewModel.locationUser()}"
             android:padding="5dp"
             android:src="@drawable/ic_location_map_48"
             app:layout_constraintBottom_toBottomOf="@+id/imageOrder"
@@ -57,8 +58,7 @@
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toEndOf="@+id/imageOrder"
             app:layout_constraintTop_toTopOf="@+id/imageOrder"
-            android:onClick="@{()->orderDetailViewModel.locationUser()}"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,ImageContrastCheck" />
 
         <ImageView
             android:id="@+id/imageOrder"
@@ -294,7 +294,7 @@
         app:layout_constraintTop_toBottomOf="@+id/scrollViewInfo"
         >
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonRejectOrder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -303,11 +303,14 @@
             android:layout_marginBottom="8dp"
             android:text="@string/rejeterbtn"
             android:onClick="@{()->orderDetailViewModel.rejectOrder()}"
+            android:background="?attr/orangeColor"
+            style="@style/style_text_content_detail"
+            app:cornerRadius="1000dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonAcceptOrder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -316,6 +319,9 @@
             android:layout_marginBottom="8dp"
             android:text="@string/accepterbtn"
             android:onClick="@{()->orderDetailViewModel.acceptOrder()}"
+            android:background="?attr/colorSecondary"
+            style="@style/style_text_content_detail"
+            app:cornerRadius="1000dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
