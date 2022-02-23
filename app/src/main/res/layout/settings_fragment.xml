@@ -7,13 +7,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="?attr/colorPrimary"
     >
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/whiteFA">
+            android:background="?attr/colorPrimary">
 
 
             <ImageView
@@ -25,6 +26,7 @@
                 android:layout_marginBottom="24dp"
                 android:contentDescription="@string/photouser"
                 android:src="@drawable/ic_person_48"
+                android:background="@drawable/shape_avatar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/EditIcon"
                 app:layout_constraintStart_toStartOf="parent"
@@ -35,6 +37,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/edit_photo_Btn"
+                style="@style/style_title_content_detail"
                 app:layout_constraintBottom_toBottomOf="@+id/EditIcon"
                 app:layout_constraintEnd_toEndOf="@+id/buttonLogOut"
                 app:layout_constraintStart_toEndOf="@+id/EditIcon"
@@ -49,6 +52,7 @@
                 android:layout_marginEnd="8dp"
                 android:contentDescription="@string/editicon"
                 android:src="@drawable/ic_edit_24"
+                android:backgroundTint="?attr/primaryGrayColor"
                 app:layout_constraintBottom_toTopOf="@+id/buttonLogOut"
                 app:layout_constraintEnd_toStartOf="@+id/EditPhoto"
                 app:layout_constraintStart_toEndOf="@+id/PhotoUser"
@@ -60,6 +64,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/deconnecterBtn"
+                android:textAllCaps="false"
+                android:textColor="?attr/colorOnSecondary"
+                app:cornerRadius="1000dp"
+                android:backgroundTint="@color/customOrange"
                 app:layout_constraintBottom_toBottomOf="@+id/PhotoUser"
                 app:layout_constraintStart_toStartOf="@+id/EditIcon"
                 app:layout_constraintTop_toBottomOf="@+id/EditIcon" />
@@ -68,6 +76,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleViewSetting"
         android:layout_width="match_parent"
+        android:background="?attr/colorPrimary"
         android:layout_height="match_parent" />
 
 </LinearLayout>
