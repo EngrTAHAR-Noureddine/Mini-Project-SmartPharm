@@ -21,6 +21,7 @@
         <entry key="app/src/main/res/drawable/shape_field_content_detail.xml" value="0.1875" />
         <entry key="app/src/main/res/drawable/shape_input_field.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/shape_input_search.xml" value="0.1875" />
+        <entry key="app/src/main/res/drawable/shape_item_medication.xml" value="0.1875" />
         <entry key="app/src/main/res/drawable/shape_item_of_pharmacy.xml" value="0.1875" />
         <entry key="app/src/main/res/drawable/shape_phone_button.xml" value="0.1875" />
         <entry key="app/src/main/res/drawable/style_input_serach.xml" value="0.1875" />

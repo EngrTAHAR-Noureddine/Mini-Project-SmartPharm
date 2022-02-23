@@ -11,34 +11,54 @@
     android:layout_marginEnd="8dp"
     android:layout_marginRight="8dp"
     android:layout_marginBottom="4dp"
-    android:background="#7BDFD7"
+    android:background="@drawable/shape_item_medication"
     app:layout_marginBaseline="4dp">
 
+    <ImageView
+        android:id="@+id/itemMedication"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/shape_circle_item_logo"
+        android:contentDescription="@string/description_pharmacy_icon"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/itemName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_icon_pills"
+        tools:ignore="ImageContrastCheck" />
+
     <TextView
-        android:id="@+id/testItem"
+        android:id="@+id/itemName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:text="@string/testitem"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/DeleteMedication"
+        app:layout_constraintStart_toEndOf="@+id/itemMedication"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/DeleteMedication"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginEnd="8dp"
         android:backgroundTint="@android:color/transparent"
         android:contentDescription="@string/deleteicon"
-        android:visibility="gone"
+        android:padding="4dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/itemName"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_delete_50"
+        app:srcCompat="@drawable/ic_delete_30"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck,ImageContrastCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

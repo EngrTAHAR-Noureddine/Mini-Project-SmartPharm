@@ -48,6 +48,6 @@ class MedicationListAdapter(val context: FragmentActivity?, var data:List<Medica
 
 class MyViewMedicationHolder(view: View) : RecyclerView.ViewHolder(view) {
     val item = view.findViewById(R.id.ItemMedicationPharmacy) as View
-    val nameTest = view.findViewById(R.id.testItem) as TextView
+    val nameTest = view.findViewById(R.id.itemName) as TextView
     val deleteMedication = view.findViewById(R.id.DeleteMedication) as ImageButton
 }
