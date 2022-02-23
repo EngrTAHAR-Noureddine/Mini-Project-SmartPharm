@@ -12,7 +12,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:background="@drawable/round_corner"
+            android:background="@drawable/shape_field_content_detail"
+
             >
 
                 <TextView
@@ -23,8 +24,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="24dp"
                     android:text="@string/ajouter_medicament"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
+                    style="@style/style_title_item_pharmacy"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -39,6 +39,7 @@
                     android:ems="10"
                     android:hint="@string/medicationname"
                     android:importantForAutofill="no"
+                    style="@style/style_input_field"
                     android:inputType="textEmailAddress"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +54,7 @@
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="24dp"
                     android:text="@string/ajouterbtn"
-                    android:textColor="@color/green52"
+                    android:textColor="@color/customGreenSecondary"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -67,7 +68,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="32dp"
                     android:text="@string/annulerbtn"
-                    android:textColor="@color/gray3036"
+                    android:textColor="?attr/grayColor"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/AddMedication"

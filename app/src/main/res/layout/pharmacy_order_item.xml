@@ -18,14 +18,13 @@
         android:id="@+id/ColorOrder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape_ring"
-        android:backgroundTint="@color/customOrange"
+        app:srcCompat="@drawable/ic_icon_pills"
+        android:background="@drawable/shape_circle_item_logo"
         android:contentDescription="@string/description_pharmacy_icon"
         android:padding="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_delete_30_transparent"
         tools:ignore="ImageContrastCheck" />
 
     <TextView

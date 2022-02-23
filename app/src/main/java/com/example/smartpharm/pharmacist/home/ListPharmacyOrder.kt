@@ -3,11 +3,15 @@ package com.example.smartpharm.pharmacist.home
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
+import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.findNavController
@@ -26,11 +30,21 @@ class ListPharmacyOrder(val context: FragmentActivity?, var data:List<Order>?):
 
     @SuppressLint("CommitPrefEdits")
     override fun onBindViewHolder(holder: PharmacyOrderViewHolder, position: Int) {
-        holder.testItem.text =if(data!=null && data!!.isNotEmpty()) data!![position].state+"\n"+ data!![position].idOrder else ""
+        val userType: String = getData("TypeUserFile", "typeUserFile") ?: ""
+
+        holder.titleItem.text =if(data!=null && data!!.isNotEmpty() && userType=="Pharmacy")
+                                    data!![position].user!!["nameUser"] else data!![position].pharmacy!!["namePharmacy"]
+
+        holder.subtitleItem.text =if(data!=null && data!!.isNotEmpty())
+            data!![position].state else ""
+
         holder.removeButton.isVisible = false
+
+
         holder.item.setOnClickListener {
 
             if(data!=null && data!!.isNotEmpty()){
+
                 val order:Order? = data!![position]
                 val gson = Gson()
                 val prefOrder = context?.getSharedPreferences("Order", Context.MODE_PRIVATE)
@@ -40,7 +54,7 @@ class ListPharmacyOrder(val context: FragmentActivity?, var data:List<Order>?):
                     putString("orderDetail",json)
                 }?.apply()
 
-                val userType: String = getData("TypeUserFile", "typeUserFile") ?: ""
+
                 if(data!![position].state == listState[2]){
                     holder.removeButton.isVisible = !holder.removeButton.isVisible
                 }else{
@@ -70,6 +84,7 @@ class ListPharmacyOrder(val context: FragmentActivity?, var data:List<Order>?):
 
 class PharmacyOrderViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val item = view.findViewById(R.id.itemOrderPharmacy) as View
-    val testItem = view.findViewById(R.id.titleOrder) as TextView
+    val titleItem = view.findViewById(R.id.titleOrder) as TextView
+    val subtitleItem = view.findViewById(R.id.subtitleOrder) as TextView
     val removeButton = view.findViewById(R.id.removeButton) as ImageButton
 }
