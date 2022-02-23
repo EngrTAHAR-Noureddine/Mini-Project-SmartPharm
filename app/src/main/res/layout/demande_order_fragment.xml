@@ -13,6 +13,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/colorPrimary"
     android:orientation="vertical">
 
 
@@ -41,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:layout_marginBottom="24dp"
-                android:background="#CDCDCD">
+                android:background="@drawable/shape_field_content_detail">
 
                 <TextView
                     android:id="@+id/TitleOrdannance"
@@ -52,7 +53,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
                     android:text="@string/titleordannance"
-                    android:textColor="#455A64"
+                    style="@style/style_title_content_detail"
                     app:layout_constraintBottom_toTopOf="@+id/GridRecycleView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -82,7 +83,8 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="16dp"
-                android:background="#B1B1B1">
+
+                android:background="@drawable/shape_field_content_detail">
 
                 <TextView
                     android:id="@+id/TitleNote"
@@ -92,7 +94,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:text="@string/titleNote"
-                    android:textColor="#000000"
+                    style="@style/style_title_content_detail"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -112,6 +114,7 @@
                     android:inputType="textMultiLine|text"
                     android:minHeight="48dp"
                     android:text=""
+                    android:background="@drawable/shape_input_field"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -128,27 +131,31 @@
         android:id="@+id/constraintLayout6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/whiteFA"
+        android:background="?attr/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView2">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonDecline"
-            android:onClick="@{()->demandeOrderViewModel.declineOrder()}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/customOrange"
+            android:onClick="@{()->demandeOrderViewModel.declineOrder()}"
             android:text="@string/buttonDecline"
             android:textAllCaps="false"
+            android:textColor="?attr/colorOnSecondary"
+            app:cornerRadius="1000dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/floatingBtnCamera"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextContrastCheck" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingBtnCamera"
@@ -161,28 +168,32 @@
             android:contentDescription="@string/camera"
             android:focusable="true"
             android:src="@drawable/ic_camera_24"
-            app:backgroundTint="@color/gray3036"
+            app:backgroundTint="?attr/grayColor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/buttonAccept"
             app:layout_constraintStart_toEndOf="@+id/buttonDecline"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/whiteFA"
+            app:tint="?attr/colorOnSecondary"
             tools:ignore="SpeakableTextPresentCheck" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonAccept"
-            android:onClick="@{()->demandeOrderViewModel.acceptOrder()}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
+            android:backgroundTint="?attr/colorSecondary"
+            android:onClick="@{()->demandeOrderViewModel.acceptOrder()}"
             android:text="@string/buttonAccept"
             android:textAllCaps="false"
+            android:textColor="?attr/colorOnSecondary"
+            app:cornerRadius="1000dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/floatingBtnCamera"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextContrastCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
