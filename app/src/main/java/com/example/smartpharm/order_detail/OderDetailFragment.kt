@@ -2,6 +2,7 @@ package com.example.smartpharm.order_detail
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.*
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -14,7 +15,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.smartpharm.R
 import com.example.smartpharm.client.demande_order.GridImageAdapter
-import com.example.smartpharm.controllers.FileController
 import com.example.smartpharm.controllers.FileController.destroyAllFiles
 import com.example.smartpharm.controllers.FileController.listFile
 import com.example.smartpharm.controllers.FileController.returnPhotos
@@ -25,6 +25,7 @@ import com.example.smartpharm.firebase.models.User
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
+import com.squareup.picasso.Transformation
 
 
 class OderDetailFragment : Fragment() {
@@ -64,7 +65,9 @@ class OderDetailFragment : Fragment() {
         //-------------------------------
         if(order!=null && user !=null) {
             if (user.typeUser == "Pharmacy") {
-                Picasso.with(context).load(order.user!!["photoUser"]).fit().centerCrop()
+                Picasso.with(context).load(order.user!!["photoUser"]).transform(
+                    CircleTransform()
+                )
                     .into(mainBinding.imageOrder)
 
                 mainBinding.nameDetailPharmacy.text = order.user!!["nameUser"]
@@ -87,7 +90,9 @@ class OderDetailFragment : Fragment() {
                     mainBinding.buttonAcceptOrder.isVisible = false
                 }
                 Log.v("PHOTOTAG","photo ${order.pharmacy!!["photoPharmacy"]}")
-                Picasso.with(context).load(order.pharmacy!!["photoPharmacy"]).fit().centerCrop()
+                Picasso.with(context).load(order.pharmacy!!["photoPharmacy"]).transform(
+                    CircleTransform()
+                )
                     .into(mainBinding.imageOrder)
                 mainBinding.nameDetailPharmacy.text = order.pharmacy!!["namePharmacy"]
                 mainBinding.locationDetailPharmacy.text = order.pharmacy!!["locationPharmacy"]
@@ -114,6 +119,35 @@ class OderDetailFragment : Fragment() {
         super.onDestroy()
         destroyAllFiles()
     }
+    class CircleTransform : Transformation {
+        override fun transform(source: Bitmap): Bitmap {
+            val size = Math.min(source.width, source.height)
+            val x = (source.width - size) / 2
+            val y = (source.height - size) / 2
+            val squaredBitmap = Bitmap.createBitmap(source, x, y, size, size)
+            if (squaredBitmap != source) {
+                source.recycle()
+            }
+            val bitmap = Bitmap.createBitmap(size, size, source.config)
+            val canvas = Canvas(bitmap)
+            val paint = Paint()
+            val shader = BitmapShader(
+                squaredBitmap,
+                Shader.TileMode.CLAMP, Shader.TileMode.CLAMP
+            )
+            paint.setShader(shader)
+            paint.setAntiAlias(true)
+            val r = size / 2f
+            canvas.drawCircle(r, r, r, paint)
+            squaredBitmap.recycle()
+            return bitmap
+        }
+
+        override fun key(): String {
+            return "circle"
+        }
+    }
 
 
 }
+
