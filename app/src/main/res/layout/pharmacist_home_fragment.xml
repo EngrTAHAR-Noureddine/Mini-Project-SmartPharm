@@ -13,7 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/whiteFA" >
+        android:background="?attr/colorPrimary" >
 
         <SearchView
             android:id="@+id/InputSearchOrders"
@@ -27,6 +27,7 @@
             android:hint="@string/Rechercher_placeholder"
             android:importantForAutofill="no"
             android:inputType="textPersonName"
+            style="@style/style_input_search_bar"
             app:layout_constraintBottom_toTopOf="@+id/recyclerViewPharmacyOrders"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -49,7 +50,7 @@
             style="?android:attr/progressBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:indeterminateTint="@color/green52"
+            android:indeterminateTint="@color/customGreenPrimary"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -63,6 +64,7 @@
             android:gravity="center"
             android:text="@string/not_found"
             android:visibility="visible"
+            style="@style/style_text_in_login"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/progressBarClientHome" />
