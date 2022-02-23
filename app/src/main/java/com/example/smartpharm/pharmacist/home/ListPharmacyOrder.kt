@@ -70,6 +70,6 @@ class ListPharmacyOrder(val context: FragmentActivity?, var data:List<Order>?):
 
 class PharmacyOrderViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val item = view.findViewById(R.id.itemOrderPharmacy) as View
-    val testItem = view.findViewById(R.id.testItem2) as TextView
+    val testItem = view.findViewById(R.id.titleOrder) as TextView
     val removeButton = view.findViewById(R.id.removeButton) as ImageButton
 }

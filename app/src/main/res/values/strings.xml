@@ -159,6 +159,7 @@
     <string name="Province_in_guezzam">In Guezzam</string>
     <string name="no_Province">Wilaya</string>
     <string name="not_found">Pas trouver</string>
+    <string name="default_string">TextView</string>
 
 
 </resources>
