@@ -296,35 +296,41 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonRejectOrder"
+            style="@style/style_text_content_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:text="@string/rejeterbtn"
+            android:backgroundTint="@color/customOrange"
             android:onClick="@{()->orderDetailViewModel.rejectOrder()}"
-            android:background="?attr/orangeColor"
-            style="@style/style_text_content_detail"
+            android:text="@string/rejeterbtn"
+            android:textAllCaps="false"
+            android:textColor="?attr/colorOnSecondary"
             app:cornerRadius="1000dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextContrastCheck" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonAcceptOrder"
+            style="@style/style_text_content_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            android:text="@string/accepterbtn"
+            android:backgroundTint="?attr/colorSecondary"
             android:onClick="@{()->orderDetailViewModel.acceptOrder()}"
-            android:background="?attr/colorSecondary"
-            style="@style/style_text_content_detail"
+            android:text="@string/accepterbtn"
+            android:textAllCaps="false"
+            android:textColor="?attr/colorOnSecondary"
             app:cornerRadius="1000dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextContrastCheck" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
