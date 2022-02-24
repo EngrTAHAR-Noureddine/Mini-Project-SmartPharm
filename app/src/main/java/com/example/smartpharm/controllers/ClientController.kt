@@ -17,7 +17,7 @@ object ClientController {
 
 
     fun getListPharmacies(context: FragmentActivity){
-        if(listPharmacies.value.isNullOrEmpty()){
+
             DataBase.db.collection("User")
                 .get()
                 .addOnSuccessListener { querySnapshot ->run{
@@ -36,13 +36,14 @@ object ClientController {
                 }
 
                 }
-        }
+
 
     }
 
     fun searchPharmacy(word:String?,context: FragmentActivity){
 
-        if(!word.isNullOrEmpty()) {
+
+        if(!word.isNullOrEmpty() && !listPharmacies.value.isNullOrEmpty()) {
             val list = listPharmacies.value?.filter { item: User ->item.company.lowercase(Locale.ROOT).contains(word.lowercase(
                 Locale.ROOT))
             }
@@ -56,7 +57,8 @@ object ClientController {
 
     fun searchPharmacyByProvince(province:String?,context: FragmentActivity){
 
-        if(!province.isNullOrEmpty() && province!="Wilaya") {
+        Log.v("PRO","$province")
+        if(!province.isNullOrEmpty() && !listPharmacies.value.isNullOrEmpty() && province!="Wilaya") {
             val list = listPharmacies.value?.filter { item: User ->item.locationUser.lowercase(Locale.ROOT).contains(province.lowercase(
                 Locale.ROOT))
             }

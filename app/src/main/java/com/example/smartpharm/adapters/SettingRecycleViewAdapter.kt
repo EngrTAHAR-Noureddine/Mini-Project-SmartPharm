@@ -54,9 +54,7 @@ class SettingRecycleViewAdapter(val context: FragmentActivity?,val user: User):
         holder.inputFieldUser.inputType = inputNumber
 
         holder.editFieldUser.setOnClickListener{
-            isEditable.value = !isEditable.value!!
-            holder.inputFieldUser.isEnabled = (isEditable.value == true)
-            holder.editFieldUser.setImageResource(if(isEditable.value == true) R.drawable.ic_save_24 else R.drawable.ic_edit_24)
+
         }
 
 

@@ -68,6 +68,7 @@ class ClientHomeFragment : Fragment() {
                 binding.textNotFound.isVisible = false
                 binding.textResult.text = "Resultat : ${it.size}"
             }else{
+                binding.progressBarClientHome.isVisible = false
                 binding.textNotFound.isVisible = true
                 binding.textResult.text ="Resultat : 0"
             }
@@ -95,6 +96,7 @@ class ClientHomeFragment : Fragment() {
         })
 
         binding.popMenuButton.setOnClickListener{
+            ClientController.getListPharmacies(requireActivity())
             val popupMenu = PopupMenu(context,it)
             popupMenu.menuInflater.inflate(R.menu.menu_provinces,popupMenu.menu)
             popupMenu.setOnMenuItemClickListener{ item ->

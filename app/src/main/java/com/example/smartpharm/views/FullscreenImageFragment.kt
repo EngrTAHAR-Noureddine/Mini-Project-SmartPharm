@@ -43,7 +43,7 @@ class FullscreenImageFragment : Fragment() {
 
         val json: String = getData("ImageOrder", "imageOrder") ?: ""
         val file :File = File(json)
-        Picasso.with(context).load(file).fit().centerCrop().into(_binding.fullscreenContent)
+        Picasso.with(context).load(file).fit().centerInside().into(_binding.fullscreenContent)
 
         return _binding.root
 

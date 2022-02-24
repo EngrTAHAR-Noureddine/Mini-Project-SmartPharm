@@ -31,6 +31,7 @@ class DemandeOrderViewModel(private val binding: DemandeOrderFragmentBinding,
 ) : ViewModel() {
     private val numberPhotos = MutableLiveData<Int?>()
     private val dialogBox : CustomProgressDialog = CustomProgressDialog()
+    var texting : String = ""
 
     init {
         noteOrder.value = ""
@@ -66,10 +67,10 @@ class DemandeOrderViewModel(private val binding: DemandeOrderFragmentBinding,
         val user: User? = gson.fromJson(json2, User::class.java)
         var listPhotos: ArrayList<String> = ArrayList()
 
-        noteOrder.value = if(noteOrder.value!=null && binding.inputNoteUser.editableText != null)
+        noteOrder.value = if(!binding.inputNoteUser.editableText.isNullOrEmpty())
                                 binding.inputNoteUser.editableText.toString() else "none"
 
-        Log.d("UploadFile", "value : ${noteOrder.value.toString()}")
+        Log.d("UploadFile", "text : ${texting}")
         Log.d("UploadFile", "EditText : ${binding.inputNoteUser.editableText}")
 
         val storage = Firebase.storage

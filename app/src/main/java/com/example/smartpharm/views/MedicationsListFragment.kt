@@ -64,12 +64,16 @@ class MedicationsListFragment : Fragment() {
         medicationsListViewModel.listMedications.observe(
             viewLifecycleOwner
         ) {
+            binding.textNotFound.isVisible = true
             it?.let {
                 binding.progressBarMedication.isVisible = false
+                binding.textNotFound.isVisible = false
                 binding.textNotFound.isVisible = it.isNullOrEmpty()
                 this.binding.recycleViewMedications.isVisible = true
                 this.binding.recycleViewMedications.adapter = MedicationListAdapter(activity, it)
             }
+            binding.progressBarMedication.isVisible = false
+
         }
 
         binding.FABAddMedication.setOnClickListener{

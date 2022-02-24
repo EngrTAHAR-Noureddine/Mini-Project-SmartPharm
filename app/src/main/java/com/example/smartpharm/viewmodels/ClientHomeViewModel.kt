@@ -17,7 +17,9 @@ class ClientHomeViewModel(private val binding: ClientHomeFragmentBinding
     }
 
     private fun initializeListPharmacies() {
+        if(ClientController.listPharmacies.value.isNullOrEmpty()){
         getPharmacies(context)
+        }
     }
 
 
