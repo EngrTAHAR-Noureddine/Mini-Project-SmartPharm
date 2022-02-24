@@ -1,6 +1,7 @@
 package com.example.smartpharm.controllers
 
 
+
 import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
@@ -12,31 +13,35 @@ import java.util.*
 
 object ClientController {
 
-    var listPharmacies = MutableLiveData<List<User>>()
+    var listPharmacies = MutableLiveData<List<User>?>()
 
 
     fun getListPharmacies(context: FragmentActivity){
-        DataBase.db.collection("User")
-            .get()
-            .addOnSuccessListener { querySnapshot ->run{
-                if (!querySnapshot.isEmpty) {
-                    var list:List<User>? = querySnapshot.toObjects(User::class.java)
-                    listPharmacies.value = list?.filter{ item -> (item.typeUser == "Pharmacy")}
+        if(listPharmacies.value.isNullOrEmpty()){
+            DataBase.db.collection("User")
+                .get()
+                .addOnSuccessListener { querySnapshot ->run{
+                    if (!querySnapshot.isEmpty) {
+                        var list:List<User>? = querySnapshot.toObjects(User::class.java)
+                        listPharmacies.value = list?.filter{ item -> (item.typeUser == "Pharmacy")}
+                    }
                 }
-            }
-            }
-            .addOnFailureListener { exception ->run{
-                Log.w("FIRESTORE", "Error getting documents $exception")
-                val text = "Out Connexion"
-                val duration = Toast.LENGTH_SHORT
-                val toast = Toast.makeText(context, text, duration)
-                toast.show()
-            }
+                }
+                .addOnFailureListener { exception ->run{
+                    Log.w("FIRESTORE", "Error getting documents $exception")
+                    val text = "Out Connexion"
+                    val duration = Toast.LENGTH_SHORT
+                    val toast = Toast.makeText(context, text, duration)
+                    toast.show()
+                }
 
-            }
+                }
+        }
+
     }
 
     fun searchPharmacy(word:String?,context: FragmentActivity){
+
         if(!word.isNullOrEmpty()) {
             val list = listPharmacies.value?.filter { item: User ->item.company.lowercase(Locale.ROOT).contains(word.lowercase(
                 Locale.ROOT))
@@ -48,7 +53,9 @@ object ClientController {
         }
     }
 
+
     fun searchPharmacyByProvince(province:String?,context: FragmentActivity){
+
         if(!province.isNullOrEmpty() && province!="Wilaya") {
             val list = listPharmacies.value?.filter { item: User ->item.locationUser.lowercase(Locale.ROOT).contains(province.lowercase(
                 Locale.ROOT))

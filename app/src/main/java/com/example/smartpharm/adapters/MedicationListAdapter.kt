@@ -32,12 +32,12 @@ class MedicationListAdapter(val context: FragmentActivity?, var data:List<Medica
         val gson = Gson()
         val json: String = getData("UserProfile", "userProfile") ?: ""
         val user : User? = gson.fromJson(json, User::class.java)
-        if(user!=null && user!!.typeUser=="Pharmacy"){
+        if(user!=null && user.typeUser=="Pharmacy"){
             holder.item.setOnClickListener{
                 holder.deleteMedication.isVisible = !holder.deleteMedication.isVisible
             }
             holder.deleteMedication.setOnClickListener {
-                if(data!=null) deleteMedication(data[position],context!!)
+                deleteMedication(data[position],context!!)
             }
         }
 

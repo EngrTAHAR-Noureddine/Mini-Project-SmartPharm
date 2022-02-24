@@ -24,19 +24,7 @@ class ListPharmacistsAdapter(val context: FragmentActivity?, var data:List<User>
         holder.locationPharmacy.text = data[position].locationUser
         holder.item.setOnClickListener {
 
-            val pharmacy = User(
-                name = data[position].name,
-                locationUser = data[position].locationUser,
-                passwordUser = data[position].passwordUser,
-                emailUser = data[position].emailUser,
-                phoneNumber = data[position].phoneNumber,
-                photoUser = data[position].photoUser,
-                typeUser = data[position].typeUser,
-                facebookAccount = data[position].facebookAccount,
-                instagramAccount = data[position].instagramAccount,
-                company = data[position].company,
-                idUser = data[position].idUser
-            )
+            val pharmacy = data[position]
 
             val gson = Gson()
             val prefUser = context?.getSharedPreferences("PharmacyProfile", Context.MODE_PRIVATE)
@@ -45,7 +33,6 @@ class ListPharmacistsAdapter(val context: FragmentActivity?, var data:List<User>
             editorUser?.apply{
                 putString("pharmacyProfile",json)
             }?.apply()
-
 
             context?.findNavController(R.id.myNavHostFragment)?.navigate(R.id.to_Client_Pharmacy_Detail)
 

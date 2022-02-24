@@ -165,6 +165,7 @@
     <string name="continued_without_login">Continuer sans se connecter</string>
     <string name="champs_btn_toLogin">Se connecter</string>
     <string name="dropped_pin">dropped pin</string>
+    <string name="btn_proceed">Process</string>
 
 
 </resources>

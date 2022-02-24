@@ -22,6 +22,7 @@ import com.example.smartpharm.R
 import com.example.smartpharm.viewmodels.ClientHomeViewModel
 import com.example.smartpharm.viewmodel_factories.ClientHomeViewModelFactory
 import com.example.smartpharm.adapters.ListPharmacistsAdapter
+import com.example.smartpharm.controllers.ClientController
 import com.example.smartpharm.databinding.ClientHomeFragmentBinding
 import com.example.smartpharm.controllers.ClientController.searchPharmacy
 import com.example.smartpharm.controllers.ClientController.searchPharmacyByProvince
@@ -32,7 +33,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class ClientHomeFragment : Fragment() {
 
     private lateinit var binding: ClientHomeFragmentBinding
-    private lateinit var fusedLocationClient: FusedLocationProviderClient
+
 
 
     @SuppressLint("MissingPermission")
@@ -50,16 +51,7 @@ class ClientHomeFragment : Fragment() {
 
         
         binding.buttonLocation.setOnClickListener {
-
-            fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
-            fusedLocationClient.lastLocation
-                .addOnSuccessListener { location : Location? ->
-                    if (location != null) {
-                        Log.v("MAP","Lati : ${location.latitude} and long : ${location.longitude}")
-                        Log.v("MAP","provider : ${location.provider}")
-                    }
-                }
-            //activity?.findNavController(R.id.myNavHostFragment)?.navigate(R.id.action_destination_Client_Home_to_mapFragment)
+            activity?.findNavController(R.id.myNavHostFragment)?.navigate(R.id.action_destination_Client_Home_to_mapFragment)
         }
 
         this.binding.recycleViewPharmacies.layoutManager = LinearLayoutManager(activity)
@@ -194,6 +186,7 @@ class ClientHomeFragment : Fragment() {
 
         return true
     }
+
 
 
 

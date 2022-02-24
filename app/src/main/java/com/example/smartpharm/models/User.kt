@@ -17,5 +17,6 @@ data class User(
     @SerializedName("phoneNumber") var phoneNumber: String = "",
     @SerializedName("photoUser") var photoUser: String = "",
     @SerializedName("typeUser") var typeUser: String = "",
+    @SerializedName("coordinate") var coordinate: Map<String,Double>? = null,
     @SerializedName("company") var company: String = ""
     )

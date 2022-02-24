@@ -15,6 +15,7 @@ import com.example.smartpharm.controllers.MedicationController.postMedication
 import com.example.smartpharm.models.Medication
 import com.example.smartpharm.models.User
 import com.google.gson.Gson
+import java.util.*
 
 class DialogAddMedicationFragment : DialogFragment() {
 
@@ -41,7 +42,11 @@ class DialogAddMedicationFragment : DialogFragment() {
             val user: User? = gson.fromJson(json2, User::class.java)
             val name : String? = if(binding.nameMedication.text!=null) binding.nameMedication.text.toString() else null
             if(user!=null && name!=null){
+
+
+
                 val medication = Medication(
+                    idMedication = UUID.randomUUID().toString(),
                     emailPharmacy= user.emailUser,
                     nameMedication = name
                     )
