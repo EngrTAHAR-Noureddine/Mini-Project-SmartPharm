@@ -23,7 +23,9 @@
         android:roundIcon="@mipmap/logo_smart_pharm_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartPharm">
-
+        <activity
+            android:name=".activities.ChoiceActivity"
+            android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -37,9 +39,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_API_KEY" />
-
-        <!-- [START fcm_default_icon] -->
+            android:value="YOUR_API_KEY" /> <!-- [START fcm_default_icon] -->
         <!--
  Set custom default icon. This is used when no icon is set for incoming notification messages.
              See README(https://goo.gl/l4GJaQ) for more.

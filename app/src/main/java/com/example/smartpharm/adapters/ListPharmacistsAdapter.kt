@@ -1,4 +1,4 @@
-package com.example.smartpharm.client.home
+package com.example.smartpharm.adapters
 
 import android.content.Context
 import android.content.SharedPreferences

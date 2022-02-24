@@ -33,6 +33,7 @@
         <entry key="app/src/main/res/drawable/style_input_serach.xml" value="0.1875" />
         <entry key="app/src/main/res/drawable/tab_color.xml" value="0.1" />
         <entry key="app/src/main/res/layout/about_user_box.xml" value="0.2957427536231884" />
+        <entry key="app/src/main/res/layout/activity_choice.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_client.xml" value="0.17962962962962964" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.2857789855072464" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19882246376811594" />

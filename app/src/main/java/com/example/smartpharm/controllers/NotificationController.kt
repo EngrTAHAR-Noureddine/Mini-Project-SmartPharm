@@ -71,7 +71,7 @@ object NotificationController {
          initial(context)
         val jsonObjectRequest: JsonObjectRequest = object : JsonObjectRequest(
             FCM_API, notification,
-            Response.Listener<JSONObject?> { response -> Log.v(TAG, "onResponse sendNotification: $response") },
+            Response.Listener { response -> Log.v(TAG, "onResponse sendNotification: $response") },
             Response.ErrorListener {
                 Toast.makeText(context, "Request error", Toast.LENGTH_LONG).show()
                 Log.v(TAG, "onErrorResponse of sendNotification: Didn't work")

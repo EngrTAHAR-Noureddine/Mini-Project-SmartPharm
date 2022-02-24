@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.example.smartpharm.R
-import com.example.smartpharm.viewmodels.PharmacyDetailsViewModel
 import com.example.smartpharm.databinding.PharmacyDetailsFragmentBinding
 import com.example.smartpharm.models.User
 import com.google.gson.Gson
@@ -17,7 +16,6 @@ import com.google.gson.Gson
 class PharmacyDetailsFragment : Fragment() {
 
 
-    private lateinit var viewModel: PharmacyDetailsViewModel
     private lateinit var binding:PharmacyDetailsFragmentBinding
 
     private fun getData(): String?{

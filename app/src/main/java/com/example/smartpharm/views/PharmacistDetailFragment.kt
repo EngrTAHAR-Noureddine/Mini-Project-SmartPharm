@@ -1,4 +1,4 @@
-package com.example.smartpharm.client.pharmacist_detail.main
+package com.example.smartpharm.views
 
 import android.content.Context
 import android.graphics.*
@@ -13,10 +13,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.smartpharm.R
-import com.example.smartpharm.views.PharmacyDetailsFragment
 import com.example.smartpharm.databinding.PharmacistDetailFragmentBinding
 import com.example.smartpharm.models.User
-import com.example.smartpharm.views.MedicationsListFragment
 import com.example.smartpharm.viewmodel_factories.PharmacyDetailFragmentFactory
 import com.example.smartpharm.viewmodels.PharmacistDetailViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -90,7 +88,7 @@ class PharmacistDetailFragment : Fragment() {
 
     class CircleTransform : Transformation {
         override fun transform(source: Bitmap): Bitmap {
-            val size = Math.min(source.width, source.height)
+            val size = source.width.coerceAtMost(source.height)
             val x = (source.width - size) / 2
             val y = (source.height - size) / 2
             val squaredBitmap = Bitmap.createBitmap(source, x, y, size, size)
@@ -104,8 +102,8 @@ class PharmacistDetailFragment : Fragment() {
                 squaredBitmap,
                 Shader.TileMode.CLAMP, Shader.TileMode.CLAMP
             )
-            paint.setShader(shader)
-            paint.setAntiAlias(true)
+            paint.shader = shader
+            paint.isAntiAlias = true
             val r = size / 2f
             canvas.drawCircle(r, r, r, paint)
             squaredBitmap.recycle()

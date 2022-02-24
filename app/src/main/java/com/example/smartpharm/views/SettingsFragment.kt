@@ -15,7 +15,7 @@ import com.example.smartpharm.R
 import com.example.smartpharm.databinding.SettingsFragmentBinding
 import com.example.smartpharm.models.User
 import com.example.smartpharm.activities.LoginActivity
-import com.example.smartpharm.settings.SettingRecycleViewAdapter
+import com.example.smartpharm.adapters.SettingRecycleViewAdapter
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.Transformation
@@ -36,6 +36,14 @@ class SettingsFragment : Fragment() {
         val gson = Gson()
         val json2 :String = if(getDataUser()!=null) getDataUser()!! else ""
         val user : User? = gson.fromJson(json2, User::class.java)
+
+        val pref = context?.getSharedPreferences("TypeUserFile", Context.MODE_PRIVATE)
+        val typeUser = pref?.getString("typeUserFile", null)
+        if(typeUser.isNullOrEmpty()){
+            val intent = Intent(context, LoginActivity::class.java)
+            startActivity(intent)
+            activity?.finish()
+        }
 
         binding = DataBindingUtil.inflate(inflater,R.layout.settings_fragment,container,false)
         binding.lifecycleOwner = this
@@ -67,7 +75,7 @@ class SettingsFragment : Fragment() {
 
     class CircleTransform : Transformation {
         override fun transform(source: Bitmap): Bitmap {
-            val size = Math.min(source.width, source.height)
+            val size = source.width.coerceAtMost(source.height)
             val x = (source.width - size) / 2
             val y = (source.height - size) / 2
             val squaredBitmap = Bitmap.createBitmap(source, x, y, size, size)
@@ -81,8 +89,8 @@ class SettingsFragment : Fragment() {
                 squaredBitmap,
                 Shader.TileMode.CLAMP, Shader.TileMode.CLAMP
             )
-            paint.setShader(shader)
-            paint.setAntiAlias(true)
+            paint.shader = shader
+            paint.isAntiAlias = true
             val r = size / 2f
             canvas.drawCircle(r, r, r, paint)
             squaredBitmap.recycle()

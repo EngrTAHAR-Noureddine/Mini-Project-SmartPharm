@@ -2,6 +2,7 @@ package com.example.smartpharm.views
 
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,6 +15,8 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.smartpharm.R
+import com.example.smartpharm.activities.ChoiceActivity
+import com.example.smartpharm.activities.LoginActivity
 import com.example.smartpharm.viewmodels.ListOrdersViewModel
 import com.example.smartpharm.viewmodel_factories.ListOrdersViewModelFactory
 import com.example.smartpharm.databinding.ListOrdersFragmentBinding
@@ -21,7 +24,7 @@ import com.example.smartpharm.controllers.OrderController
 import com.example.smartpharm.controllers.OrderController.searchOrder
 import com.example.smartpharm.models.Order
 import com.example.smartpharm.models.User
-import com.example.smartpharm.pharmacist.home.ListPharmacyOrder
+import com.example.smartpharm.adapters.ListPharmacyOrder
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.gson.Gson
 
@@ -41,6 +44,15 @@ class ListOrdersFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+
+        val pref = context?.getSharedPreferences("TypeUserFile", Context.MODE_PRIVATE)
+        val typeUser = pref?.getString("typeUserFile", null)
+        if(typeUser.isNullOrEmpty()){
+            val intent = Intent(context, LoginActivity::class.java)
+            startActivity(intent)
+            activity?.finish()
+        }
 
         val gson = Gson()
         val json: String = getData("UserProfile", "userProfile") ?: ""

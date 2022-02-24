@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.smartpharm.R
 import com.example.smartpharm.databinding.MedicationsListFragmentBinding
 import com.example.smartpharm.controllers.MedicationController.searchMedication
-import com.example.smartpharm.medications_pharmacy.MedicationListAdapter
+import com.example.smartpharm.adapters.MedicationListAdapter
 import com.example.smartpharm.viewmodels.MedicationsListViewModel
 import com.example.smartpharm.viewmodel_factories.MedicationsListViewModelFactory
 import com.example.smartpharm.models.User

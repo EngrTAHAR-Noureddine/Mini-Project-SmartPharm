@@ -14,7 +14,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.smartpharm.R
-import com.example.smartpharm.client.demande_order.GridImageAdapter
+import com.example.smartpharm.adapters.GridImageAdapter
 import com.example.smartpharm.controllers.FileController.destroyAllFiles
 import com.example.smartpharm.controllers.FileController.listFile
 import com.example.smartpharm.controllers.FileController.returnPhotos

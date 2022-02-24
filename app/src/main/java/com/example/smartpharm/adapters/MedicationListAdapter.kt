@@ -1,4 +1,4 @@
-package com.example.smartpharm.medications_pharmacy
+package com.example.smartpharm.adapters
 
 import android.content.Context
 import android.view.LayoutInflater

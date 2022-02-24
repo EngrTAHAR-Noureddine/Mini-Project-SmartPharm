@@ -1,7 +1,9 @@
 package com.example.smartpharm.viewmodels
 
 
+import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.widget.Toast
@@ -9,12 +11,13 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
 import androidx.navigation.findNavController
 import com.example.smartpharm.R
+import com.example.smartpharm.activities.LoginActivity
 import com.example.smartpharm.controllers.FileController
 import com.example.smartpharm.databinding.PharmacistDetailFragmentBinding
 import com.example.smartpharm.models.User
 
 class PharmacistDetailViewModel(private val binding: PharmacistDetailFragmentBinding,
-                                private val context : FragmentActivity,
+                                @SuppressLint("StaticFieldLeak") private val context : FragmentActivity,
                                 private val user: User?
 ) : ViewModel() {
     fun callPharmacy(){
@@ -53,8 +56,16 @@ class PharmacistDetailViewModel(private val binding: PharmacistDetailFragmentBin
     }
 
     fun goToOrder(){
+        val pref = context.getSharedPreferences("TypeUserFile", Context.MODE_PRIVATE)
+        val typeUser = pref?.getString("typeUserFile", null)
+        if(typeUser.isNullOrEmpty()){
+            val intent = Intent(context, LoginActivity::class.java)
+            context.startActivity(intent)
+            context.finish()
+        }else {
             FileController.emptyDir(context)
             context.findNavController(R.id.myNavHostFragment).navigate(R.id.to_Client_Order)
+        }
         }
 
 }

@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.smartpharm.R
 import com.example.smartpharm.viewmodels.ClientHomeViewModel
 import com.example.smartpharm.viewmodel_factories.ClientHomeViewModelFactory
-import com.example.smartpharm.client.home.ListPharmacistsAdapter
+import com.example.smartpharm.adapters.ListPharmacistsAdapter
 import com.example.smartpharm.databinding.ClientHomeFragmentBinding
 import com.example.smartpharm.controllers.ClientController.searchPharmacy
 import com.example.smartpharm.controllers.ClientController.searchPharmacyByProvince

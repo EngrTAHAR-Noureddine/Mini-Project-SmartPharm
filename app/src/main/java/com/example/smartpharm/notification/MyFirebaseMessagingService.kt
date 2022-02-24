@@ -33,6 +33,7 @@ class MyFirebaseMessagingService: FirebaseMessagingService() {
         return prefUser?.getString(string,"")
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     @SuppressLint("UnspecifiedImmutableFlag")
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         Log.v("NOTIFICATION TAG", "onMessageReceived of MyFirebaseMessaging")

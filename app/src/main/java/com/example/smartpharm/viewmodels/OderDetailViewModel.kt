@@ -1,5 +1,6 @@
 package com.example.smartpharm.viewmodels
 
+import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
@@ -17,7 +18,7 @@ import com.example.smartpharm.models.Order
 import com.example.smartpharm.controllers.NotificationController
 
 class OderDetailViewModel(private val binding: OderDetailFragmentBinding,
-                          private val context: FragmentActivity,
+                          @SuppressLint("StaticFieldLeak") private val context: FragmentActivity,
                           private val type : String,
                           private val order : Order? ) : ViewModel() {
 

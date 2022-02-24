@@ -12,7 +12,6 @@ import androidx.fragment.app.DialogFragment
 import com.example.smartpharm.R
 import com.example.smartpharm.databinding.DialogAddMedicationFragmentBinding
 import com.example.smartpharm.controllers.MedicationController.postMedication
-import com.example.smartpharm.viewmodels.DialogAddMedicationViewModel
 import com.example.smartpharm.models.Medication
 import com.example.smartpharm.models.User
 import com.google.gson.Gson
@@ -21,7 +20,7 @@ class DialogAddMedicationFragment : DialogFragment() {
 
 
 
-    private lateinit var viewModel: DialogAddMedicationViewModel
+
     private lateinit var binding : DialogAddMedicationFragmentBinding
     private fun getData(file:String, string: String): String?{
         val prefUser = activity?.getSharedPreferences(file, Context.MODE_PRIVATE)

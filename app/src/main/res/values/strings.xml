@@ -162,6 +162,8 @@
     <string name="default_string">TextView</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="continued_without_login">Continuer sans se connecter</string>
+    <string name="champs_btn_toLogin">Se connecter</string>
 
 
 </resources>

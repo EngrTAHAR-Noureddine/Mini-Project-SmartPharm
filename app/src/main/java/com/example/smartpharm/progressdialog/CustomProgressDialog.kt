@@ -21,9 +21,9 @@ class CustomProgressDialog : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_progress_dialog,container,false)
-        progress.observe(viewLifecycleOwner,{
+        progress.observe(viewLifecycleOwner) {
             binding.textUpload.text = "Upload...${String.format("%.2f", it)}"
-        })
+        }
         return binding.root
     }
 

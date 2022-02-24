@@ -15,7 +15,7 @@ import com.example.smartpharm.databinding.DemandeOrderFragmentBinding
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.smartpharm.viewmodel_factories.DemandeOrderFragmentFactory
 import com.example.smartpharm.viewmodels.DemandeOrderViewModel
-import com.example.smartpharm.client.demande_order.GridImageAdapter
+import com.example.smartpharm.adapters.GridImageAdapter
 import com.example.smartpharm.controllers.FileController.destroyAllFiles
 import com.example.smartpharm.controllers.FileController.imagesReader
 import com.example.smartpharm.controllers.FileController.listFile
@@ -45,16 +45,25 @@ class DemandeOrderFragment : Fragment() {
 
         binding.GridRecycleView.layoutManager = GridLayoutManager(context, 3)
 
-        listFile.observe(viewLifecycleOwner, {
-               binding.GridRecycleView.adapter = GridImageAdapter(activity, it)
-               Log.v("ObserverListFile", " this is observer")
+        listFile.observe(viewLifecycleOwner) {
+            binding.GridRecycleView.adapter = GridImageAdapter(activity, it)
+            Log.v("ObserverListFile", " this is observer")
 
-                binding.floatingBtnCamera.isEnabled = !(listFile.value!=null && listFile.value!!.size >2)
-                binding.floatingBtnCamera.isClickable = !(listFile.value!=null && listFile.value!!.size >2)
-                binding.floatingBtnCamera.backgroundTintList = if(listFile.value!=null && listFile.value!!.size >2)
-                                                                    ColorStateList.valueOf(Color.LTGRAY) else  ColorStateList.valueOf(Color.rgb(48,54,61))
+            binding.floatingBtnCamera.isEnabled =
+                !(listFile.value != null && listFile.value!!.size > 2)
+            binding.floatingBtnCamera.isClickable =
+                !(listFile.value != null && listFile.value!!.size > 2)
+            binding.floatingBtnCamera.backgroundTintList =
+                if (listFile.value != null && listFile.value!!.size > 2)
+                    ColorStateList.valueOf(Color.LTGRAY) else ColorStateList.valueOf(
+                    Color.rgb(
+                        48,
+                        54,
+                        61
+                    )
+                )
 
-        })
+        }
 
         return binding.root
     }

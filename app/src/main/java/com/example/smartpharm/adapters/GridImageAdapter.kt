@@ -1,4 +1,4 @@
-package com.example.smartpharm.client.demande_order
+package com.example.smartpharm.adapters
 
 
 import android.content.Context

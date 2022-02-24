@@ -1,4 +1,4 @@
-package com.example.smartpharm.pharmacist.home
+package com.example.smartpharm.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context

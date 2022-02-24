@@ -19,7 +19,7 @@ import com.example.smartpharm.controllers.OrderController.listState
 import com.example.smartpharm.controllers.OrderController.searchOrder
 import com.example.smartpharm.models.Order
 import com.example.smartpharm.models.User
-import com.example.smartpharm.pharmacist.home.ListPharmacyOrder
+import com.example.smartpharm.adapters.ListPharmacyOrder
 import com.example.smartpharm.viewmodel_factories.PharmacieHomeViewModelFactory
 import com.example.smartpharm.viewmodels.PharmacistHomeViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView

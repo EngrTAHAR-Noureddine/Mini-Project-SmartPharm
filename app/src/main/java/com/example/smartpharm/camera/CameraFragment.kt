@@ -6,13 +6,11 @@ import android.annotation.SuppressLint
 
 import android.content.pm.PackageManager
 import android.icu.text.SimpleDateFormat
-import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.example.smartpharm.R
@@ -107,11 +105,6 @@ class CameraFragment : Fragment() {
                 }
 
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
-                    //val savedUri = Uri.fromFile(photoFile)
-                    //val msg = "Photo capture succeeded: $savedUri"
-                    //Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
-                    Log.d(TAG, "Success")
-                    //activity?.supportFragmentManager?.popBackStack()
                    activity?.findNavController(R.id.myNavHostFragment)?.popBackStack()
                 }
             })
@@ -150,8 +143,6 @@ class CameraFragment : Fragment() {
 
             // Select back camera as a default
             val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
-            //val cameraSelector : CameraSelector = CameraSelector.Builder().requireLensFacing(CameraSelector.LENS_FACING_BACK).build()
-
 
             try {
                 // Unbind use cases before rebinding

@@ -24,13 +24,13 @@ object FileController {
 
 
     private fun getOutputDirectory(context:Context){
-        val mediaDir = context?.externalMediaDirs?.firstOrNull()?.let {
+        val mediaDir = context.externalMediaDirs?.firstOrNull()?.let {
             File(it, context.resources.getString(R.string.app_name)).apply { mkdirs() } }
         _rootFile.value = if (mediaDir != null && mediaDir.exists())
                                     mediaDir else context.filesDir
     }
 
-    fun destroyListFileVariable(){
+    private fun destroyListFileVariable(){
         _listFile.value = null
         _rootFile.value = null
     }
@@ -80,7 +80,7 @@ object FileController {
         val storageRef = storage.reference
         val fileImages: ArrayList<File> = ArrayList()
         for (f in files){
-            Log.v("PHOTOTAG","File name is  ${f}")
+            Log.v("PHOTOTAG","File name is  $f")
             val riversRef = storageRef.child("ImagesSmartPharm/${f}")
             val localFile = File.createTempFile(f, "jpg")
             riversRef.getFile(localFile).addOnSuccessListener {

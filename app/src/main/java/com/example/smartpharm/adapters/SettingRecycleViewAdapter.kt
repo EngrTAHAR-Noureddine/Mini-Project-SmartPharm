@@ -1,4 +1,4 @@
-package com.example.smartpharm.settings
+package com.example.smartpharm.adapters
 
 import android.text.InputType
 import android.view.LayoutInflater
