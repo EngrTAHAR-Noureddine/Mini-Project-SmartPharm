@@ -70,7 +70,7 @@ dependencies {
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
     implementation 'com.google.firebase:firebase-database-ktx:20.0.3'
     implementation 'com.google.firebase:firebase-messaging-ktx:23.0.0'
-    implementation 'com.google.android.gms:play-services-maps:17.0.1'
+    implementation 'com.google.android.gms:play-services-maps:18.0.2'
     annotationProcessor "androidx.room:room-compiler:$version_room"
     kapt "androidx.room:room-compiler:$version_room"
     implementation "androidx.lifecycle:lifecycle-extensions:$version_lifecycle_extensions"
@@ -113,12 +113,14 @@ dependencies {
     //noinspection GradleDependency
     implementation "androidx.camera:camera-lifecycle:$camerax_version"
     // CameraX View class
-    implementation "androidx.camera:camera-view:1.1.0-beta01"
+    implementation "androidx.camera:camera-view:$camerax_version"
 
     //
     implementation "com.android.support:multidex:1.0.3"
 
     //generate notification
     implementation 'com.android.volley:volley:1.2.1'
-    implementation 'androidx.work:work-runtime-ktx:2.7.0'
+    implementation 'androidx.work:work-runtime-ktx:2.7.1'
+
+    implementation 'com.google.android.gms:play-services-location:19.0.1'
 }

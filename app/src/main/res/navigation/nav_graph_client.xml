@@ -13,6 +13,9 @@
         <action
             android:id="@+id/to_Client_Pharmacy_Detail"
             app:destination="@id/destination_Client_Pharmacy_Detail" />
+        <action
+            android:id="@+id/action_destination_Client_Home_to_mapFragment"
+            app:destination="@id/mapFragment" />
     </fragment>
     <fragment
         android:id="@+id/destination_Client_Orders"
@@ -93,4 +96,8 @@
         android:id="@+id/fullscreenImageFragment"
         android:name="com.example.smartpharm.views.FullscreenImageFragment"
         android:label="FullscreenImageFragment" />
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.example.smartpharm.views.MapFragment"
+        android:label="MapFragment" />
 </navigation>

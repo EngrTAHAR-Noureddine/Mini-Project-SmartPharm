@@ -1,8 +1,11 @@
 package com.example.smartpharm.views
 
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.location.Location
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +16,7 @@ import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.smartpharm.R
 import com.example.smartpharm.viewmodels.ClientHomeViewModel
@@ -21,13 +25,17 @@ import com.example.smartpharm.adapters.ListPharmacistsAdapter
 import com.example.smartpharm.databinding.ClientHomeFragmentBinding
 import com.example.smartpharm.controllers.ClientController.searchPharmacy
 import com.example.smartpharm.controllers.ClientController.searchPharmacyByProvince
+import com.google.android.gms.location.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class ClientHomeFragment : Fragment() {
 
     private lateinit var binding: ClientHomeFragmentBinding
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
 
+
+    @SuppressLint("MissingPermission")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         binding = DataBindingUtil.inflate(inflater,R.layout.client_home_fragment,container,false)
@@ -38,6 +46,21 @@ class ClientHomeFragment : Fragment() {
 
         binding.clientHomeViewModel = clientHomeViewModel
         binding.lifecycleOwner = this
+
+
+        
+        binding.buttonLocation.setOnClickListener {
+
+            fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
+            fusedLocationClient.lastLocation
+                .addOnSuccessListener { location : Location? ->
+                    if (location != null) {
+                        Log.v("MAP","Lati : ${location.latitude} and long : ${location.longitude}")
+                        Log.v("MAP","provider : ${location.provider}")
+                    }
+                }
+            //activity?.findNavController(R.id.myNavHostFragment)?.navigate(R.id.action_destination_Client_Home_to_mapFragment)
+        }
 
         this.binding.recycleViewPharmacies.layoutManager = LinearLayoutManager(activity)
 
@@ -171,6 +194,7 @@ class ClientHomeFragment : Fragment() {
 
         return true
     }
+
 
 
 
