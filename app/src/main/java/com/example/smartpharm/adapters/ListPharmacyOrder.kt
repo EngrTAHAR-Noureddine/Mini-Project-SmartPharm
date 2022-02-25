@@ -36,6 +36,15 @@ class ListPharmacyOrder(val context: FragmentActivity?, var data:List<Order>?):
 
         holder.removeButton.isVisible = false
 
+        holder.item.setOnLongClickListener{
+            if(data!=null && data!!.isNotEmpty()){
+                if(data!![position].state == listState[2]){
+                    holder.removeButton.isVisible = !holder.removeButton.isVisible
+                }
+            }
+            true
+        }
+
 
         holder.item.setOnClickListener {
 
@@ -50,16 +59,12 @@ class ListPharmacyOrder(val context: FragmentActivity?, var data:List<Order>?):
                     putString("orderDetail",json)
                 }?.apply()
 
-
-                if(data!![position].state == listState[2]){
-                    holder.removeButton.isVisible = !holder.removeButton.isVisible
-                }else{
                     if(userType == "Pharmacy"){
                         context?.findNavController(R.id.myPharmacyNavHostFragment)?.navigate(R.id.action_destination_to_Pharmacy_Order_Detail)
                     }else{
                         context?.findNavController(R.id.myNavHostFragment)?.navigate(R.id.action_destination_toOrder_Detail)
                     }
-                }
+
             }
         }
 
