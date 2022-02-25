@@ -7,6 +7,7 @@ import android.net.Uri
 import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.findNavController
@@ -31,7 +32,10 @@ class DemandeOrderViewModel(private val binding: DemandeOrderFragmentBinding,
 ) : ViewModel() {
     private val numberPhotos = MutableLiveData<Int?>()
     private val dialogBox : CustomProgressDialog = CustomProgressDialog()
-    var texting : String = ""
+
+
+    val orderNote: LiveData<String>
+        get() = noteOrder
 
     init {
         noteOrder.value = ""
@@ -39,8 +43,11 @@ class DemandeOrderViewModel(private val binding: DemandeOrderFragmentBinding,
 
 
     fun takePhoto(){
-        noteOrder.value = if(binding.inputNoteUser.editableText != null) binding.inputNoteUser.editableText.toString() else "none"
+        noteOrder.value = if(!orderNote.value.isNullOrEmpty() || !binding.inputNoteUser.editableText.isNullOrEmpty())
+                                binding.inputNoteUser.editableText.toString() else "none"
+        Log.d("UploadFile", "text : ${orderNote.value}")
         numberPhotos.value = if(listFile.value!=null) listFile.value!!.size else 0
+
         if(numberPhotos.value!! <3){
             context.findNavController(R.id.myNavHostFragment).navigate(R.id.to_Camera_Fragment)
         }else{
@@ -67,10 +74,10 @@ class DemandeOrderViewModel(private val binding: DemandeOrderFragmentBinding,
         val user: User? = gson.fromJson(json2, User::class.java)
         var listPhotos: ArrayList<String> = ArrayList()
 
-        noteOrder.value = if(!binding.inputNoteUser.editableText.isNullOrEmpty())
+        noteOrder.value = if(!orderNote.value.isNullOrEmpty() || !binding.inputNoteUser.editableText.isNullOrEmpty())
                                 binding.inputNoteUser.editableText.toString() else "none"
 
-        Log.d("UploadFile", "text : ${texting}")
+        Log.d("UploadFile", "text : ${orderNote.value}")
         Log.d("UploadFile", "EditText : ${binding.inputNoteUser.editableText}")
 
         val storage = Firebase.storage

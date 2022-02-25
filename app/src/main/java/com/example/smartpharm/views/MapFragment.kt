@@ -20,7 +20,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.navigation.findNavController
 import com.example.smartpharm.R
 import com.example.smartpharm.controllers.ClientController
+import com.example.smartpharm.controllers.ClientController.getListPharmacies
 import com.example.smartpharm.controllers.ClientController.listPharmacies
+import com.example.smartpharm.controllers.ClientController.listPharmaciesOfMap
+import com.example.smartpharm.controllers.ClientController.onCleared
 import com.example.smartpharm.databinding.FragmentMapBinding
 import com.example.smartpharm.models.User
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -56,6 +59,9 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        onCleared()
+        getListPharmacies(requireActivity())
 
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_map,container,false)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
@@ -106,6 +112,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
             val distance = FloatArray(2)
 
+
             if(mCircle!=null && !listPharmacies.value.isNullOrEmpty()){
 
                 for(pharmacy in listPharmacies.value!!){
@@ -122,7 +129,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
                     }
                 }
 
-               listPharmacies.value =  list
+                listPharmacies.value =  list
 
                 Log.v("WIT", "list of : ${listPharmacies.value}")
 

@@ -18,7 +18,7 @@ import java.util.*
 object OrderController {
 
     var listOrders = MutableLiveData<MutableList<Order>?>()
-    var noteOrder  = MutableLiveData<String?>()
+    var noteOrder  = MutableLiveData<String>()
 
     var listState : List<String> = listOf("En cours","Rejeter","Accepter")
 
