@@ -1,21 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
 
 
     <color name="whiteFA">#FFFAFAFA</color>
     <color name="whiteEB">#FFEBEBF0</color>
-
-    <color name="green52">#FF52CAA8</color>
-    <color name="orangeF4">#FFF4511E</color>
-
-    <color name="gray3036">#FF30363D</color>
-    <color name="gray303F">#FF303F56</color>
-    <color name="gray3636">#FF363638</color>
 
 
     <!-- The Palette In Light -->
@@ -54,7 +42,6 @@
     <color name="light_blue_900">#FF01579B</color>
     <color name="light_blue_A200">#FF40C4FF</color>
     <color name="light_blue_A400">#FF00B0FF</color>
-    <color name="black_overlay">#66000000</color>
 
 
 </resources>

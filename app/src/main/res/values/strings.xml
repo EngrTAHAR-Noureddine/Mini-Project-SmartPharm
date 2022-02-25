@@ -15,14 +15,9 @@
     <string name="champs_forgetPassword">Mot de passe oublié ?</string>
     <string name="champs_connect_with">ou connecter par:</string>
 
-    <string name="champs_editprof">Modifier le profil </string>
-    <string name="champs_comandes">Mes commandes  </string>
-    <string name="champs_mespharms">Mes Pharmacies   </string>
-    <string name="champs_parametres">Paramètres   </string>
     <string name="Rechercher_placeholder">Rechercher...</string>
     <string name="todo">TODO</string>
     <string name="popmenu_unselected">Wilaya</string>
-    <string name="button_Filter">Filter</string>
     <string name="resultat">Resultat: 0</string>
     <string name="text_pharmacy_name">Pharmacie El-Hanaa</string>
     <string name="text_pharmacy_location">Oued Smar-El Harrach-Alger</string>
@@ -31,7 +26,6 @@
     <string name="acceuil">Acceuil</string>
     <string name="commandes">Commandes</string>
     <string name="param_tre">Paramètre</string>
-    <string name="ici_nom_pharmacy">Ici Nom Pharmacy</string>
     <string name="desc_imagepharmacy">imagePharmacy</string>
     <string name="commanderBTN">Commander</string>
     <string name="about">A propos :</string>
@@ -64,26 +58,7 @@
     <string name="title_nom">Nom:</string>
     <string name="nom_placeholder">Nom...</string>
 
-    <string name="title_location">Localisation:</string>
-    <string name="location_placeholder">Localisation...</string>
-
-    <string name="title_email">E-mail:</string>
-    <string name="email_placeholder">Email...</string>
-
-    <string name="title_facebook">Facebook:</string>
-    <string name="facebook_placeholder">Facebook...</string>
-
-    <string name="title_instagram">Instagram:</string>
-    <string name="instagram_placeholder">Instagram...</string>
-
-    <string name="title_phone">Phone:</string>
-    <string name="phone_placeholder">Phone...</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="titleDialogUpload">Prendre Photo</string>
-    <string name="byCamera">Par appareil photo</string>
-    <string name="cancelBtn">Annuler</string>
-    <string name="byGallery">Par gallery</string>
     <string name="take_photo">Take Photo</string>
     <string name="flash_btn">flash_btn</string>
     <string name="deleteicon">deleteIcon</string>
@@ -95,8 +70,6 @@
     <string name="uploading_progress">uploading...0%</string>
     <string name="accepterbtn">Accepter</string>
     <string name="rejeterbtn">Rejeter</string>
-    <string name="title">Title</string>
-    <string name="message">Message</string>
     <string name="default_notification_channel_id">SmartPharm Notification</string>
 
     <string name="Province_adrar">Adrar</string>
@@ -160,11 +133,8 @@
     <string name="no_Province">Wilaya</string>
     <string name="not_found">Pas trouver</string>
     <string name="default_string">TextView</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="continued_without_login">Continuer sans se connecter</string>
     <string name="champs_btn_toLogin">Se connecter</string>
-    <string name="dropped_pin">dropped pin</string>
     <string name="btn_proceed">Process</string>
 
 
