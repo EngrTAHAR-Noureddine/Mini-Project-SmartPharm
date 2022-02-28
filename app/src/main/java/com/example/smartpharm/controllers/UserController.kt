@@ -2,6 +2,7 @@ package com.example.smartpharm.controllers
 
 
 
+import android.content.Context
 import androidx.fragment.app.FragmentActivity
 
 
@@ -11,7 +12,7 @@ object UserController {
         LogInController.loginUser(email,password,context)
     }
 
-    fun getPharmacies(context: FragmentActivity){
+    fun getPharmacies(context: Context){
         ClientController.getListPharmacies(context)
     }
 

@@ -7,7 +7,6 @@ import android.net.Uri
 import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.findNavController
@@ -27,29 +26,20 @@ import com.example.smartpharm.controllers.OrderController.noteOrder
 import com.example.smartpharm.controllers.OrderController.postOrder
 
 
-class DemandeOrderViewModel(private val binding: DemandeOrderFragmentBinding,
-                            private val context : FragmentActivity
-) : ViewModel() {
+class DemandeOrderViewModel : ViewModel() {
     private val numberPhotos = MutableLiveData<Int?>()
     private val dialogBox : CustomProgressDialog = CustomProgressDialog()
 
 
-    val orderNote: LiveData<String>
-        get() = noteOrder
 
-    init {
-        noteOrder.value = ""
-    }
-
-
-    fun takePhoto(){
-        noteOrder.value = if(!orderNote.value.isNullOrEmpty() || !binding.inputNoteUser.editableText.isNullOrEmpty())
+    fun takePhoto(binding: DemandeOrderFragmentBinding, activity: FragmentActivity){
+        noteOrder.value = if(!binding.inputNoteUser.editableText.isNullOrEmpty())
                                 binding.inputNoteUser.editableText.toString() else "none"
-        Log.d("UploadFile", "text : ${orderNote.value}")
+
         numberPhotos.value = if(listFile.value!=null) listFile.value!!.size else 0
 
         if(numberPhotos.value!! <3){
-            context.findNavController(R.id.myNavHostFragment).navigate(R.id.to_Camera_Fragment)
+            activity.findNavController(R.id.myNavHostFragment).navigate(R.id.to_Camera_Fragment)
         }else{
             binding.floatingBtnCamera.isEnabled = false
             binding.floatingBtnCamera.isClickable = false
@@ -57,7 +47,7 @@ class DemandeOrderViewModel(private val binding: DemandeOrderFragmentBinding,
         }
     }
 
-    fun customResume(){
+    fun customResume(binding: DemandeOrderFragmentBinding){
         numberPhotos.value = if(listFile.value!=null) listFile.value!!.size else 0
         if(numberPhotos.value!! >2){
             binding.floatingBtnCamera.isEnabled = false
@@ -66,18 +56,17 @@ class DemandeOrderViewModel(private val binding: DemandeOrderFragmentBinding,
         }
     }
 
-    fun acceptOrder() { //"PharmacyProfile"  - "pharmacyProfile"
+    fun acceptOrder(binding: DemandeOrderFragmentBinding,activity: FragmentActivity) { //"PharmacyProfile"  - "pharmacyProfile"
         val gson = Gson()
-        val json: String = getData("PharmacyProfile", "pharmacyProfile") ?: ""
-        val json2: String = getData("UserProfile", "userProfile") ?: ""
+        val json: String = getData("PharmacyProfile", "pharmacyProfile",activity) ?: ""
+        val json2: String = getData("UserProfile", "userProfile",activity) ?: ""
         val pharmacy: User? = gson.fromJson(json, User::class.java)
         val user: User? = gson.fromJson(json2, User::class.java)
         var listPhotos: ArrayList<String> = ArrayList()
 
-        noteOrder.value = if(!orderNote.value.isNullOrEmpty() || !binding.inputNoteUser.editableText.isNullOrEmpty())
+        noteOrder.value = if(!binding.inputNoteUser.editableText.isNullOrEmpty())
                                 binding.inputNoteUser.editableText.toString() else "none"
 
-        Log.d("UploadFile", "text : ${orderNote.value}")
         Log.d("UploadFile", "EditText : ${binding.inputNoteUser.editableText}")
 
         val storage = Firebase.storage
@@ -101,7 +90,7 @@ class DemandeOrderViewModel(private val binding: DemandeOrderFragmentBinding,
                         updateProgress(progress)
                         if (!dialogBox.isAdded) {
                             dialogBox.isCancelable = false
-                            dialogBox.showNow(context.supportFragmentManager, "Uploading")
+                            dialogBox.showNow(activity.supportFragmentManager, "Uploading")
                         }
 
                     }.addOnPausedListener {
@@ -111,7 +100,7 @@ class DemandeOrderViewModel(private val binding: DemandeOrderFragmentBinding,
                         if (dialogBox.isAdded) {
                             dialogBox.dismiss()
                         }
-                        Toast.makeText(context, "Failed Upload", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity, "Failed Upload", Toast.LENGTH_SHORT).show()
                     }.addOnSuccessListener {
 
 
@@ -127,28 +116,29 @@ class DemandeOrderViewModel(private val binding: DemandeOrderFragmentBinding,
                                     state = listState[0]
                                 )
                                 Log.v("NOTIFICATION TAG", "Click accept button")
-                                postOrder(order, context)
-                                declineOrder()
+                                postOrder(order, activity)
+                                declineOrder(activity,binding)
                         }
                     }
                 }
             } else {
-                Toast.makeText(context, "Il n'y a pas des photos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "Il n'y a pas des photos", Toast.LENGTH_SHORT).show()
             }
         }else{
-            Toast.makeText(context, "Se connecter", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, "Se connecter", Toast.LENGTH_SHORT).show()
         }
 
     }
-    private fun getData(file:String, string: String): String?{
-        val prefUser = context.getSharedPreferences(file, Context.MODE_PRIVATE)
+
+    private fun getData(file:String, string: String,activity: FragmentActivity): String?{
+        val prefUser = activity.getSharedPreferences(file, Context.MODE_PRIVATE)
         return prefUser?.getString(string,"")
     }
 
-    fun declineOrder(){
+    fun declineOrder(activity: FragmentActivity,binding: DemandeOrderFragmentBinding){
         binding.inputNoteUser.text.clear()
         noteOrder.value=null
         destroyAllFiles()
-        context.findNavController(R.id.myNavHostFragment).popBackStack()
+        activity.findNavController(R.id.myNavHostFragment).popBackStack()
     }
 }

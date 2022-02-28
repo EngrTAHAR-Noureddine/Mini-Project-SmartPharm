@@ -39,6 +39,7 @@ class ListPharmacistsAdapter(val context: FragmentActivity?, var data:List<User>
         }
     }
 
+
     override fun getItemCount() = data.size
 }
 

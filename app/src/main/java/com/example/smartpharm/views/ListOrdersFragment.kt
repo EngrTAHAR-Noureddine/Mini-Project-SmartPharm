@@ -10,15 +10,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.core.view.isVisible
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.smartpharm.R
-import com.example.smartpharm.activities.ChoiceActivity
 import com.example.smartpharm.activities.LoginActivity
-import com.example.smartpharm.viewmodels.ListOrdersViewModel
-import com.example.smartpharm.viewmodel_factories.ListOrdersViewModelFactory
 import com.example.smartpharm.databinding.ListOrdersFragmentBinding
 import com.example.smartpharm.controllers.OrderController
 import com.example.smartpharm.controllers.OrderController.searchOrder
@@ -30,8 +25,6 @@ import com.google.gson.Gson
 
 class ListOrdersFragment : Fragment() {
 
-
-    private lateinit var viewModel: ListOrdersViewModel
     private lateinit var binding: ListOrdersFragmentBinding
     private var user: User? = null
 
@@ -45,7 +38,6 @@ class ListOrdersFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-
         val pref = context?.getSharedPreferences("TypeUserFile", Context.MODE_PRIVATE)
         val typeUser = pref?.getString("typeUserFile", null)
         if(typeUser.isNullOrEmpty()){
@@ -53,23 +45,25 @@ class ListOrdersFragment : Fragment() {
             startActivity(intent)
             activity?.finish()
         }
-
         val gson = Gson()
         val json: String = getData("UserProfile", "userProfile") ?: ""
-
         user  = gson.fromJson(json, User::class.java)
 
-        binding = DataBindingUtil.inflate(inflater,R.layout.list_orders_fragment,container,false)
+        binding = ListOrdersFragmentBinding.inflate(inflater,container,false)
 
-        val viewModelFactory = ListOrdersViewModelFactory( binding ,this.requireActivity(),user)
+        OrderController.getOrderOf(user, requireContext())
 
-        val clientHomeViewModel = ViewModelProvider(this, viewModelFactory)[ListOrdersViewModel::class.java]
+        return binding.root
+    }
 
-        binding.lifecycleOwner = this
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
 
         this.binding.RecycleViewListOrdersUser.layoutManager = LinearLayoutManager(activity)
 
-        clientHomeViewModel.listUserOrders.observe(
+        OrderController.listOrders.observe(
             viewLifecycleOwner
         ) {
             var list: List<Order>? = it?.sortedBy { o -> o.state }
@@ -98,8 +92,11 @@ class ListOrdersFragment : Fragment() {
 
 
         })
+    }
 
-        return binding.root
+    override fun onDestroyView() {
+        super.onDestroyView()
+        OrderController.listOrders.value = null
     }
 
     override fun onStart() {

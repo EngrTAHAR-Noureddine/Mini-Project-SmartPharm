@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".views.DialogAddMedicationFragment"
-    >
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-
+<androidx.constraintlayout.widget.ConstraintLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            tools:context=".views.DialogAddMedicationFragment"
             android:id="@+id/DialogBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -74,7 +70,4 @@
                     app:layout_constraintBottom_toBottomOf="@+id/AddMedication"
                     app:layout_constraintEnd_toStartOf="@+id/AddMedication"
                     app:layout_constraintTop_toTopOf="@+id/AddMedication" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>

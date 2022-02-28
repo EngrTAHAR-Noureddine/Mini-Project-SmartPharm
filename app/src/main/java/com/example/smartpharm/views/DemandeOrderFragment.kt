@@ -8,12 +8,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
-import com.example.smartpharm.R
+import androidx.fragment.app.activityViewModels
 import com.example.smartpharm.databinding.DemandeOrderFragmentBinding
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.smartpharm.viewmodel_factories.DemandeOrderFragmentFactory
 import com.example.smartpharm.viewmodels.DemandeOrderViewModel
 import com.example.smartpharm.adapters.GridImageAdapter
 import com.example.smartpharm.controllers.FileController.destroyAllFiles
@@ -23,7 +20,7 @@ import com.example.smartpharm.controllers.FileController.listFile
 class DemandeOrderFragment : Fragment() {
 
     private lateinit var binding: DemandeOrderFragmentBinding
-
+    private val demandeOrderViewModel : DemandeOrderViewModel by activityViewModels()
 
 
     override fun onCreateView(
@@ -31,16 +28,13 @@ class DemandeOrderFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        binding = DemandeOrderFragmentBinding.inflate(inflater,container,false)
 
-        binding = DataBindingUtil.inflate(inflater,R.layout.demande_order_fragment,container,false)
+        return binding.root
+    }
 
-        val viewModelFactory = DemandeOrderFragmentFactory(binding ,this.requireActivity())
-
-        val demandeOrderViewModel = ViewModelProvider(this, viewModelFactory)[DemandeOrderViewModel::class.java]
-
-        binding.demandeOrderViewModel = demandeOrderViewModel
-        binding.lifecycleOwner = this
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         imagesReader(requireContext())
 
         binding.GridRecycleView.layoutManager = GridLayoutManager(context, 3)
@@ -48,7 +42,6 @@ class DemandeOrderFragment : Fragment() {
         listFile.observe(viewLifecycleOwner) {
             binding.GridRecycleView.adapter = GridImageAdapter(activity, it)
             Log.v("ObserverListFile", " this is observer")
-
             binding.floatingBtnCamera.isEnabled =
                 !(listFile.value != null && listFile.value!!.size > 2)
             binding.floatingBtnCamera.isClickable =
@@ -62,10 +55,19 @@ class DemandeOrderFragment : Fragment() {
                         61
                     )
                 )
-
         }
 
-        return binding.root
+        binding.buttonAccept.setOnClickListener{
+            demandeOrderViewModel.acceptOrder(binding,requireActivity())
+        }
+        binding.buttonDecline.setOnClickListener {
+            demandeOrderViewModel.declineOrder(requireActivity(),binding)
+        }
+        binding.floatingBtnCamera.setOnClickListener {
+            demandeOrderViewModel.takePhoto(binding,requireActivity())
+        }
+
+
     }
 
 
@@ -73,6 +75,10 @@ class DemandeOrderFragment : Fragment() {
         super.onDestroy()
         destroyAllFiles()
         Log.v("Destroy", "destroy files")
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        destroyAllFiles()
     }
 
 

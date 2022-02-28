@@ -8,23 +8,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.core.view.isVisible
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.smartpharm.R
 import com.example.smartpharm.databinding.MedicationsListFragmentBinding
 import com.example.smartpharm.controllers.MedicationController.searchMedication
 import com.example.smartpharm.adapters.MedicationListAdapter
-import com.example.smartpharm.viewmodels.MedicationsListViewModel
-import com.example.smartpharm.viewmodel_factories.MedicationsListViewModelFactory
+import com.example.smartpharm.controllers.MedicationController
 import com.example.smartpharm.models.User
 import com.google.gson.Gson
 
 class MedicationsListFragment : Fragment() {
 
-    private lateinit var viewModel: MedicationsListViewModel
     private lateinit var binding: MedicationsListFragmentBinding
+    private var user : User? = null
+
 
     private fun getDataPharmacy(): String?{
         val prefUser = activity?.getSharedPreferences("PharmacyProfile", Context.MODE_PRIVATE)
@@ -40,28 +37,28 @@ class MedicationsListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = DataBindingUtil.inflate(inflater,R.layout.medications_list_fragment,container,false)
+        binding = MedicationsListFragmentBinding.inflate(inflater,container,false)
         val gson = Gson()
         val json :String = if(getDataPharmacy()!=null) getDataPharmacy()!! else ""
-        var user : User? = gson.fromJson(json, User::class.java)
+        user = gson.fromJson(json, User::class.java)
 
         val json2 :String = if(getDataUser()!=null) getDataUser()!! else ""
         val user2 : User? = gson.fromJson(json2, User::class.java)
 
         if(user2 != null && user2.typeUser=="Pharmacy") user = user2
 
-        val viewModelFactory = MedicationsListViewModelFactory(user, binding ,this.requireActivity())
-
-        val medicationsListViewModel = ViewModelProvider(this, viewModelFactory)[MedicationsListViewModel::class.java]
-
-        binding.medicationsListViewModel = medicationsListViewModel
-        binding.lifecycleOwner = this
-
+        MedicationController.getMedicationOf(user, requireActivity())
         binding.FABAddMedication.isVisible = user2 != null && user2.typeUser == "Pharmacy"
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         this.binding.recycleViewMedications.layoutManager = LinearLayoutManager(activity)
 
-        medicationsListViewModel.listMedications.observe(
+        MedicationController.listMedications.observe(
             viewLifecycleOwner
         ) {
             binding.textNotFound.isVisible = true
@@ -93,9 +90,11 @@ class MedicationsListFragment : Fragment() {
 
 
         })
+    }
 
-
-        return binding.root
+    override fun onDestroyView() {
+        super.onDestroyView()
+        MedicationController.listMedications.value = null
     }
 
 

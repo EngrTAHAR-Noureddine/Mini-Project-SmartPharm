@@ -20,7 +20,7 @@ class CustomProgressDialog : DialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_progress_dialog,container,false)
+        binding = FragmentProgressDialogBinding.inflate(inflater,container,false)
         progress.observe(viewLifecycleOwner) {
             binding.textUpload.text = "Upload...${String.format("%.2f", it)}"
         }

@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        tools:context=".views.DemandeOrderFragment">
-
-    <data>
-        <variable
-            name="demandeOrderViewModel"
-            type="com.example.smartpharm.viewmodels.DemandeOrderViewModel" />
-    </data>
-
 <androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".views.DemandeOrderFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/colorPrimary"
@@ -93,7 +86,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
-                    android:text="@{demandeOrderViewModel.orderNote}"
+                    android:text="@string/PlaceholderNote"
                     style="@style/style_title_content_detail"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -145,7 +138,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
             android:backgroundTint="@color/customOrange"
-            android:onClick="@{()->demandeOrderViewModel.declineOrder()}"
             android:text="@string/buttonDecline"
             android:textAllCaps="false"
             android:textColor="?attr/colorOnSecondary"
@@ -159,7 +151,6 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingBtnCamera"
-            android:onClick="@{()->demandeOrderViewModel.takePhoto()}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -184,7 +175,6 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:backgroundTint="?attr/colorSecondary"
-            android:onClick="@{()->demandeOrderViewModel.acceptOrder()}"
             android:text="@string/buttonAccept"
             android:textAllCaps="false"
             android:textColor="?attr/colorOnSecondary"
@@ -199,4 +189,3 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>

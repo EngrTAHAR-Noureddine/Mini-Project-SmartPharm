@@ -2,6 +2,7 @@ package com.example.smartpharm.controllers
 
 
 
+import android.content.Context
 import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
@@ -14,9 +15,8 @@ import java.util.*
 object ClientController {
 
     var listPharmacies = MutableLiveData<List<User>?>()
-    var listPharmaciesOfMap = MutableLiveData<List<User>?>()
 
-    fun getListPharmacies(context: FragmentActivity){
+    fun getListPharmacies(context: Context){
         if(listPharmacies.value.isNullOrEmpty()) {
             DataBase.db.collection("User")
                 .get()

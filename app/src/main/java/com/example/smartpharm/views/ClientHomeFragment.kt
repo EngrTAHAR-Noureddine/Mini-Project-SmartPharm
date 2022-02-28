@@ -3,7 +3,6 @@ package com.example.smartpharm.views
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.location.Location
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -13,20 +12,16 @@ import android.view.ViewGroup
 import android.widget.PopupMenu
 import android.widget.SearchView
 import androidx.core.view.isVisible
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.smartpharm.R
-import com.example.smartpharm.viewmodels.ClientHomeViewModel
-import com.example.smartpharm.viewmodel_factories.ClientHomeViewModelFactory
 import com.example.smartpharm.adapters.ListPharmacistsAdapter
 import com.example.smartpharm.controllers.ClientController
 import com.example.smartpharm.databinding.ClientHomeFragmentBinding
 import com.example.smartpharm.controllers.ClientController.searchPharmacy
 import com.example.smartpharm.controllers.ClientController.searchPharmacyByProvince
-import com.google.android.gms.location.*
+import com.example.smartpharm.controllers.UserController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -35,28 +30,25 @@ class ClientHomeFragment : Fragment() {
     private lateinit var binding: ClientHomeFragmentBinding
 
 
-
-    @SuppressLint("MissingPermission")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        binding = ClientHomeFragmentBinding.inflate(inflater,container,false)
 
-        binding = DataBindingUtil.inflate(inflater,R.layout.client_home_fragment,container,false)
+        return binding.root
+    }
 
-        val viewModelFactory = ClientHomeViewModelFactory( binding ,this.requireActivity())
-
-        val clientHomeViewModel = ViewModelProvider(this, viewModelFactory)[ClientHomeViewModel::class.java]
-
-        binding.clientHomeViewModel = clientHomeViewModel
-        binding.lifecycleOwner = this
+    @SuppressLint("SetTextI18n")
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
 
-        
         binding.buttonLocation.setOnClickListener {
             activity?.findNavController(R.id.myNavHostFragment)?.navigate(R.id.action_destination_Client_Home_to_mapFragment)
         }
 
         this.binding.recycleViewPharmacies.layoutManager = LinearLayoutManager(activity)
+        UserController.getPharmacies(requireContext())
 
-        clientHomeViewModel.pharmacies.observe(
+        ClientController.listPharmacies.observe(
             viewLifecycleOwner
         ) {
             it?.let {
@@ -104,9 +96,8 @@ class ClientHomeFragment : Fragment() {
             }
             popupMenu.show()
         }
-
-        return binding.root
     }
+
 
 
     private fun changeProvinceTo(idProvince:Int,context:Context):Boolean{
@@ -189,8 +180,13 @@ class ClientHomeFragment : Fragment() {
         return true
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        ClientController.onCleared()
+    }
 
-
-
-
+    override fun onDestroy() {
+        super.onDestroy()
+        ClientController.onCleared()
+    }
 }

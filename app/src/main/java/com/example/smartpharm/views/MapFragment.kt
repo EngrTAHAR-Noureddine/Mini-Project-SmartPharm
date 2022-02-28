@@ -14,15 +14,12 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.findNavController
 import com.example.smartpharm.R
-import com.example.smartpharm.controllers.ClientController
 import com.example.smartpharm.controllers.ClientController.getListPharmacies
 import com.example.smartpharm.controllers.ClientController.listPharmacies
-import com.example.smartpharm.controllers.ClientController.listPharmaciesOfMap
 import com.example.smartpharm.controllers.ClientController.onCleared
 import com.example.smartpharm.databinding.FragmentMapBinding
 import com.example.smartpharm.models.User
@@ -63,7 +60,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         onCleared()
         getListPharmacies(requireActivity())
 
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_map,container,false)
+        binding = FragmentMapBinding.inflate(inflater,container,false)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
 
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
@@ -108,7 +105,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         }
 
         binding.buttonProceed.setOnClickListener{
-            var list:MutableList<User> = mutableListOf<User>()
+            var list:MutableList<User> = mutableListOf()
 
             val distance = FloatArray(2)
 
@@ -157,7 +154,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         }
         else {
             activity?.requestPermissions(
-                arrayOf<String>(Manifest.permission.ACCESS_FINE_LOCATION),
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
                 REQUEST_LOCATION_PERMISSION
             )
         }

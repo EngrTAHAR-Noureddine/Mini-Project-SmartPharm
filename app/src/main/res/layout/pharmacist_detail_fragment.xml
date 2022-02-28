@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        tools:context=".views.PharmacistDetailFragment">
-    <data>
-        <variable
-            name="pharmacyDetailViewModel"
-            type="com.example.smartpharm.viewmodels.PharmacistDetailViewModel" />
-    </data>
 <FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".views.PharmacistDetailFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
@@ -36,7 +31,6 @@
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/shape_phone_button"
                 android:contentDescription="@string/todo"
-                android:onClick="@{()->pharmacyDetailViewModel.callPharmacy()}"
                 android:padding="10dp"
                 android:src="@drawable/ic_baseline_phone_36"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -53,7 +47,6 @@
                 android:layout_marginStart="16dp"
                 android:background="@drawable/shape_button_orange"
                 android:contentDescription="@string/todo"
-                android:onClick="@{()->pharmacyDetailViewModel.takeToMap()}"
                 android:padding="5dp"
                 android:src="@drawable/ic_location_map_48"
                 app:layout_constraintBottom_toBottomOf="@+id/imagePharmacy"
@@ -137,7 +130,6 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/ButtonGoOrder"
-                android:onClick="@{()->pharmacyDetailViewModel.goToOrder()}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -157,4 +149,3 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
-</layout>

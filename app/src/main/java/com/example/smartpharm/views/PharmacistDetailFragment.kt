@@ -1,22 +1,25 @@
 package com.example.smartpharm.views
 
+import android.content.ActivityNotFoundException
 import android.content.Context
+import android.content.Intent
 import android.graphics.*
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.smartpharm.R
+import com.example.smartpharm.activities.LoginActivity
+import com.example.smartpharm.controllers.FileController
 import com.example.smartpharm.databinding.PharmacistDetailFragmentBinding
 import com.example.smartpharm.models.User
-import com.example.smartpharm.viewmodel_factories.PharmacyDetailFragmentFactory
-import com.example.smartpharm.viewmodels.PharmacistDetailViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.gson.Gson
@@ -26,12 +29,11 @@ import com.squareup.picasso.Transformation
 
 class PharmacistDetailFragment : Fragment() {
 
-    private lateinit var viewModel: PharmacistDetailViewModel
     private lateinit var binding: PharmacistDetailFragmentBinding
 
     private lateinit var demoCollectionAdapter: DemoCollectionAdapter
     private lateinit var viewPager: ViewPager2
-
+    private var user:User? = null
 
     private fun getData(): String?{
         val prefUser = activity?.getSharedPreferences("PharmacyProfile", Context.MODE_PRIVATE)
@@ -43,22 +45,73 @@ class PharmacistDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = DataBindingUtil.inflate(inflater,R.layout.pharmacist_detail_fragment,container,false)
-
+        binding = PharmacistDetailFragmentBinding.inflate(inflater,container,false)
         val gson = Gson()
         val json :String = if(getData()!=null) getData()!! else ""
-        val p : User? = gson.fromJson(json, User::class.java)
+        user = gson.fromJson(json, User::class.java)
 
-        val viewModelFactory = PharmacyDetailFragmentFactory(binding ,this.requireActivity(),p)
 
-        val pharmacyDetailViewModel = ViewModelProvider(this, viewModelFactory)[PharmacistDetailViewModel::class.java]
+        val navBar = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        if(navBar != null) navBar.isVisible = false
 
-        binding.pharmacyDetailViewModel = pharmacyDetailViewModel
-        binding.lifecycleOwner = this
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+        binding.buttonPhone.setOnClickListener{
+            if(user != null){
+                val tel = user!!.phoneNumber
+                val url = Uri.parse("tel:$tel")
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url.toString()))
+                try {
+                    requireActivity().startActivity(intent)
+                } catch (e: ActivityNotFoundException) {
+                    Toast.makeText(
+                        context,
+                        "You haven't phone application to make a call",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        }
+        binding.buttonMapLocation.setOnClickListener {
+            if(user != null){
+                val latitude = 28.0339
+                val longitude = 1.6596
+                val url = Uri.parse("geo:$latitude,$longitude")
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url.toString()))
+                try {
+                    requireActivity().startActivity(intent)
+                } catch (e: ActivityNotFoundException) {
+                    Toast.makeText(
+                        context,
+                        "You haven't an application to find a location",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        }
+
+        binding.ButtonGoOrder.setOnClickListener {
+            val pref =  requireActivity().getSharedPreferences("TypeUserFile", Context.MODE_PRIVATE)
+            val typeUser = pref?.getString("typeUserFile", null)
+            if(typeUser.isNullOrEmpty()){
+                val intent = Intent(context, LoginActivity::class.java)
+                requireActivity().startActivity(intent)
+                requireActivity().finish()
+            }else {
+                FileController.emptyDir( requireActivity())
+                requireActivity().findNavController(R.id.myNavHostFragment).navigate(R.id.to_Client_Order)
+            }
+        }
+
 
         // ----- Photo -------------------
 
-        if(p!=null) Picasso.with(context).load(p.photoUser).transform( CircleTransform()).into(binding.imagePharmacy)
+        if(user!=null) Picasso.with(context).load(user!!.photoUser).transform( CircleTransform()).into(binding.imagePharmacy)
 
         //----------------------------------
 
@@ -68,22 +121,15 @@ class PharmacistDetailFragment : Fragment() {
         viewPager = binding.pager
         viewPager.adapter = demoCollectionAdapter
 
+
         val tabLayout = binding.tabLayout
 
         TabLayoutMediator(tabLayout, viewPager) { tab, position -> when(position){
-                1 -> tab.text = "Stock"
-                else -> tab.text = "Detail"
+            1 -> tab.text = "Stock"
+            else -> tab.text = "Detail"
         }
 
         }.attach()
-
-
-        val navBar = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
-        if(navBar != null){
-            navBar.isVisible = false
-        }
-
-        return binding.root
     }
 
     class CircleTransform : Transformation {

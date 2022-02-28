@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".views.LoginFragment">
-    <data>
-        <variable
-            name="loginViewModel"
-            type="com.example.smartpharm.viewmodels.LoginViewModel" />
-    </data>
-<FrameLayout
+    tools:context=".views.LoginFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTintMode="multiply"
@@ -121,7 +116,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:onClick="@{()->loginViewModel.onCLickLogIn()}"
             android:text="@string/champs_btn_logIn"
             android:visibility="visible"
             app:layout_constraintBottom_toTopOf="@+id/forgetPassword"
@@ -210,5 +204,3 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
-
-</layout>

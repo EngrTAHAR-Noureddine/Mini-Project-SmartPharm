@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<layout
+<androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         tools:context=".progressdialog.CustomProgressDialog"
-        >
-
-    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/DialogBoxUpload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -53,7 +49,4 @@
             app:layout_constraintEnd_toEndOf="@+id/titleProgressDialog"
             app:layout_constraintStart_toEndOf="@+id/progressBarUploading"
             app:layout_constraintTop_toTopOf="@+id/progressBarUploading" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>

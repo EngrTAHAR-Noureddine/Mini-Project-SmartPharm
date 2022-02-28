@@ -50,7 +50,7 @@ class CameraFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = DataBindingUtil.inflate(inflater,R.layout.camera_fragment,container,false)
+        binding = CameraFragmentBinding.inflate(inflater,container,false)
 
         // Request camera permissions
         if (allPermissionsGranted()) {

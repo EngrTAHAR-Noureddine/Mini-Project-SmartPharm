@@ -5,17 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import com.example.smartpharm.R
 import com.example.smartpharm.databinding.FragmentFullscreenImageBinding
 import com.squareup.picasso.Picasso
 import java.io.File
 
-/**
- * An example full-screen fragment that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
- */
 class FullscreenImageFragment : Fragment() {
 
 
@@ -39,10 +33,10 @@ class FullscreenImageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = DataBindingUtil.inflate(inflater,R.layout.fragment_fullscreen_image,container,false)
+        _binding = FragmentFullscreenImageBinding.inflate(inflater,container,false)
 
         val json: String = getData("ImageOrder", "imageOrder") ?: ""
-        val file :File = File(json)
+        val file = File(json)
         Picasso.with(context).load(file).fit().centerInside().into(_binding.fullscreenContent)
 
         return _binding.root

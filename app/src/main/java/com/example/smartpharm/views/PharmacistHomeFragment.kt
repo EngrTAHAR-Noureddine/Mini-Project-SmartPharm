@@ -8,9 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.core.view.isVisible
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.smartpharm.R
 import com.example.smartpharm.databinding.PharmacistHomeFragmentBinding
@@ -20,14 +18,10 @@ import com.example.smartpharm.controllers.OrderController.searchOrder
 import com.example.smartpharm.models.Order
 import com.example.smartpharm.models.User
 import com.example.smartpharm.adapters.ListPharmacyOrder
-import com.example.smartpharm.viewmodel_factories.PharmacieHomeViewModelFactory
-import com.example.smartpharm.viewmodels.PharmacistHomeViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.gson.Gson
 
 class PharmacistHomeFragment : Fragment() {
-
-    private lateinit var viewModel: PharmacistHomeViewModel
     private lateinit var binding: PharmacistHomeFragmentBinding
     private var user: User? = null
 
@@ -47,17 +41,20 @@ class PharmacistHomeFragment : Fragment() {
         user = gson.fromJson(json2, User::class.java)
 
 
-        binding = DataBindingUtil.inflate(inflater,R.layout.pharmacist_home_fragment,container,false)
+        binding = PharmacistHomeFragmentBinding.inflate(inflater,container,false)
 
-        val viewModelFactory = PharmacieHomeViewModelFactory( binding ,this.requireActivity(),user)
-
-        val pharmacistHomeViewModel = ViewModelProvider(this, viewModelFactory)[PharmacistHomeViewModel::class.java]
-
-        binding.lifecycleOwner = this
 
         this.binding.recyclerViewPharmacyOrders.layoutManager = LinearLayoutManager(activity)
+        OrderController.getOrderOf(user, requireContext())
 
-        pharmacistHomeViewModel.listPharmacyOrders.observe(
+
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        OrderController.listOrders.observe(
             viewLifecycleOwner
         ) {
             var list: List<Order>? =
@@ -85,8 +82,6 @@ class PharmacistHomeFragment : Fragment() {
                 return false
             }
         })
-
-        return binding.root
     }
 
     override fun onStart() {

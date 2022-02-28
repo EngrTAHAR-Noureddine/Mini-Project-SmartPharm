@@ -7,8 +7,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import com.example.smartpharm.R
 import com.example.smartpharm.databinding.PharmacyDetailsFragmentBinding
 import com.example.smartpharm.models.User
 import com.google.gson.Gson
@@ -28,9 +26,16 @@ class PharmacyDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = DataBindingUtil.inflate(inflater,R.layout.pharmacy_details_fragment, container, false)
-        binding.lifecycleOwner = this
+        binding = PharmacyDetailsFragmentBinding.inflate(inflater, container, false)
 
+
+
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val gson = Gson()
         val json :String = if(getData()!=null) getData()!! else ""
         val user : User? = gson.fromJson(json, User::class.java)
@@ -43,9 +48,6 @@ class PharmacyDetailsFragment : Fragment() {
             binding.InstagramPharmacy.text = user.instagramAccount
             binding.PhonePharmacy.text =user.phoneNumber
         }
-
-
-        return binding.root
     }
 
 
