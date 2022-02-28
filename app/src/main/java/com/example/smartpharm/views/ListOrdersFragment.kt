@@ -20,7 +20,7 @@ import com.example.smartpharm.controllers.OrderController.searchOrder
 import com.example.smartpharm.models.Order
 import com.example.smartpharm.models.User
 import com.example.smartpharm.adapters.ListPharmacyOrder
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.gauravk.bubblenavigation.BubbleNavigationConstraintView
 import com.google.gson.Gson
 
 class ListOrdersFragment : Fragment() {
@@ -73,7 +73,7 @@ class ListOrdersFragment : Fragment() {
             this.binding.RecycleViewListOrdersUser.adapter = ListPharmacyOrder(activity, list)
         }
 
-        val navBar = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        val navBar = activity?.findViewById<BubbleNavigationConstraintView>(R.id.bottom_navigation)
         if(navBar != null){
             navBar.isVisible = true
         }

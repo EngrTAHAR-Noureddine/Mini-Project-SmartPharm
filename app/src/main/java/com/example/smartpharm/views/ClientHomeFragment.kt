@@ -22,6 +22,7 @@ import com.example.smartpharm.databinding.ClientHomeFragmentBinding
 import com.example.smartpharm.controllers.ClientController.searchPharmacy
 import com.example.smartpharm.controllers.ClientController.searchPharmacyByProvince
 import com.example.smartpharm.controllers.UserController
+import com.gauravk.bubblenavigation.BubbleNavigationConstraintView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -66,7 +67,7 @@ class ClientHomeFragment : Fragment() {
             }
 
         }
-        val navBar = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        val navBar = activity?.findViewById<BubbleNavigationConstraintView>(R.id.bottom_navigation)
         if(navBar != null){
             navBar.isVisible = true
         }

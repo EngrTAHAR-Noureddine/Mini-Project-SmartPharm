@@ -82,7 +82,7 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version_coroutine"
 
     //Bottom Navigation Bar
-    implementation "com.google.android.material:material:1.5.0"
+    implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.7'
 
     //Saved Object in sharePreferences
     implementation 'com.google.code.gson:gson:2.8.9'

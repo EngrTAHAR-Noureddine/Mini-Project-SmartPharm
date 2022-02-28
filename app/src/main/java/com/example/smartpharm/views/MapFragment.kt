@@ -23,6 +23,7 @@ import com.example.smartpharm.controllers.ClientController.listPharmacies
 import com.example.smartpharm.controllers.ClientController.onCleared
 import com.example.smartpharm.databinding.FragmentMapBinding
 import com.example.smartpharm.models.User
+import com.gauravk.bubblenavigation.BubbleNavigationConstraintView
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -30,7 +31,6 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class MapFragment : Fragment(), OnMapReadyCallback {
@@ -67,7 +67,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
 
 
-        val navBar = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        val navBar = activity?.findViewById<BubbleNavigationConstraintView>(R.id.bottom_navigation)
         if(navBar != null){
             navBar.isVisible = false
         }

@@ -12,26 +12,57 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:defaultNavHost="true"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_ph"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/nav_graph_pharmacist"
         tools:ignore="MissingConstraints" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
+    <com.gauravk.bubblenavigation.BubbleNavigationConstraintView
+        android:id="@+id/bottom_navigation_ph"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#52CAA8"
-        app:itemIconTint="@drawable/tab_color"
-        app:itemTextColor="#30363D"
-        app:labelVisibilityMode="unlabeled"
+        android:background="?attr/SubSecondaryWhiteColor"
+        android:elevation="4dp"
+        android:padding="12dp"
+        app:bnc_mode="spread"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myPharmacyNavHostFragment"
-        app:menu="@menu/menu_pharmacist" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/destination_Pharmacy_Home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_title="@string/acceuil"
+            app:bt_icon="@drawable/ic_home_unselected"
+            app:bt_active="true"
+            app:bt_colorActive="?attr/colorSecondary"
+            app:bt_colorInactive="?attr/secondaryGrayColor"/>
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/destination_Pharmacy_Medications_List"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_title="@string/commandes"
+            app:bt_icon="@drawable/ic_list_unselected"
+            app:bt_active="true"
+            app:bt_colorActive="?attr/colorSecondary"
+            app:bt_colorInactive="?attr/secondaryGrayColor"/>
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/destination_Pharmacy_Settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_icon="@drawable/ic_settings_unseleted"
+            app:bt_title="@string/param_tre"
+            app:bt_active="true"
+            app:bt_colorActive="?attr/colorSecondary"
+            app:bt_colorInactive="?attr/secondaryGrayColor"/>
+
+
+    </com.gauravk.bubblenavigation.BubbleNavigationConstraintView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

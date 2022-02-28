@@ -22,7 +22,7 @@ import com.example.smartpharm.controllers.OrderController.listState
 import com.example.smartpharm.models.Order
 import com.example.smartpharm.models.User
 import com.example.smartpharm.viewmodels.OderDetailViewModel
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.gauravk.bubblenavigation.BubbleNavigationConstraintView
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.Transformation
@@ -60,7 +60,7 @@ class OderDetailFragment : Fragment() {
         mainBinding.GridRecycleView.layoutManager = GridLayoutManager(context, 3)
 
 
-        val navBar = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        val navBar = activity?.findViewById<BubbleNavigationConstraintView>(R.id.bottom_navigation)
         if(navBar != null){
             navBar.isVisible = false
         }

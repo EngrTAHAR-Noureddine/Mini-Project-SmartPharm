@@ -20,7 +20,7 @@ import com.example.smartpharm.activities.LoginActivity
 import com.example.smartpharm.controllers.FileController
 import com.example.smartpharm.databinding.PharmacistDetailFragmentBinding
 import com.example.smartpharm.models.User
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.gauravk.bubblenavigation.BubbleNavigationConstraintView
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
@@ -51,7 +51,7 @@ class PharmacistDetailFragment : Fragment() {
         user = gson.fromJson(json, User::class.java)
 
 
-        val navBar = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        val navBar = activity?.findViewById<BubbleNavigationConstraintView>(R.id.bottom_navigation)
         if(navBar != null) navBar.isVisible = false
 
         return binding.root
