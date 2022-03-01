@@ -136,6 +136,16 @@
     <string name="continued_without_login">Continuer sans se connecter</string>
     <string name="champs_btn_toLogin">Se connecter</string>
     <string name="btn_proceed">Process</string>
+    <string name="avant">Avant</string>
+    <string name="_15_jours">15 jours</string>
+    <string name="doliprane">Doliprane</string>
+    <string name="les_jours">Les Jours :</string>
+    <string name="apres_avant">Apres/Avant :</string>
+    <string name="_20_00">20:00</string>
+    <string name="time_00">20::00</string>
+    <string name="d_jeuner">Déjeuner :</string>
+    <string name="diner">Diner :</string>
+    <string name="medicament">Medicament</string>
 
 
 </resources>

@@ -7,12 +7,39 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.MutableLiveData
 import com.example.smartpharm.database.DataBase
 import com.example.smartpharm.models.Medication
+import com.example.smartpharm.models.MyMedications
 import com.example.smartpharm.models.User
 import java.util.*
 
 object MedicationController {
 
     var listMedications = MutableLiveData<MutableList<Medication>?>()
+    var listMedicationsUser = MutableLiveData<MutableList<MyMedications>?>()
+
+    fun getMedicationOfClient(user: User?, context:FragmentActivity){
+        DataBase.db.collection("My_Medications")
+            .get()
+            .addOnSuccessListener { querySnapshot ->run{
+                if (!querySnapshot.isEmpty) {
+                    var list:MutableList<MyMedications>? = querySnapshot.toObjects(MyMedications::class.java)
+                    listMedicationsUser.value = if(user!=null) list?.filter{ item -> (item.idUser == user.idUser)} as MutableList<MyMedications>? else null
+                }else{
+                    val text = "The Client hasn't the medications"
+                    val duration = Toast.LENGTH_SHORT
+                    val toast = Toast.makeText(context, text, duration)
+                    toast.show()
+                }
+            }
+            }
+            .addOnFailureListener { exception ->run{
+                Log.w("FIRESTORE", "Error getting documents $exception")
+                val text = "Out Connexion"
+                val duration = Toast.LENGTH_SHORT
+                val toast = Toast.makeText(context, text, duration)
+                toast.show()
+            }
+            }
+    }
 
     fun getMedicationOf(pharmacy: User?, context:FragmentActivity){
         DataBase.db.collection("Medication")

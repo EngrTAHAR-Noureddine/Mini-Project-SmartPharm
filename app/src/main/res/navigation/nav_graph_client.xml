@@ -99,4 +99,9 @@
         android:id="@+id/mapFragment"
         android:name="com.example.smartpharm.views.MapFragment"
         android:label="MapFragment" />
+    <fragment
+        android:id="@+id/medicationOfClientFragment"
+        android:name="com.example.smartpharm.views.MedicationOfClientFragment"
+        android:label="medication_of_client_fragment"
+        tools:layout="@layout/medication_of_client_fragment" />
 </navigation>

@@ -51,7 +51,15 @@
             app:bt_active="true"
             app:bt_colorActive="?attr/colorSecondary"
             app:bt_colorInactive="?attr/secondaryGrayColor"/>
-
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/medicationOfClientFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_icon="@drawable/ic_icon_pills"
+            app:bt_title="@string/medicament"
+            app:bt_active="true"
+            app:bt_colorActive="?attr/colorSecondary"
+            app:bt_colorInactive="?attr/secondaryGrayColor"/>
         <com.gauravk.bubblenavigation.BubbleToggleView
             android:id="@+id/destination_Settings"
             android:layout_width="wrap_content"

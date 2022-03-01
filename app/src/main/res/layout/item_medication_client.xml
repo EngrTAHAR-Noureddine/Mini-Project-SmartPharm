@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/itemMedicationClient"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:background="@drawable/shape_field_content_detail">
+
+    <ImageView
+        android:id="@+id/imageMedicationClient"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/shape_avatar"
+        android:contentDescription="@string/desc_imagepharmacy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textNameMedication"
+        style="@style/style_text_in_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/title_nom"
+        app:layout_constraintStart_toEndOf="@+id/imageMedicationClient"
+        app:layout_constraintTop_toTopOf="@+id/imageMedicationClient" />
+
+    <TextView
+        android:id="@+id/inputNameMedication"
+        style="@style/style_text_in_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/doliprane"
+        app:layout_constraintBottom_toBottomOf="@+id/textNameMedication"
+        app:layout_constraintStart_toEndOf="@+id/textNameMedication"
+        app:layout_constraintTop_toTopOf="@+id/textNameMedication" />
+
+    <TextView
+        android:id="@+id/textDaysOf"
+        style="@style/style_text_in_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/les_jours"
+        app:layout_constraintStart_toStartOf="@+id/textNameMedication"
+        app:layout_constraintTop_toBottomOf="@+id/textNameMedication" />
+
+    <TextView
+        android:id="@+id/inputDays"
+        style="@style/style_text_in_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/_15_jours"
+        app:layout_constraintBottom_toBottomOf="@+id/textDaysOf"
+        app:layout_constraintStart_toEndOf="@+id/textDaysOf"
+        app:layout_constraintTop_toTopOf="@+id/textDaysOf" />
+
+    <TextView
+        android:id="@+id/textDesc"
+        style="@style/style_text_in_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/apres_avant"
+        app:layout_constraintStart_toStartOf="@+id/textDaysOf"
+        app:layout_constraintTop_toBottomOf="@+id/textDaysOf" />
+
+    <TextView
+        android:id="@+id/inputDescription"
+        style="@style/style_text_in_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/avant"
+        app:layout_constraintBottom_toBottomOf="@+id/textDesc"
+        app:layout_constraintStart_toEndOf="@+id/textDesc"
+        app:layout_constraintTop_toTopOf="@+id/textDesc" />
+
+
+    <TextView
+        android:id="@+id/textLunch"
+        style="@style/style_text_in_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/d_jeuner"
+        app:layout_constraintStart_toStartOf="@+id/imageMedicationClient"
+        app:layout_constraintTop_toBottomOf="@+id/imageMedicationClient" />
+
+    <TextView
+        android:id="@+id/textDinner"
+        style="@style/style_text_in_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/diner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textLunch"
+        app:layout_constraintTop_toBottomOf="@+id/textLunch" />
+
+    <TextView
+        android:id="@+id/inputTimeLunch"
+        style="@style/style_text_in_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/_20_00"
+        app:layout_constraintBottom_toBottomOf="@+id/textLunch"
+        app:layout_constraintStart_toEndOf="@+id/textLunch"
+        app:layout_constraintTop_toTopOf="@+id/textLunch" />
+
+    <TextView
+        android:id="@+id/inputTimeDinner"
+        style="@style/style_text_in_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/time_00"
+        app:layout_constraintBottom_toBottomOf="@+id/textDinner"
+        app:layout_constraintStart_toEndOf="@+id/textDinner"
+        app:layout_constraintTop_toTopOf="@+id/textDinner" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

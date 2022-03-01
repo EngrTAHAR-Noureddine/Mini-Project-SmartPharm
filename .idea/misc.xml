@@ -66,9 +66,11 @@
         <entry key="app/src/main/res/layout/header_user_box.xml" value="0.2957427536231884" />
         <entry key="app/src/main/res/layout/image_view_display_item.xml" value="0.3120471014492754" />
         <entry key="app/src/main/res/layout/input_note_order_box.xml" value="0.2957427536231884" />
+        <entry key="app/src/main/res/layout/item_medication_client.xml" value="0.5" />
         <entry key="app/src/main/res/layout/list_orders_fragment.xml" value="0.3170289855072464" />
         <entry key="app/src/main/res/layout/login_fragment.xml" value="0.33" />
         <entry key="app/src/main/res/layout/medication_list_fragment.xml" value="0.29030797101449274" />
+        <entry key="app/src/main/res/layout/medication_of_client_fragment.xml" value="0.2907225309961522" />
         <entry key="app/src/main/res/layout/medications_list_fragment.xml" value="0.302536231884058" />
         <entry key="app/src/main/res/layout/notification.xml" value="0.33" />
         <entry key="app/src/main/res/layout/oder_detail_fragment.xml" value="0.33" />

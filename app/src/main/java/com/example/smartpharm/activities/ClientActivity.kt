@@ -29,7 +29,8 @@ class ClientActivity : AppCompatActivity() {
         val currentPosition = when (navController.currentDestination?.id){
 
             R.id.destination_Client_List_Orders -> { 1 }
-            R.id.destination_Settings -> { 2 }
+            R.id.medicationOfClientFragment -> {2}
+            R.id.destination_Settings -> { 3 }
             else -> { 0 }
         }
 
@@ -41,7 +42,9 @@ class ClientActivity : AppCompatActivity() {
                 R.id.destination_Client_List_Orders -> {
                     navController.navigate(R.id.destination_Client_List_Orders)
                 }
-
+                R.id.medicationOfClientFragment -> {
+                    navController.navigate(R.id.medicationOfClientFragment)
+                }
                 R.id.destination_Settings -> {
                     navController.navigate(R.id.destination_Settings)
                 }
