@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.smartpharm.database.DataBase
 import com.example.smartpharm.models.Medication
 import com.example.smartpharm.models.MyMedications
+import com.example.smartpharm.models.Order
 import com.example.smartpharm.models.User
 import java.util.*
 
@@ -39,6 +40,18 @@ object MedicationController {
                 toast.show()
             }
             }
+    }
+
+    fun updateDate(med : MyMedications, field:String){
+
+        val change : MutableMap<String, Int>? = if(field == "Dinner") med.Dinner else med.Launch
+
+        DataBase.db.collection("My_Medications").document(med.idMedication)
+            .update(field, change)
+            .addOnSuccessListener {
+                Log.d("MED", "DocumentSnapshot successfully!")
+            }
+            .addOnFailureListener {  Log.d("MED", "DocumentSnapshot Failed!") }
     }
 
     fun getMedicationOf(pharmacy: User?, context:FragmentActivity){
