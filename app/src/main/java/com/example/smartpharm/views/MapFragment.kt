@@ -243,7 +243,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     }
 
     private fun drawMarkerWithCircle(position: LatLng) {
-        val radiusInMeters = 500.0
+        val radiusInMeters = 1000.0
         val strokeColor = -0x10000 //red outline
         val shadeColor = 0x44ff0000 //opaque red fill
         val circleOptions =
