@@ -45,7 +45,7 @@
             android:id="@+id/destination_Pharmacy_Medications_List"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:bt_title="@string/commandes"
+            app:bt_title="@string/med"
             app:bt_icon="@drawable/ic_list_unselected"
             app:bt_active="true"
             app:bt_colorActive="?attr/colorSecondary"
