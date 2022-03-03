@@ -147,5 +147,7 @@
     <string name="diner">Diner :</string>
     <string name="medicament">Medicament</string>
     <string name="med">Med</string>
+    <string name="titlePayment">Payment (DZ) : </string>
+    <string name="PlaceholderPayment">Payment...</string>
 
 </resources>

@@ -103,13 +103,13 @@
 
                 <TextView
                     android:id="@+id/titleAbout"
+                    style="@style/style_title_content_detail"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:text="@string/about"
-                    style="@style/style_title_content_detail"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -133,12 +133,12 @@
 
                 <TextView
                     android:id="@+id/nameDetailPharmacy"
+                    style="@style/style_text_content_detail"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="16dp"
                     android:text="@string/name_pharmacy"
-                    style="@style/style_text_content_detail"
                     app:layout_constraintBottom_toBottomOf="@+id/iconPerson"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/iconPerson"
@@ -161,12 +161,12 @@
 
                 <TextView
                     android:id="@+id/locationDetailPharmacy"
+                    style="@style/style_text_content_detail"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="16dp"
                     android:text="@string/location_pharmacy"
-                    style="@style/style_text_content_detail"
                     app:layout_constraintBottom_toBottomOf="@+id/iconLocation"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/iconLocation"
@@ -189,13 +189,13 @@
 
                 <TextView
                     android:id="@+id/TitleNote"
+                    style="@style/style_title_content_detail"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:text="@string/titleNote"
-                    style="@style/style_title_content_detail"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -222,7 +222,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/TitleNote"
-                    tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
+                    tools:ignore="TextContrastCheck,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -233,7 +233,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/shape_field_content_detail"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/InputPaymentOrderBox"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/InputNoteOrderBox">
@@ -241,6 +241,7 @@
 
                 <TextView
                     android:id="@+id/TitleOrdannance"
+                    style="@style/style_title_content_detail"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -248,7 +249,6 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
                     android:text="@string/titleordannance"
-                    style="@style/style_title_content_detail"
                     app:layout_constraintBottom_toTopOf="@+id/GridRecycleView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -269,9 +269,60 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/InputPaymentOrderBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/shape_field_content_detail"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/PhotoListBox">
+
+                <TextView
+                    android:id="@+id/TitlePayment"
+                    style="@style/style_title_content_detail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/titlePayment"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/inputPayment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/shape_input_field"
+                    android:clickable="false"
+                    android:gravity="start|top"
+                    android:hint="@string/PlaceholderPayment"
+                    android:importantForAutofill="no"
+                    android:inputType="textMultiLine|text"
+                    android:minHeight="48dp"
+                    android:text=""
+                    android:textColor="?attr/colorOnPrimary"
+                    android:textColorHint="?attr/colorOnPrimary"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/TitlePayment"
+                    tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -283,8 +334,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollViewInfo"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/scrollViewInfo">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonRejectOrder"
