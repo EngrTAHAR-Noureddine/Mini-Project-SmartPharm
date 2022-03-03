@@ -46,6 +46,8 @@ object OrderController {
             user = mapUser,
             state = state,
             photoOrders = files,
+            payment=0,
+            isPaid= false,
             pharmacyEmail = pharmacy.emailUser,
             userEmail = user.emailUser
         )

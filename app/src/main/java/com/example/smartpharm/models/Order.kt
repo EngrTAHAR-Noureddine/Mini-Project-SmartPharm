@@ -10,7 +10,9 @@ data class Order (
     @SerializedName("pharmacyEmail") var pharmacyEmail: String = "",
     @SerializedName("photoOrders") var photoOrders: ArrayList<String>? = null,
     @SerializedName("user") var user: Map<String,String>? = null,
-    @SerializedName("userEmail") var userEmail: String = "",
+    @SerializedName("userEmail") var userEmail: String = "",//payment
+    @SerializedName("payment") var payment: Int = 0,
+    @SerializedName("isPaid") var isPaid: Boolean = false,
     @SerializedName("state") var state: String = ""
 )
 
