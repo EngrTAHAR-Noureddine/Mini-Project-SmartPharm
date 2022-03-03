@@ -2,22 +2,27 @@ package com.example.smartpharm.adapters
 
 import android.annotation.SuppressLint
 import android.app.TimePickerDialog
+import android.os.Build
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.TimePicker
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smartpharm.R
 import com.example.smartpharm.controllers.MedicationController.updateDate
+import com.example.smartpharm.controllers.MedicationController.updateFirstDays
+import com.example.smartpharm.controllers.MyAlarmManager.cancelAlarm
+import com.example.smartpharm.controllers.MyAlarmManager.setAlarm
 import com.example.smartpharm.models.MyMedications
-import com.example.smartpharm.views.SettingsFragment
 import com.squareup.picasso.Picasso
+import java.text.SimpleDateFormat
 import java.util.*
+import java.util.concurrent.TimeUnit
+
 
 class listMedicationsClientAdapter(val context: FragmentActivity?, var data:List<MyMedications>):
     RecyclerView.Adapter<MyViewMedicationClientHolder>()  {
@@ -25,8 +30,14 @@ class listMedicationsClientAdapter(val context: FragmentActivity?, var data:List
         return MyViewMedicationClientHolder(LayoutInflater.from(context).inflate(R.layout.item_medication_client, parent, false))
     }
 
-    @SuppressLint("SetTextI18n")
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    @SuppressLint("SetTextI18n", "UnspecifiedImmutableFlag", "MissingPermission",
+        "SimpleDateFormat"
+    )
     override fun onBindViewHolder(holder: MyViewMedicationClientHolder, position: Int) {
+
+
         var currentPosition :Int = holder.adapterPosition
         val mTimePicker: TimePickerDialog?
         val hour = data[position].Launch!!["hour"]
@@ -36,6 +47,36 @@ class listMedicationsClientAdapter(val context: FragmentActivity?, var data:List
         val hourDinner = data[position].Dinner!!["hour"]
         val minuteDinner = data[position].Dinner!!["minute"]
 
+        context?.let{
+            cancelAlarm(it, data[currentPosition].idMedication,0)
+            cancelAlarm(it, data[currentPosition].idMedication,1)
+
+            setAlarm(it,data[position].Launch!!["hour"]!!,data[position].Launch!!["minute"]!!, data[currentPosition].idMedication,0)
+            setAlarm(it,data[position].Dinner!!["hour"]!!,data[position].Dinner!!["minute"]!!, data[currentPosition].idMedication,1)
+        }
+
+        val sdf = SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH)
+        val firstDay = "${data[position].first_day!!["month"]!!}/${data[position].first_day!!["day"]!!}/${data[position].first_day!!["year"]!!}"
+        val firstDate = sdf.parse(firstDay)
+        val calender = Calendar.getInstance()
+        val year = calender.get(Calendar.YEAR)
+        val month = calender.get(Calendar.MONTH) +1
+        val day = calender.get(Calendar.DAY_OF_MONTH)
+        val currentDay = "$month/$day/$year"
+        val secondDate = sdf.parse(currentDay)
+
+        val diffInMillies = kotlin.math.abs(secondDate?.time!! - firstDate?.time!!)
+        val diff: Long = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS)
+        Log.v("LEFT" , "diff : $diff month:$month ")
+
+        data[currentPosition].Days = (data[currentPosition].Days - diff).toInt()
+        data[currentPosition].first_day!!["month"] = month
+        data[currentPosition].first_day!!["day"]= day
+        data[currentPosition].first_day!!["year"] = year
+        updateFirstDays(data[position] , context!!)
+
+
+
         mTimePicker = hour?.let {
             minute?.let { it1 ->
                 TimePickerDialog(context,
@@ -43,7 +84,8 @@ class listMedicationsClientAdapter(val context: FragmentActivity?, var data:List
                         holder.inputTimeLunch.text = String.format("%d : %d", hourOfDay, minute)
                         data[currentPosition].Launch!!["hour"] = hourOfDay
                         data[currentPosition].Launch!!["minute"] = minute
-                        updateDate(data[position],"Launch")
+                        updateDate(data[position],"Launch",context)
+                        setAlarm(context,hourOfDay,minute, data[currentPosition].idMedication,0)
                     },
                     it, it1, true)
             }
@@ -57,19 +99,24 @@ class listMedicationsClientAdapter(val context: FragmentActivity?, var data:List
                         holder.inputTimeDinner.text = String.format("%d : %d", hourOfDay, minute)
                         data[currentPosition].Dinner!!["hour"] = hourOfDay
                         data[currentPosition].Dinner!!["minute"] = minute
-                        updateDate(data[position],"Dinner")
+                        updateDate(data[position],"Dinner",context)
+                        setAlarm(context,hourOfDay,minute, data[currentPosition].idMedication,1)
                     },
                     it, it1, true)
             }
         }
 
         holder.inputTimeLunch.setOnClickListener{
+            cancelAlarm(context, data[currentPosition].idMedication,0)
+
             mTimePicker?.show()
-            Log.v("TIME","data : ${data[currentPosition].Launch!!["hour"]}")
         }
+
+
         holder.inputTimeDinner.setOnClickListener{
+            cancelAlarm(context, data[currentPosition].idMedication,1)
             mTimePickerDinner?.show()
-            Log.v("TIME","data : ${data[currentPosition].Dinner!!["hour"]}")
+
         }
 
         holder.inputDays.text = data[position].Days.toString()

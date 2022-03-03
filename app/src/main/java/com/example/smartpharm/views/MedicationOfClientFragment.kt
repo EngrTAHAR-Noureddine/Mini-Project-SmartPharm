@@ -17,8 +17,6 @@ import com.example.smartpharm.models.User
 
 class MedicationOfClientFragment : Fragment() {
 
-
-    private lateinit var viewModel: MedicationOfClientViewModel
     private lateinit var binding : MedicationOfClientFragmentBinding
     private var user : User? = null
 

@@ -1,6 +1,5 @@
 package com.example.smartpharm.controllers
 
-import android.app.Application
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
@@ -20,27 +19,31 @@ object MedicationController {
 
     private lateinit var medicationDao: MedicationDao
 
-    private fun init(application: Application){
-        medicationDao = OffLineDB.getInstance(application)?.MedicationDao()!!
+    private fun init(context: Context){
+        medicationDao = OffLineDB.getInstance(context)?.MedicationDao()!!
     }
 
-    private fun updateFBFromDB(application: Application){
-        init(application)
+    private fun deleteMedicationOfClient(med: MyMedications){
+        DataBase.db.collection("MyMedications").document(med.idMedication)
+            .delete()
+            .addOnSuccessListener {
+                Log.d("MED", "DocumentSnapshot successfully!")
+            }
+            .addOnFailureListener {  Log.d("MED", "DocumentSnapshot Failed!") }
+    }
+
+    private fun updateFBFromDB(context: Context){
+        init(context)
        var medications : LiveData<List<MedicationDB>> = medicationDao.getAllMedications()
 
 
         if(! medicationDao.getAllMedications().value.isNullOrEmpty()){
             for (medDB in medications.value!!){
                 var med = ConverterMedicationClasses.toMyMedication(medDB)
-                if(med.Days <0){
-                    DataBase.db.collection("My_Medications").document(med.idMedication)
-                        .delete()
-                        .addOnSuccessListener {
-                            Log.d("MED", "DocumentSnapshot successfully!")
-                        }
-                        .addOnFailureListener {  Log.d("MED", "DocumentSnapshot Failed!") }
+                if(med.Days <=0){
+                    deleteMedicationOfClient(med)
                 }else{
-                    DataBase.db.collection("My_Medications").document(med.idMedication)
+                    DataBase.db.collection("MyMedications").document(med.idMedication)
                         .update("Dinner", med.Dinner , "Launch",med.Launch,"Days",med.Days)
                         .addOnSuccessListener {
                             Log.d("MED", "DocumentSnapshot successfully!")
@@ -61,11 +64,11 @@ object MedicationController {
         }
     }
 
-    fun getMedicationOfClient(user: User?, context:FragmentActivity){
+    fun getMedicationOfClient(user: User?, context:Context){
 
-        updateFBFromDB(context.application)
+        updateFBFromDB(context)
 
-        DataBase.db.collection("My_Medications")
+        DataBase.db.collection("MyMedications")
             .get()
             .addOnSuccessListener { querySnapshot ->run{
 
@@ -104,16 +107,34 @@ object MedicationController {
             }
     }
 
-    fun updateDate(med : MyMedications, field:String){
+    fun updateFirstDays(med : MyMedications,context: Context){
+        init(context)
+        DataBase.db.collection("MyMedications").document(med.idMedication)
+            .update("Days", med.Days , "first_day", med.first_day)
+            .addOnSuccessListener {
+                Log.d("MED", "DocumentSnapshot successfully!")
+                medicationDao.update(ConverterMedicationClasses.toMedicationDB(med))
+            }
+            .addOnFailureListener {
+                Log.d("MED", "DocumentSnapshot Failed!")
+                medicationDao.update(ConverterMedicationClasses.toMedicationDB(med))
+            }
+    }
 
+    fun updateDate(med : MyMedications, field:String,context:Context){
+        init(context)
         val change : MutableMap<String, Int>? = if(field == "Dinner") med.Dinner else med.Launch
 
-        DataBase.db.collection("My_Medications").document(med.idMedication)
+        DataBase.db.collection("MyMedications").document(med.idMedication)
             .update(field, change)
             .addOnSuccessListener {
                 Log.d("MED", "DocumentSnapshot successfully!")
+                medicationDao.update(ConverterMedicationClasses.toMedicationDB(med))
             }
-            .addOnFailureListener {  Log.d("MED", "DocumentSnapshot Failed!") }
+            .addOnFailureListener {
+                Log.d("MED", "DocumentSnapshot Failed!")
+                medicationDao.update(ConverterMedicationClasses.toMedicationDB(med))
+            }
     }
 
 
