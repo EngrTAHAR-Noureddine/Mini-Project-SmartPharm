@@ -309,7 +309,7 @@
                     android:gravity="start|top"
                     android:hint="@string/PlaceholderPayment"
                     android:importantForAutofill="no"
-                    android:inputType="textMultiLine|text"
+                    android:inputType="numberDecimal"
                     android:minHeight="48dp"
                     android:text=""
                     android:textColor="?attr/colorOnPrimary"
