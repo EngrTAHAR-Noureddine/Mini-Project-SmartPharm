@@ -74,7 +74,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleViewSetting"
         android:layout_width="match_parent"
         android:background="?attr/colorPrimary"
         android:layout_height="match_parent" />
