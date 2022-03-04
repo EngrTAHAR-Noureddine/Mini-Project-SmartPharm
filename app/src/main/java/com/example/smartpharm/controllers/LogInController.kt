@@ -31,7 +31,7 @@ object LogInController {
                 if (!querySnapshot.isEmpty) {
                     var list:List<User>? = querySnapshot.toObjects(User::class.java)
                     list = list?.filter{ item -> (item.emailUser == email && item.passwordUser== password)}
-                    privateUser = list?.get(0)
+                    privateUser = if(!list.isNullOrEmpty()) list[0] else null
 
                     if(privateUser != null){
 
