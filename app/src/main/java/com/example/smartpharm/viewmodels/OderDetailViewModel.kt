@@ -10,13 +10,18 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
 import androidx.navigation.findNavController
 import com.example.smartpharm.R
+import com.example.smartpharm.controllers.NotificationController
 import com.example.smartpharm.controllers.OrderController.changeStateOrder
 import com.example.smartpharm.controllers.OrderController.deleteOrder
 import com.example.smartpharm.controllers.OrderController.listState
+import com.example.smartpharm.controllers.OrderController.updateOrderPayment
 import com.example.smartpharm.models.Order
-import com.example.smartpharm.controllers.NotificationController
+import com.stripe.android.PaymentSession
 
 class OderDetailViewModel: ViewModel() {
+
+    private lateinit var paymentSession: PaymentSession
+
 
     fun phoneNumber(order: Order? ,type:String, activity: FragmentActivity){
         if(order != null){
@@ -51,16 +56,20 @@ class OderDetailViewModel: ViewModel() {
             }
         }
     }
+
+
+
+
     fun acceptOrder(order: Order?,type: String,activity: FragmentActivity){
-       if(order!=null) if(type == "Pharmacy"){
-           Log.v("TAG BUTTON", "ACCEPTED PHARMACY")
-           changeStateOrder(order,activity,2)
-           activity.findNavController(R.id.myPharmacyNavHostFragment).popBackStack()
-       } else{
-           deleteOrder(order,activity)
-           Log.v("TAG BUTTON", "REJECTED")
-           activity.findNavController(R.id.myNavHostFragment).popBackStack()
-       }
+       if(order!=null)
+           if(type == "Pharmacy"){
+               if(order.state == listState[0]){
+                   Log.v("TAG BUTTON", "ACCEPTED PHARMACY")
+                   changeStateOrder(order,activity,2)
+               }else if(order.payment != 0){
+                   updateOrderPayment(order,activity)
+               }
+                }
     }
     fun rejectOrder(order: Order?,type: String,activity: FragmentActivity){
         if(order!=null){

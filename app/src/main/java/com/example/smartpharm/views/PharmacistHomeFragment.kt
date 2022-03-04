@@ -66,7 +66,7 @@ class PharmacistHomeFragment : Fragment() {
             this.binding.recyclerViewPharmacyOrders.adapter = ListPharmacyOrder(activity, list)
         }
 
-        val navBar = activity?.findViewById<BubbleNavigationConstraintView>(R.id.bottom_navigation)
+        val navBar = activity?.findViewById<BubbleNavigationConstraintView>(R.id.bottom_navigation_ph)
         if(navBar != null){
             navBar.isVisible = true
         }

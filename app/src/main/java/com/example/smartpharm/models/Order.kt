@@ -1,6 +1,7 @@
 package com.example.smartpharm.models
 
 import com.google.firebase.database.IgnoreExtraProperties
+import com.google.firebase.firestore.PropertyName
 import com.google.gson.annotations.SerializedName
 @IgnoreExtraProperties
 data class Order (
@@ -12,7 +13,7 @@ data class Order (
     @SerializedName("user") var user: Map<String,String>? = null,
     @SerializedName("userEmail") var userEmail: String = "",//payment
     @SerializedName("payment") var payment: Int = 0,
-    @SerializedName("isPaid") var isPaid: Boolean = false,
+    @SerializedName("paidOrder") var paidOrder: String = "NON",
     @SerializedName("state") var state: String = ""
 )
 

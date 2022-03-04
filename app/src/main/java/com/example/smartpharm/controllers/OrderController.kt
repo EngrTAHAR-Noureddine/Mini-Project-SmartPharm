@@ -47,7 +47,7 @@ object OrderController {
             state = state,
             photoOrders = files,
             payment=0,
-            isPaid= false,
+            paidOrder= "NON",
             pharmacyEmail = pharmacy.emailUser,
             userEmail = user.emailUser
         )
@@ -122,6 +122,28 @@ object OrderController {
             .addOnFailureListener {  Toast.makeText(context, "Delete Failed!", Toast.LENGTH_SHORT).show() }
     }
 
+    fun updateOrderPayment(order: Order,context: Context){
+        db.collection("Order").document(order.idOrder)
+            .update("payment", order.payment)
+            .addOnSuccessListener {
+                Log.d("FIRESTORE", "DocumentSnapshot successfully deleted!")
+                order.state = listState[2]
+                createNotification(order,"Client",context)
+            }
+            .addOnFailureListener {  Log.d("FIRESTORE", "DocumentSnapshot successfully deleted!")}
+    }
+
+    fun updateOrderPaid(order:Order, context: Context){
+        db.collection("Order").document(order.idOrder)
+            .update("paidOrder", order.paidOrder)
+            .addOnSuccessListener {
+                Log.d("FIRESTORE", "DocumentSnapshot successfully deleted!")
+                order.state = listState[2]
+                createNotification(order,"Pharmacy",context)
+            }
+            .addOnFailureListener {  Log.d("FIRESTORE", "DocumentSnapshot successfully deleted!")}
+    }
+
     fun changeStateOrder(order: Order, context: Context, range:Int){
         db.collection("Order").document(order.idOrder)
             .update("state", listState[range])
@@ -133,7 +155,6 @@ object OrderController {
                 listOrders.value = list
                 order.state = listState[range]
                 createNotification(order,"Client",context)
-
             }
             .addOnFailureListener {  Toast.makeText(context, "Delete Failed!", Toast.LENGTH_SHORT).show() }
     }
