@@ -149,5 +149,11 @@
     <string name="med">Med</string>
     <string name="titlePayment">Payment (DZ) : </string>
     <string name="PlaceholderPayment">Payment...</string>
+    <string name="select_payment_method">select payment method</string>
+    <string name="click_to_pay">Click to Pay</string>
+    <string name="please_pay_88">Please pay $88</string>
+    <string name="hello">Hello</string>
+    <string name="string_hello">hello</string>
+    <string name="sign_in">Sign in</string>
 
 </resources>
