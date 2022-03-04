@@ -44,7 +44,7 @@ class ListPharmacistsAdapter(val context: FragmentActivity?, var data:List<User>
 }
 
 class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    val item = view.findViewById<View>(R.id.itemPharmacistClientHome) as View
-    val namePharmacy = view.findViewById<TextView>(R.id.Pharmacy_Name) as TextView
-    val locationPharmacy = view.findViewById<TextView>(R.id.Pharmacy_Location) as TextView
+    val item = view.findViewById(R.id.itemPharmacistClientHome) as View
+    val namePharmacy = view.findViewById(R.id.Pharmacy_Name) as TextView
+    val locationPharmacy = view.findViewById(R.id.Pharmacy_Location) as TextView
 }

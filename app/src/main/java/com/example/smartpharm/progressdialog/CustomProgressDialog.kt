@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
-import com.example.smartpharm.R
 import com.example.smartpharm.progressdialog.ProgressValue.progress
 import com.example.smartpharm.databinding.FragmentProgressDialogBinding
 

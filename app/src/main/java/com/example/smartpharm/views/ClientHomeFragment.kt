@@ -4,7 +4,6 @@ package com.example.smartpharm.views
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -23,7 +22,6 @@ import com.example.smartpharm.controllers.ClientController.searchPharmacy
 import com.example.smartpharm.controllers.ClientController.searchPharmacyByProvince
 import com.example.smartpharm.controllers.UserController
 import com.gauravk.bubblenavigation.BubbleNavigationConstraintView
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class ClientHomeFragment : Fragment() {

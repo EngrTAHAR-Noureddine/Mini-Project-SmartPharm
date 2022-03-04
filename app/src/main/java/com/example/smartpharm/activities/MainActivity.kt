@@ -13,6 +13,8 @@ class MainActivity : AppCompatActivity() {
         val pref = getSharedPreferences("TypeUserFile", Context.MODE_PRIVATE)
         val typeUser = pref.getString("typeUserFile", null)
 
+
+
         if (typeUser!=null && typeUser == "Client") {
             intent = Intent(applicationContext, ClientActivity::class.java)
             startActivity(intent)

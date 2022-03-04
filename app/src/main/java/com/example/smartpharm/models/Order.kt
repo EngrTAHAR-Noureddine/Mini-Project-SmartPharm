@@ -1,7 +1,6 @@
 package com.example.smartpharm.models
 
 import com.google.firebase.database.IgnoreExtraProperties
-import com.google.firebase.firestore.PropertyName
 import com.google.gson.annotations.SerializedName
 @IgnoreExtraProperties
 data class Order (

@@ -1,71 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            tools:context=".views.DialogAddMedicationFragment"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".views.DialogAddMedicationFragment"
+    android:id="@+id/DialogBox"
     android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:background="@drawable/shape_field_content_detail"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:background="@drawable/shape_field_content_detail"
 
-            >
+    >
 
-                <TextView
-                    android:id="@+id/titleAddMedication"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="24dp"
-                    android:text="@string/ajouter_medicament"
-                    style="@style/style_title_item_pharmacy"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/titleAddMedication"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/ajouter_medicament"
+        style="@style/style_title_item_pharmacy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-                <EditText
-                    android:id="@+id/name_medication"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginEnd="16dp"
-                    android:ems="10"
-                    android:hint="@string/medicationname"
-                    android:importantForAutofill="no"
-                    style="@style/style_input_field"
-                    android:inputType="textEmailAddress"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/titleAddMedication"
-                    tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+    <EditText
+        android:id="@+id/name_medication"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="@string/medicationname"
+        android:importantForAutofill="no"
+        style="@style/style_input_field"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleAddMedication"
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
-                <TextView
-                    android:id="@+id/AddMedication"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="24dp"
-                    android:text="@string/ajouterbtn"
-                    android:textColor="@color/customGreenSecondary"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/name_medication"
-                    tools:ignore="TextContrastCheck" />
+    <TextView
+        android:id="@+id/AddMedication"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/ajouterbtn"
+        android:textColor="@color/customGreenSecondary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_medication"
+        tools:ignore="TextContrastCheck" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="32dp"
-                    android:text="@string/annulerbtn"
-                    android:textColor="?attr/grayColor"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/AddMedication"
-                    app:layout_constraintEnd_toStartOf="@+id/AddMedication"
-                    app:layout_constraintTop_toTopOf="@+id/AddMedication" />
+    <TextView
+        android:id="@+id/CancelMedication"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:text="@string/annulerbtn"
+        android:textColor="?attr/grayColor"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/AddMedication"
+        app:layout_constraintEnd_toStartOf="@+id/AddMedication"
+        app:layout_constraintTop_toTopOf="@+id/AddMedication" />
 </androidx.constraintlayout.widget.ConstraintLayout>

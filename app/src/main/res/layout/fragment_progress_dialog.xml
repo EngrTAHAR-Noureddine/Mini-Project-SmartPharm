@@ -1,51 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        tools:context=".progressdialog.CustomProgressDialog"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".progressdialog.CustomProgressDialog"
+    android:id="@+id/DialogBoxUpload"
     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:background="@drawable/shape_field_content_detail">
+
+    <TextView
+        android:id="@+id/titleProgressDialog"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:background="@drawable/shape_field_content_detail">
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:gravity="center"
+        android:text="@string/progress"
+        style="@style/style_title_item_pharmacy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/titleProgressDialog"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="32dp"
-            android:gravity="center"
-            android:text="@string/progress"
-            style="@style/style_title_item_pharmacy"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <ProgressBar
+        android:id="@+id/progressBarUploading"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+        android:indeterminateTint="@color/customGreenPrimary"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textUpload"
+        app:layout_constraintStart_toStartOf="@+id/titleProgressDialog"
+        app:layout_constraintTop_toBottomOf="@+id/titleProgressDialog" />
 
-        <ProgressBar
-            android:id="@+id/progressBarUploading"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="16dp"
-            android:indeterminateTint="@color/customGreenPrimary"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textUpload"
-            app:layout_constraintStart_toStartOf="@+id/titleProgressDialog"
-            app:layout_constraintTop_toBottomOf="@+id/titleProgressDialog" />
-
-        <TextView
-            android:id="@+id/textUpload"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="@string/uploading_progress"
-            style="@style/style_title_item_pharmacy"
-            app:layout_constraintBottom_toBottomOf="@+id/progressBarUploading"
-            app:layout_constraintEnd_toEndOf="@+id/titleProgressDialog"
-            app:layout_constraintStart_toEndOf="@+id/progressBarUploading"
-            app:layout_constraintTop_toTopOf="@+id/progressBarUploading" />
+    <TextView
+        android:id="@+id/textUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/uploading_progress"
+        style="@style/style_title_item_pharmacy"
+        app:layout_constraintBottom_toBottomOf="@+id/progressBarUploading"
+        app:layout_constraintEnd_toEndOf="@+id/titleProgressDialog"
+        app:layout_constraintStart_toEndOf="@+id/progressBarUploading"
+        app:layout_constraintTop_toTopOf="@+id/progressBarUploading" />
 </androidx.constraintlayout.widget.ConstraintLayout>

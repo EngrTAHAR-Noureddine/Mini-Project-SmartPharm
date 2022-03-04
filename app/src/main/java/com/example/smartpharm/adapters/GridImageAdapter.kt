@@ -52,7 +52,7 @@ class GridImageAdapter(val context: FragmentActivity?,var data: List<File>?):
                     putString("imageOrder",data!![position].absolutePath)
                 }?.apply()
 
-                if(user!=null && user!!.typeUser=="Pharmacy"){
+                if(user!=null && user.typeUser=="Pharmacy"){
                     context?.findNavController(R.id.myPharmacyNavHostFragment)?.navigate(R.id.action_destination_Pharmacy_Order_Detail_to_fullscreenImageFragment2)
                 }else{
                     context?.findNavController(R.id.myNavHostFragment)?.navigate(R.id.action_destination_Client_Orders_to_fullscreenImageFragment)
@@ -76,7 +76,7 @@ class GridImageAdapter(val context: FragmentActivity?,var data: List<File>?):
 }
 
 class GridViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    val item = view.findViewById<View>(R.id.ItemImageViewDisplay) as View
-    val photoOrdonnance = view.findViewById<ImageView>(R.id.PhotoOrdonnance) as ImageView
-    val deleteBtn = view.findViewById<ImageView>(R.id.DeleteBtn) as ImageView
+    val item = view.findViewById(R.id.ItemImageViewDisplay) as View
+    val photoOrdonnance = view.findViewById(R.id.PhotoOrdonnance) as ImageView
+    val deleteBtn = view.findViewById(R.id.DeleteBtn) as ImageView
 }

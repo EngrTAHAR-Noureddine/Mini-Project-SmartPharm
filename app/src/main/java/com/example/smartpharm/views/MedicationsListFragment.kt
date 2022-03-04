@@ -69,7 +69,7 @@ class MedicationsListFragment : Fragment() {
                 this.binding.recycleViewMedications.isVisible = true
                 this.binding.recycleViewMedications.adapter = MedicationListAdapter(activity, it)
             }
-            binding.progressBarMedication.isVisible = false
+            binding.progressBarMedication.visibility = View.INVISIBLE
 
         }
 

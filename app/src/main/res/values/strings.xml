@@ -62,12 +62,6 @@
     <string name="take_photo">Take Photo</string>
     <string name="flash_btn">flash_btn</string>
     <string name="deleteicon">deleteIcon</string>
-    <string name="medicationname">Ajouter...</string>
-    <string name="ajouter_medicament">Ajouter Medicament</string>
-    <string name="annulerbtn">Annuler</string>
-    <string name="ajouterbtn">Ajouter</string>
-    <string name="progress">Progress</string>
-    <string name="uploading_progress">uploading...0%</string>
     <string name="accepterbtn">Accepter</string>
     <string name="rejeterbtn">Rejeter</string>
     <string name="default_notification_channel_id">SmartPharm Notification</string>
@@ -135,7 +129,6 @@
     <string name="default_string">TextView</string>
     <string name="continued_without_login">Continuer sans se connecter</string>
     <string name="champs_btn_toLogin">Se connecter</string>
-    <string name="btn_proceed">Process</string>
     <string name="avant">Avant</string>
     <string name="_15_jours">15 jours</string>
     <string name="doliprane">Doliprane</string>
@@ -149,10 +142,19 @@
     <string name="med">Med</string>
     <string name="titlePayment">Payment (DZ) : </string>
     <string name="PlaceholderPayment">Payment...</string>
-    <string name="select_payment_method">select payment method</string>
-    <string name="click_to_pay">Click to Pay</string>
-    <string name="please_pay_88">Please pay $88</string>
-    <string name="string_hello">hello</string>
-    <string name="sign_in">Sign in</string>
+    <string name="progress">Progres</string>
+    <string name="uploading_progress">Uploading...</string>
+    <string name="ajouter_medicament">Ajouter Medicament</string>
+    <string name="medicationname">Doliprane...</string>
+    <string name="ajouterbtn">Ajouter</string>
+    <string name="annulerbtn">Annuler</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY CONTENT</string>
+    <string name="btn_proceed">Proceed</string>
+    <string name="sign_in">Se connecter</string>
+    <string name="please_pay_88">please pay</string>
+    <string name="select_payment_method">Select method</string>
+    <string name="click_to_pay">Payer</string>
+    <string name="string_hello">hello guy</string>
 
 </resources>

@@ -19,8 +19,8 @@ class SettingRecycleViewAdapter(val context: FragmentActivity?,val user: User):
     RecyclerView.Adapter<ViewSettingHolder>() {
 
     private var inputTypes: ArrayList<InputTypeItem>? = null
-    private val titles = listOf<String>("Nom :","Localisation :","Mot de passe : ","Facebook :","Instagram :","Nemero de Telephone :")
-    private val placeholder = listOf<String>("Nom...","Localisation...","Mot de passe...","Facebook...","Instagram...","Nemero de Telephone...")
+    private val titles = listOf("Nom :","Localisation :","Mot de passe : ","Facebook :","Instagram :","Nemero de Telephone :")
+    private val placeholder = listOf("Nom...","Localisation...","Mot de passe...","Facebook...","Instagram...","Nemero de Telephone...")
     private var isEditable = MutableLiveData<Boolean>()
 
 
@@ -66,8 +66,8 @@ class SettingRecycleViewAdapter(val context: FragmentActivity?,val user: User):
 
 }
 class ViewSettingHolder(view: View) : RecyclerView.ViewHolder(view) {
-    val item = view.findViewById<View>(R.id.itemSetting) as View
-    val titleHeaderUser = view.findViewById<TextView>(R.id.TitleHeaderUser) as TextView
-    val inputFieldUser = view.findViewById<EditText>(R.id.InputFieldUser) as EditText
-    val editFieldUser = view.findViewById<ImageButton>(R.id.editFieldUser) as ImageButton
+    val item = view.findViewById(R.id.itemSetting) as View
+    val titleHeaderUser = view.findViewById(R.id.TitleHeaderUser) as TextView
+    val inputFieldUser = view.findViewById(R.id.InputFieldUser) as EditText
+    val editFieldUser = view.findViewById(R.id.editFieldUser) as ImageButton
 }

@@ -12,7 +12,7 @@ import java.util.*
 
 object MyAlarmManager {
 
-    val listTypes : List<String> = listOf("Lunch","Dinner")
+    private val listTypes : List<String> = listOf("Lunch","Dinner")
 
     @RequiresApi(Build.VERSION_CODES.M)
     fun setAlarm(context : Context, hour:Int, minute:Int,id:String,type:Int){
