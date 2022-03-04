@@ -34,8 +34,11 @@ object NotificationController {
         }
         val NOTIFICATION_MESSAGE = when(order.state){
             listState[1] -> "La pharmacie ${order.pharmacy!!["namePharmacy"]} rejete votre ordonnance"
-            listState[2] -> "La pharmacie ${order.pharmacy!!["namePharmacy"]} accepte votre ordonnance"
-            else -> "Votre Client ${order.user!!["nameUser"]} vous envoies une Ordonnance"
+            listState[2] -> "La pharmacie ${order.pharmacy!!["namePharmacy"]} accepte votre ordonnance ${if(order.payment!=0) "et payment : "+order.payment.toString() else "."}"
+            else -> when(order.paidOrder){
+                "OUI" -> "Votre Client ${order.user!!["nameUser"]} a payé son ordonnance la paye : ${order.payment}"
+                else -> "Votre Client ${order.user!!["nameUser"]} vous envoies une Ordonnance"
+            }
         }
 
         val notification = JSONObject()
