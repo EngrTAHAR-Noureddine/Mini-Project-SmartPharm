@@ -43,6 +43,16 @@ object ClientController {
 
     }
 
+    fun updateClient( user:User ,change:String, field:String){
+        DataBase.db.collection("User").document(user.idUser)
+            .update(field, change)
+            .addOnSuccessListener {
+                Log.d("FIRESTORE", "DocumentSnapshot successfully updated!")
+            }
+            .addOnFailureListener {  Log.d("FIRESTORE", "DocumentSnapshot failed updated!")}
+    }
+
+
     fun searchPharmacy(word:String?,context: FragmentActivity){
 
 

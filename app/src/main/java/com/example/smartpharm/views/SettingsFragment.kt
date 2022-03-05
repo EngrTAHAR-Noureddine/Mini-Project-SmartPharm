@@ -106,6 +106,11 @@ class SettingsFragment : Fragment() {
     }
 
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        user = null
+    }
+
 
 
 }
