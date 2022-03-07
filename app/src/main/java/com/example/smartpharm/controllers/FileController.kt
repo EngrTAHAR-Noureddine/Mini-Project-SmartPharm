@@ -43,7 +43,7 @@ object FileController {
     }
 
      fun destroyAllFiles(){
-        if(_listFile.value!=null){
+        if(!_listFile.value.isNullOrEmpty()){
             for (i in _listFile.value!!.indices) {
                     _listFile.value!![i].deleteRecursively()
             }

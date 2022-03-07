@@ -128,9 +128,8 @@ class OderDetailFragment : Fragment() {
             returnPhotos(order!!.photoOrders!!)
 
 
-            listFile.observe(
-                viewLifecycleOwner
-            ) {
+            listFile.observe(viewLifecycleOwner) {
+                Log.v("List","list  : $it")
                 mainBinding.GridRecycleView.adapter = GridImageAdapter(activity, it)
             }
             mainBinding.inputNote.setText(order!!.note)
@@ -142,9 +141,11 @@ class OderDetailFragment : Fragment() {
         mainBinding.buttonPhoneOrder.setOnClickListener{
             viewModel.phoneNumber(order,type,requireActivity())
         }
+
         mainBinding.buttonMapLocationOrder.setOnClickListener{
             viewModel.locationUser(order, requireActivity())
         }
+
         mainBinding.buttonAcceptOrder.setOnClickListener {
 
             if (user!!.typeUser == "Pharmacy") { //pharmacy
@@ -187,8 +188,9 @@ class OderDetailFragment : Fragment() {
 
 
         }
+
         mainBinding.buttonRejectOrder.setOnClickListener {
-                viewModel.rejectOrder(order,type,requireActivity())
+        viewModel.rejectOrder(order,type,requireActivity())
         }
         //-------------------------------
 
@@ -229,6 +231,7 @@ class OderDetailFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        Log.v("DEST","destroy it")
         destroyAllFiles()
     }
 

@@ -14,6 +14,7 @@ import java.io.File
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory.decodeFile
 import android.os.Build
+import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.navigation.findNavController
 import com.example.smartpharm.controllers.FileController.destroyFileSystem
@@ -49,6 +50,7 @@ class GridImageAdapter(val context: FragmentActivity?,var data: List<File>?):
                 val editorToken : SharedPreferences.Editor? = pref?.edit()
 
                 editorToken?.apply{
+                    Log.v("PHOTOFULL","imageOrder : ${data!![position].absolutePath}")
                     putString("imageOrder",data!![position].absolutePath)
                 }?.apply()
 
