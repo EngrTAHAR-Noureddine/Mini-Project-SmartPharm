@@ -76,10 +76,12 @@ class DemandeOrderFragment : Fragment() {
         destroyAllFiles()
         Log.v("Destroy", "destroy files")
     }
+    /*
     override fun onDestroyView() {
         super.onDestroyView()
         destroyAllFiles()
     }
+    */
 
 
 }
