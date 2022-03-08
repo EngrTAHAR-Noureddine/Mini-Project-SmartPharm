@@ -25,7 +25,7 @@
     <string name="description_pharmacy_icon">pharmacy Icon</string>
     <string name="acceuil">Acceuil</string>
     <string name="commandes">Ordonnace</string>
-    <string name="param_tre">Profile</string>
+    <string name="param_tre">Profil</string>
     <string name="desc_imagepharmacy">imagePharmacy</string>
     <string name="commanderBTN">Commander</string>
     <string name="about">A propos :</string>
@@ -43,11 +43,11 @@
     <string name="ExInstagram">Instagram@instagram.com</string>
     <string name="ExFacebook">faceboock@facebook.com</string>
     <string name="buttonAccept">Accepter</string>
-    <string name="buttonDecline">Decliner</string>
+    <string name="buttonDecline">Annuler</string>
     <string name="titleordannance">Ordannance</string>
     <string name="imageordonnance">imageOrdonnance</string>
     <string name="titleNote">Remarque</string>
-    <string name="PlaceholderNote">Note...</string>
+    <string name="PlaceholderNote">Remarque...</string>
     <string name="camera">camera</string>
     <string name="testitem">TestItem</string>
     <string name="fabadd">FabAdd</string>
@@ -125,7 +125,7 @@
     <string name="Province_in_salah">In Salah</string>
     <string name="Province_in_guezzam">In Guezzam</string>
     <string name="no_Province">Wilaya</string>
-    <string name="not_found">Pas trouver</string>
+    <string name="not_found">Rien à afficher</string>
     <string name="default_string">TextView</string>
     <string name="continued_without_login">Continuer sans se connecter</string>
     <string name="champs_btn_toLogin">Se connecter</string>
@@ -139,8 +139,8 @@
     <string name="d_jeuner">Déjeuner :</string>
     <string name="diner">Diner :</string>
     <string name="medicament">Medicament</string>
-    <string name="med">Med</string>
-    <string name="titlePayment">Payment (DZ) : </string>
+    <string name="med">Inventaire</string>
+    <string name="titlePayment">Montant (DZ) : </string>
     <string name="PlaceholderPayment">Payment...</string>
     <string name="progress">Progres</string>
     <string name="uploading_progress">Uploading...</string>
@@ -156,5 +156,6 @@
     <string name="select_payment_method">Select method</string>
     <string name="click_to_pay">Payer</string>
     <string name="string_hello">hello guy</string>
+    <string name="commande">Commandes</string>
 
 </resources>

@@ -125,8 +125,8 @@ class PharmacistDetailFragment : Fragment() {
         val tabLayout = binding.tabLayout
 
         TabLayoutMediator(tabLayout, viewPager) { tab, position -> when(position){
-            1 -> tab.text = "Stock"
-            else -> tab.text = "Detail"
+            1 -> tab.text = "Inventaire"
+            else -> tab.text = "Details"
         }
 
         }.attach()

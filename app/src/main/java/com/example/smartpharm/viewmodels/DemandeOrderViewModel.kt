@@ -122,7 +122,7 @@ class DemandeOrderViewModel : ViewModel() {
                     }
                 }
             } else {
-                Toast.makeText(activity, "Il n'y a pas des photos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "Assurez de joindre la photo de l'ordonnace", Toast.LENGTH_SHORT).show()
             }
         }else{
             Toast.makeText(activity, "Se connecter", Toast.LENGTH_SHORT).show()

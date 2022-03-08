@@ -35,7 +35,7 @@
             android:id="@+id/destination_Pharmacy_Home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:bt_title="@string/acceuil"
+            app:bt_title="@string/commande"
             app:bt_icon="@drawable/ic_home_unselected"
             app:bt_active="true"
             app:bt_colorActive="?attr/colorSecondary"

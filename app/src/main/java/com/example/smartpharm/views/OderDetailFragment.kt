@@ -162,7 +162,7 @@ class OderDetailFragment : Fragment() {
                     if( order!!.payment == 0){ // accept order and not paid
                         stateRejectedBtn(isVisible = false)
                         stateAcceptedBtn(typeText =  "Confirmer")
-                        Toast.makeText(context, "Mettez un payment SVP",Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Assurez d'entrer un montant de la commande",Toast.LENGTH_SHORT).show()
                     }
                     else { // reject order or accepted and paid order
                         viewModel.acceptOrder(order,type,requireActivity())
