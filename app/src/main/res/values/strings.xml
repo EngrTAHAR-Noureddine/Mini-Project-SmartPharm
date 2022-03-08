@@ -5,9 +5,9 @@
     <!-- Pour Login Fragment -->
     <string name="big_logo">big Logo</string>
     <string name="smart_pharm">Smart Pharm</string>
-    <string name="champs_adremail_text">Adresse e-mail</string>
-    <string name="champs_adremail_Hint">E-mail...</string>
-    <string name="champs_password_text">Mot de passe</string>
+    <string name="champs_adremail_text">Adresse e-mail ou telephone :</string>
+    <string name="champs_adremail_Hint">E-mail ou Telephone...</string>
+    <string name="champs_password_text">Mot de passe : </string>
     <string name="champs_password_Hint">Mot de passe...</string>
     <string name="champs_btn_facebook">Connecter avec Facebook</string>
     <string name="champs_btn_google">Connecter avec Google</string>
