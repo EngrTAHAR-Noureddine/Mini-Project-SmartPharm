@@ -1,1 +1,1 @@
-# Mini-Project-SmartPharm
+# SmartPharm
