@@ -16,6 +16,44 @@ object MedicationController {
 
     var listMedications = MutableLiveData<MutableList<Medication>?>()
     var listMedicationsUser = MutableLiveData<MutableList<MyMedications>?>()
+    var  medicationList : MutableList<Medication>? = listOf(
+        Medication(
+            idMedication = "01", nameMedication = "Aspirine",
+            emailPharmacy = "root@root.com"
+        ),
+        Medication(
+            idMedication = "02", nameMedication = "Doliprane",
+            emailPharmacy = "root@root.com"
+        ),
+        Medication(
+            idMedication = "03", nameMedication = "Paracitamol",
+            emailPharmacy = "root@root.com"
+        ),
+        Medication(
+            idMedication = "04", nameMedication = "Rapidius",
+            emailPharmacy = "root@root.com"
+        )
+    ) as MutableList<Medication>?
+
+
+    var  medicationUSERList : MutableList<MyMedications>? = listOf(
+        MyMedications(
+            idMedication = "01", idUser = "01",
+            Days = 12, description = "After", Dinner = mapOf("hour" to 20, "minute" to 15) as MutableMap,
+            first_day = mapOf("month" to 11, "day" to 15, "year" to 2021) as MutableMap,
+            Launch = mapOf("hour" to 12, "minute" to 15) as MutableMap, Name = "Doliprane",
+            photo = "https://www.pharma-gdd.com/cache/product_show/doliprane-500-mg-16-comprimes.jpg.webp"
+
+        ),
+        MyMedications(
+            idMedication = "01", idUser = "01",
+            Days = 12, description = "After", Dinner = mapOf("hour" to 20, "minute" to 15) as MutableMap,
+            first_day = mapOf("month" to 11, "day" to 15, "year" to 2021) as MutableMap,
+            Launch = mapOf("hour" to 12, "minute" to 15) as MutableMap, Name = "Rapidus",
+            photo = "https://www.elkendi.com/Application/upload/402387834.jpg"
+
+        ),
+    ) as MutableList<MyMedications>?
 
     private lateinit var medicationDao: MedicationDao
 
@@ -66,6 +104,9 @@ object MedicationController {
 
     fun getMedicationOfClient(user: User?, context:Context){
 
+        listMedicationsUser.value = medicationUSERList
+
+        /*
         updateFBFromDB(context)
 
         DataBase.db.collection("MyMedications")
@@ -105,6 +146,8 @@ object MedicationController {
                 toast.show()
             }
             }
+
+         */
     }
 
     fun updateFirstDays(med : MyMedications,context: Context){
@@ -141,6 +184,8 @@ object MedicationController {
 
 
     fun getMedicationOf(pharmacy: User?, context:FragmentActivity){
+        listMedications.value = medicationList
+        /*
         DataBase.db.collection("Medication")
             .get()
             .addOnSuccessListener { querySnapshot ->run{
@@ -163,6 +208,7 @@ object MedicationController {
                 toast.show()
             }
             }
+        */
     }
 
     fun postMedication(medication: Medication, context: Context){

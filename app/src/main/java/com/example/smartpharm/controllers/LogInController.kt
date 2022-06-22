@@ -24,7 +24,17 @@ object LogInController {
     fun loginUser(email:String,password:String,context: FragmentActivity) {
 
         var privateUser: User?
-
+        if(false){
+            val intent = Intent(context, PharmacistActivity::class.java)
+            context.startActivity(intent)
+            context.finish()
+        }
+        else{ //Client
+            val intent = Intent(context, ClientActivity::class.java)
+            context.startActivity(intent)
+            context.finish()
+        }
+    /*
         DataBase.db.collection("User").whereEqualTo("emailUser",email).whereEqualTo("passwordUser",password)
             .get()
             .addOnSuccessListener { querySnapshot ->run{
@@ -181,5 +191,7 @@ object LogInController {
                 val toast = Toast.makeText(context, text, duration)
                 toast.show()
             }}
+
+        */
     }
 }
